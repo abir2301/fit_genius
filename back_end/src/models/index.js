@@ -11,6 +11,7 @@ const connection = new Sequelize(
 );
 async function connect() {
   await connection
+    .sync({ force: true })
     .authenticate()
     .then(() => {
       console.log("connection successfully ");
@@ -24,6 +25,19 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = connection;
+db.sequelize
+  .sync({ alter: true })
+  .then(
+    console.log("  successfully created tables  ")
+  )
+  .catch(function (err) {
+    console.log("Server failed to start due to error: %s", err);
+  });
 
 db.users = require("./user.js")(connection, Sequelize);
+db.profile = require("./profile")(connection, Sequelize);
+db.users.hasOne(db.profile);
+// db.userInfo.belongsTo(db.users);
+
+
 module.exports = db;

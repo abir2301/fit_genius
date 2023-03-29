@@ -6,6 +6,6 @@
   router.get("/info",auth, user.getUserById);
   router.get("/login", user.userLogin);
   router.get("/update", auth, user.update);
-  router.get("/delete", auth, user.delete);
+  router.get("/destroy", auth, user.destroy);
    
 module.exports = router;

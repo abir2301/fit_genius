@@ -9,14 +9,11 @@ const user = (sequelize, Sequelize) => {
         validate: {
           len: {
             args: [4, 20],
-            msg: "Username must be between 3 and 255 characters ",
+            msg: "Username must be between 4 and 20 characters ",
           },
         },
         allowNull: false,
-        // get(){
-        //   const data = this.getDataValue("fullName");
-        //   return data.toUppercase();
-        // }
+       
       },
       email: {
         type: Sequelize.STRING,
@@ -25,11 +22,11 @@ const user = (sequelize, Sequelize) => {
        
         validate: {
           notNull: {
-            msg: "Please must not be null ",
+            msg: "email must not be null ",
           },
 
           isEmail: {
-            msg: "please verify email pattern ",
+            msg: "please verify email format ",
           },
         },
       },
@@ -42,9 +39,6 @@ const user = (sequelize, Sequelize) => {
           console.log(bcrypt.compare(hash, value));
           this.setDataValue("password", hash );
         },
-        get(){
-
-        }
         
       },
     },
@@ -54,13 +48,7 @@ const user = (sequelize, Sequelize) => {
     }
   );
 
-  User.sync({ alter: true })
-    .then(() => {
-      console.log("User table created successfully");
-    })
-    .catch((err) => {
-      console.log("Error creating User table", err);
-    });
+  
   return User;
 };
 module.exports = user;

@@ -5,6 +5,7 @@ const User = db.users;
 const jwt = require("jsonwebtoken");
 const emailSending = require("../routes/mailsending");
 const { gzipSync, gunzipSync } = require("zlib");
+const { where } = require("sequelize");
 
 exports.registration = async (req, res) => {
   const user = {
@@ -22,13 +23,14 @@ exports.registration = async (req, res) => {
   } else {
     const result = await User.create(user)
       .then((data) => {
-       
         var token = jwt.sign({ UserId: data.id }, "privateKey");
         //email send with code
         const codeContent = data.password + "/" + data.email;
         const code = (gzippedBuffer = gzipSync(codeContent).toString("base64"));
-       
-        res.header("x-auth-token", token).send({ user: data, token: token , code_login :code });
+
+        res
+          .header("x-auth-token", token)
+          .send({ user: data, token: token, code_login: code });
       })
       .catch((err) => {
         if (err.name === "SequelizeValidationError") {
@@ -103,22 +105,26 @@ exports.userLogin = async (req, res) => {
   }
 };
 exports.update = async (req, res) => {
- const {fullName , email }=  req. 
-    res.send(fullName , email)
-  const query = await User.update({ 
-    where: {
-      id: req.user,
-    },
-  });
-  if (!query) {
-    res.status(404).send(" dont find user  ");
-  } else {
-    res.status(200).send('user updated successfully ')
-  }
+  const {fullName , email} = req.body ;
+try{
+ const user = await User.findOne({where :{id: req.user}})
+ if (user){
+  user.email = email ? email : user.email;
+  user.fullName = fullName ? fullName :user.fullName;
+  await user.save();
+ return res.status(200).json({message : "user updated " , user : user })
+}
+else {
+ return res.status(404).json({error :  'not found user '})
+}}
+catch (error){
+    return res.status(500).json({ error: error.message });
+}
+
+
 };
-exports.delete = async (req, res) => {
-  
-  const query = await User.delete({
+exports.destroy = async (req, res) => {
+  const query = await User.destroy({
     where: {
       id: req.user,
     },
@@ -126,7 +132,7 @@ exports.delete = async (req, res) => {
   if (!query) {
     res.status(404).send(" dont find user  ");
   } else {
-    res.status(200).send("user updated successfully ");
+    res.status(200).send("user deleted  successfully ");
   }
 };
 exports.resetPassword = async (req, res) => {
