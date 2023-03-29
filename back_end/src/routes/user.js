@@ -3,7 +3,9 @@
   const auth = require('./verifyjwttoken')
   router.get("/registration", user.registration
   );
-  router.get("/info/:id",auth, user.getUserById);
-  router.get("/login", auth, user.userLogin);
+  router.get("/info",auth, user.getUserById);
+  router.get("/login", user.userLogin);
+  router.get("/update", auth, user.update);
+  router.get("/delete", auth, user.delete);
    
 module.exports = router;

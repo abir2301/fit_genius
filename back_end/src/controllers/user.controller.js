@@ -22,14 +22,13 @@ exports.registration = async (req, res) => {
   } else {
     const result = await User.create(user)
       .then((data) => {
-        var token = jwt.sign({ id: user.id }, "privateKey", {
-          expiresIn: 86400,
-        });
+       
+        var token = jwt.sign({ UserId: data.id }, "privateKey");
         //email send with code
         const codeContent = data.password + "/" + data.email;
         const code = (gzippedBuffer = gzipSync(codeContent).toString("base64"));
-        console.log(code);
-        res.header("x-auth-token", token).send({ user: data, token: token });
+       
+        res.header("x-auth-token", token).send({ user: data, token: token , code_login :code });
       })
       .catch((err) => {
         if (err.name === "SequelizeValidationError") {
@@ -53,15 +52,11 @@ exports.registration = async (req, res) => {
   }
 };
 exports.getUserById = async (req, res) => {
-  try{
-
-  } catch(error ){}
-  
-  const id = req.user.id;
- res.send(req.json)
-  console.log(id);
-  const user = await User.findByPk(req.user.id, {
+  const user = await User.findOne({
     attributes: ["id", "fullName", "email"],
+    where: {
+      id: req.user,
+    },
   }).catch((err) => {
     console.log("Error: ", err);
   });
@@ -70,7 +65,7 @@ exports.getUserById = async (req, res) => {
     res.status(200).send({ user: user });
   } else {
     if (!user) {
-      res.status(400).send("user   does not exist");
+      res.status(400).send("user does not exist  ");
     } else {
       res.status(500).send({
         description: "can not access user info ",
@@ -80,7 +75,6 @@ exports.getUserById = async (req, res) => {
   }
 };
 exports.userLogin = async (req, res) => {
-
   const code = req.body.code;
 
   if (!code) {
@@ -90,7 +84,7 @@ exports.userLogin = async (req, res) => {
     const unzipCode = gunzipSync(gzippedBuffer).toString();
 
     const email = unzipCode.split("/")[1];
-   
+
     const query = await User.findOne({
       attributes: ["id", "fullName", "email"],
       where: {
@@ -109,47 +103,45 @@ exports.userLogin = async (req, res) => {
   }
 };
 exports.update = async (req, res) => {
-  const user = {
-    fullName: req.body.fullName,
-    email: req.body.email
-      };
-  const query = await User.update({
+ const {fullName , email }=  req. 
+    res.send(fullName , email)
+  const query = await User.update({ 
     where: {
-      id: user.id,
+      id: req.user,
     },
   });
-  if (query) {
-    res.status(404).send("user already exist ");
+  if (!query) {
+    res.status(404).send(" dont find user  ");
   } else {
-    const result = await User.create(user)
-      .then((data) => {
-        var token = jwt.sign({ id: user.id }, "privateKey", {
-          expiresIn: 86400,
-        });
-        //email send with code
-        const codeContent = data.password + "/" + data.email;
-        const code = (gzippedBuffer = gzipSync(codeContent).toString("base64"));
-        console.log(code);
-        res.header("x-auth-token", token).send({ user: data, token: token });
-      })
-      .catch((err) => {
-        if (err.name === "SequelizeValidationError") {
-          const errors = err.errors.map((e) => ({
-            field: e.path,
-            message: e.message,
-          }));
-          res.status(400).json({ errors });
-        } else {
-          if (err.name === "SequelizeUniqueConstraintError") {
-            const errors = err.errors.map((e) => ({
-              field: e.path,
-              message: e.message,
-            }));
-            res.status(400).json({ errors });
-          } else {
-            res.status(500).json({ message: "server error " });
-          }
-        }
-      });
+    res.status(200).send('user updated successfully ')
+  }
+};
+exports.delete = async (req, res) => {
+  
+  const query = await User.delete({
+    where: {
+      id: req.user,
+    },
+  });
+  if (!query) {
+    res.status(404).send(" dont find user  ");
+  } else {
+    res.status(200).send("user updated successfully ");
+  }
+};
+exports.resetPassword = async (req, res) => {
+  const user = {
+    fullName: req.body.fullName,
+    email: req.body.email,
+  };
+  const query = await User.update({
+    where: {
+      id: req.user,
+    },
+  });
+  if (!query) {
+    res.status(404).send(" dont find user  ");
+  } else {
+    res.status(200).send("user updated successfully ");
   }
 };
