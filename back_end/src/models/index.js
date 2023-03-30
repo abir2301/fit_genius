@@ -26,7 +26,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = connection;
 db.sequelize
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(
     console.log("  successfully created tables  ")
   )
@@ -36,8 +36,10 @@ db.sequelize
 
 db.users = require("./user.js")(connection, Sequelize);
 db.profile = require("./profile")(connection, Sequelize);
-db.users.hasOne(db.profile);
-// db.userInfo.belongsTo(db.users);
+db.hp = require("./health_problems")(connection, Sequelize);
+db.users.hasOne(db.profile , {onDelete :'CASCADE'});
+db.profile.belongsTo(db.users, { onDelete: "CASCADE" });
+
 
 
 module.exports = db;

@@ -5,14 +5,19 @@ const profile = (sequelize, Sequelize) => {
       age: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        isNumeric: true,
+        validate :{
+          isNumeric :{
+            msg : "age must be a number type "
+          }
+        }
+       
       },
       gender: {
         type: Sequelize.STRING,
         allowNull: true,
         validate: {
           isIn: {
-            arg: [["female", "male"]],
+            args: [["female", "male"]],
             msg: "gender  value must be female or male ",
           },
         },
@@ -33,7 +38,7 @@ const profile = (sequelize, Sequelize) => {
         validate: {
           isIn: {
             msg: " please verify goal input value ",
-            arg: ["normal", "vegan", "vegitarian"],
+            args: ["normal", "vegan", "vegitarian"],
           },
         },
       },
@@ -43,21 +48,21 @@ const profile = (sequelize, Sequelize) => {
         validate: {
           isIn: {
             msg: " please verify activity level  input value ",
-            arg: ["active", "light active", "very active"],
+            args: ["active", "light active", "very active"],
           },
         },
       },
       goal: {
         type: Sequelize.TEXT,
         allowNull: true,
-        validate: {
-          isIn: {
-            msg: " please verify goal input value ",
-            arg: ["lose weight", "maintain weight", "gain weight"],
-          }
+          validate: {
+            isIn: {
+              msg: " please verify goal input value ",
+              args: ["lose weight", "maintain weight", "gain weight"],
+            }
+        },
       },
-    }
-   },
+    },
     {
       timestamps: true,
       freezeTableName: true,

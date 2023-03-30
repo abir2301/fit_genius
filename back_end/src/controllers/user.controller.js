@@ -2,6 +2,7 @@ const Sequelize = require("sequelize");
 const { connection } = require("../config/connection.js");
 const db = require("../models/");
 const User = db.users;
+const Profile = db.profile ;
 const jwt = require("jsonwebtoken");
 const emailSending = require("../routes/mailsending");
 const { gzipSync, gunzipSync } = require("zlib");
@@ -55,6 +56,10 @@ exports.registration = async (req, res) => {
 };
 exports.getUserById = async (req, res) => {
   const user = await User.findOne({
+    include: {
+    model: Profile,
+    required: false 
+  },
     attributes: ["id", "fullName", "email"],
     where: {
       id: req.user,
@@ -151,3 +156,16 @@ exports.resetPassword = async (req, res) => {
     res.status(200).send("user updated successfully ");
   }
 };
+exports.getUsers = async(req,res)=>{
+  User.findAll({
+    attributes :["email" , "fullName"], 
+    include: {
+      model: Profile,
+    },
+  }).then((data) => {
+    // data.map((e)=>{
+      
+    // })
+    res.send(data)
+  });
+}
