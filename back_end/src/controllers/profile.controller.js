@@ -1,9 +1,11 @@
-const { query } = require('express');
+
 const Sequelize = require('sequelize');
-const { profile } = require('../models/');
+
 const db = require('../models/')
 const User =db.users
 const Profile = db.profile ;
+
+
 exports.create = async (req, res)=>{
 
 const profile = req.body ; 
@@ -18,10 +20,6 @@ const user = await User.findOne({where :{
    Profile.create(profile).then( (data1) =>{
     res.send(data1)
   user.setProfile(data1).then((data)=>{
-   console.log(data1)
-    res
-      .status(200)
-      .json({ data : data , message: "profile create successfully " });
   })
 
    }).catch((err) => {
@@ -87,7 +85,6 @@ const user = await User.findOne({where :{
 
 
 };
-
 exports.delete = async (req, res) => {
  const profile = await Profile.findOne({
    where: {
@@ -112,8 +109,6 @@ exports.delete = async (req, res) => {
    .catch((error) => {
      res.status(404).send({ error: error.message });
    });
- if (!profile) {
- }
 };
 exports.getProfile = async (req, res) => {
 const profile = await Profile.findOne({where :{
@@ -127,8 +122,6 @@ res.status(400).send({ message: " user profile does not exist " });
  res.status(404).send({error : error.message})
 
 })
-if (!profile){
- 
-}
+
 };
 

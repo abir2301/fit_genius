@@ -3,6 +3,8 @@ const dbConnection = require("./config/connection");
 require("dotenv").config();
 const users = require("./routes/user");
 const profiles = require('./routes/profile.route')
+const healthProblem = require("./routes/hp.route");
+
 const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -12,6 +14,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/users", users);
 app.use("/api/profiles", profiles)
+app.use("/api/hp", healthProblem);
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 

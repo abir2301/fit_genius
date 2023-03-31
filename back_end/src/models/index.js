@@ -26,10 +26,8 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = connection;
 db.sequelize
-  .sync({ force: true })
-  .then(
-    console.log("  successfully created tables  ")
-  )
+  .sync({ alter : true })
+  .then(console.log("  successfully created tables  "))
   .catch(function (err) {
     console.log("Server failed to start due to error: %s", err);
   });
@@ -37,9 +35,10 @@ db.sequelize
 db.users = require("./user.js")(connection, Sequelize);
 db.profile = require("./profile")(connection, Sequelize);
 db.hp = require("./health_problems")(connection, Sequelize);
-db.users.hasOne(db.profile , {onDelete :'CASCADE'});
+db.userHp = require("./user_health_problem")(connection, Sequelize);
+db.users.hasOne(db.profile, { onDelete: "CASCADE" });
 db.profile.belongsTo(db.users, { onDelete: "CASCADE" });
-
-
+db.users.belongsToMany(db.hp, { through: db.userHp });
+db.hp.belongsToMany(db.users, { through: db.userHp });
 
 module.exports = db;

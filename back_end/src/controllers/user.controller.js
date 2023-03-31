@@ -163,9 +163,22 @@ exports.getUsers = async(req,res)=>{
       model: Profile,
     },
   }).then((data) => {
-    // data.map((e)=>{
-      
-    // })
-    res.send(data)
+    res.status(200).send({data : data })
   });
+}
+exports.getAllHp = async(req, res)=>{
+ const user =  await User.findOne({where :{
+  id : req.user
+ }})
+  if (user){
+    user.getHps().then((data)=>{
+      res.status(200).send ({data: data })
+    }).catch((err)=>{
+      res.status(404).send({error :err.message})
+
+    })
+  }
+  else {
+    res.status(400).send({error : "does not find user "})
+  }
 }
