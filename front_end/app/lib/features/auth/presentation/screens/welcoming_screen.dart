@@ -2,6 +2,8 @@ import 'package:app/features/auth/presentation/components/rounded_button.dart';
 import 'package:app/features/auth/presentation/components/screen_header.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/app_theme.dart';
+
 class WelcomingScreen extends StatefulWidget {
   const WelcomingScreen({super.key});
 
@@ -12,10 +14,11 @@ class WelcomingScreen extends StatefulWidget {
 class _WelcomingScreenState extends State<WelcomingScreen> {
   @override
   Widget build(BuildContext context) {
-    final padding_v = MediaQuery.of(context).size.width * 0.25;
+    final padding_v = MediaQuery.of(context).size.width * 0.1;
     final padding_h = MediaQuery.of(context).size.width * 0.1;
 
     return Scaffold(
+      backgroundColor: bgcolor,
       body: ListView(children: [
         Padding(
           padding:
@@ -24,7 +27,7 @@ class _WelcomingScreenState extends State<WelcomingScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const screenHeader(
-                title: "Fit-GeniusApp",
+                title: "Fit-Genius \n App",
                 size: 30,
               ),
               SizedBox(

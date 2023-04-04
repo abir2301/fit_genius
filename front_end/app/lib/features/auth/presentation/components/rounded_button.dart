@@ -4,12 +4,15 @@ import '../../../../core/app_theme.dart';
 
 class RoundedButton extends StatelessWidget {
   RoundedButton(
-      {required this.text, required this.onPress, required this.withBgColor , required this.width});
+      {required this.text,
+      required this.onPress,
+      required this.withBgColor,
+      required this.width});
 
   String text;
   final VoidCallback onPress;
   bool withBgColor;
-  double width ;
+  double width;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +26,10 @@ class RoundedButton extends StatelessWidget {
         decoration: withBgColor
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(bg_raduis),
-                color: primaryColor)
+                color: secondColor)
             : BoxDecoration(
                 border: Border.all(
-                  color: primaryColor,
+                  color: secondColor,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(bg_raduis)),

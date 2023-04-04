@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const primaryColor = Color(0xff6392BE);
+const secondColor = Color(0xff7286D3);
 const secondaryColor = Color(0xff51eec2);
+const grey = Color(0xff6F6767);
 const blackColor = Color(0xff000000);
 const white = Color(0xffF5F5F5);
+const green = Color(0xff13AEC0);
+const bgcolor = Color(0xffF3F8FE);
 
 final appTheme = ThemeData(
     appBarTheme: AppBarTheme(

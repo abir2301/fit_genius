@@ -29,7 +29,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 15),
+      padding: EdgeInsets.only(top: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,6 +42,7 @@ class InputField extends StatelessWidget {
           SizedBox(
             width: width,
             child: TextFormField(
+              obscuringCharacter: '*',
               textAlign: TextAlign.start,
               obscureText: isObsecure ?? false,
               controller: controller,
@@ -60,13 +61,16 @@ class InputField extends StatelessWidget {
                 hintText: hintText,
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 2.0, horizontal: 15),
-                focusedBorder: const OutlineInputBorder(
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(color: primaryColor, width: 2),
                 ),
-                errorBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor, width: 2),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(color: Colors.red, width: 2),
                 ),
                 enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(
                     color: Colors.grey,
                     width: 1,

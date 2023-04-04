@@ -1,7 +1,9 @@
 import 'package:app/core/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:onboarding/onboarding.dart';
 
 import 'features/auth/presentation/screens/login_screen.dart';
+import 'features/auth/presentation/screens/onboarding_screen.dart';
 import 'features/auth/presentation/screens/register_screen.dart';
 import 'features/auth/presentation/screens/welcoming_screen.dart';
 
@@ -19,11 +21,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // theme: appTheme,
-      initialRoute: '/',
+      initialRoute: '/register',
       routes: {
         '/': (context) => const WelcomingScreen(),
         '/login': (context) => const LoginScreen(),
-        '/register': (context) => const RegisterScreen()
+        '/register': (context) => Onbording()
       },
     );
   }
