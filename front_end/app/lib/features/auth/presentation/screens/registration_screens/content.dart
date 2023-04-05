@@ -14,10 +14,11 @@ List<Widget> contents = [
   ProfileScreen(),
   PrivateInfoScreen(),
   PhisicalConditionScreen(),
+  DeficienciesScreen(),
+  AllergiesScreen(),
+  ChronicDiseasesScreen(),
   LifeStyleScreen(),
   FavoriteSportsScreen(),
   ExcercicesScreen(),
-  DeficienciesScreen(),
-  ChronicDiseasesScreen(),
-  AllergiesScreen(),
+ 
 ];

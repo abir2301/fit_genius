@@ -1,15 +1,15 @@
 import 'package:app/core/app_theme.dart';
-import 'package:app/features/auth/presentation/screens/content.dart';
 import 'package:app/features/auth/presentation/screens/login_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/congrat_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:app/features/auth/presentation/screens/registration_screens/content.dart';
 
-class Onbording extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _OnbordingState createState() => _OnbordingState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _OnbordingState extends State<Onbording> {
+class _RegisterScreenState extends State<RegisterScreen> {
   int currentIndex = 0;
   late PageController _controller;
 
@@ -45,7 +45,7 @@ class _OnbordingState extends State<Onbording> {
             ),
           ),
           SizedBox(
-            height: 50,
+            height: 10,
           ),
           Container(
             child: Row(

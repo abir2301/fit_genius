@@ -34,9 +34,10 @@ class InputField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 15),
+            padding: const EdgeInsets.only(bottom: 1),
             child: Text(
               label,
+              style: screenHeaderStyle(size: 20),
             ),
           ),
           SizedBox(
@@ -52,13 +53,15 @@ class InputField extends StatelessWidget {
                 alignLabelWithHint: true,
                 hintStyle: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                  color: primaryColor,
+                  fontWeight: FontWeight.bold,
+                  color: blackColor,
                   fontSize: MediaQuery.of(context).size.width * 0.035,
                 )),
 
                 // kHintTextStyle(context),
-                suffixIcon: Icon(icon),
+                suffixIcon: Icon(icon, color: Colors.black, grade: 2),
                 hintText: hintText,
+                iconColor: Colors.black,
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 2.0, horizontal: 15),
                 focusedBorder: OutlineInputBorder(
@@ -72,7 +75,7 @@ class InputField extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(
-                    color: Colors.grey,
+                    color: primaryColor,
                     width: 1,
                   ),
                 ),

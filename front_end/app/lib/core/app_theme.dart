@@ -9,7 +9,8 @@ const blackColor = Color(0xff000000);
 const white = Color(0xffF5F5F5);
 const green = Color(0xff13AEC0);
 const bgcolor = Color(0xffF3F8FE);
-
+const hoverColor = Color(0xff717171);
+const pink = Color(0xffb64598);
 final appTheme = ThemeData(
     appBarTheme: AppBarTheme(
       backgroundColor: primaryColor,
@@ -40,7 +41,7 @@ screenHeaderStyle({required double size}) {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
     color: primaryColor,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
     fontSize: size,
   ));
 }
@@ -49,6 +50,15 @@ kButtonTextStyle(bool isSkipped) {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
     color: isSkipped ? primaryColor : Colors.white,
+    fontWeight: FontWeight.w500,
+    fontSize: 20,
+  ));
+}
+
+registrationMessageStyle({double? size}) {
+  return GoogleFonts.poppins(
+      textStyle: const TextStyle(
+    color: blackColor,
     fontWeight: FontWeight.w500,
     fontSize: 20,
   ));
