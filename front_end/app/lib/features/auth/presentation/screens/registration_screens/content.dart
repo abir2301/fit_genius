@@ -17,8 +17,8 @@ List<Widget> contents = [
   DeficienciesScreen(),
   AllergiesScreen(),
   ChronicDiseasesScreen(),
-  LifeStyleScreen(),
   FavoriteSportsScreen(),
   ExcercicesScreen(),
- 
+  LifeStyleScreen(),
+  CongratScreen()
 ];

@@ -36,6 +36,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   onboarding: ^3.1.0
+  equatable: ^2.0.5
+  shared_preferences: ^2.1.0
+  dartz: ^0.10.1
+  http: ^0.13.5
+  get_it: ^7.2.0
+  internet_connection_checker: ^1.0.0+1
+  api_cache_manager: ^1.0.2
 
 dev_dependencies:
   flutter_test:

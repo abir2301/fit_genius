@@ -36,6 +36,7 @@ class _AllergiesScreenState extends State<AllergiesScreen> {
       SizedBox(
         height: 20,
       ),
+     
       Container(
         child: Center(
           child: Row(
@@ -82,6 +83,7 @@ class _AllergiesScreenState extends State<AllergiesScreen> {
           ),
         ),
       ),
+     
       Container(
         height: MediaQuery.of(context).size.height,
         child: ListView.builder(
@@ -101,6 +103,10 @@ class _AllergiesScreenState extends State<AllergiesScreen> {
               );
             }),
       )
+   
+   
+   
+   
     ]);
   }
 }
