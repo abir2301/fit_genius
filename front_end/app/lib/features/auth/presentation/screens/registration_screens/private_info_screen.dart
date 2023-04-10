@@ -4,6 +4,8 @@ import 'package:app/features/auth/presentation/components/label_radio.dart';
 import 'package:app/features/auth/presentation/components/regsiter-screens_pattern.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/screen_header.dart';
+
 class PrivateInfoScreen extends StatefulWidget {
   const PrivateInfoScreen({super.key});
 
@@ -27,6 +29,7 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
     return RegsiterScreensPatern(list: [
       Column(
         children: [
+          const screenHeader(title: "Profile", size: 30),
           const SizedBox(
             height: 10,
           ),
@@ -34,7 +37,7 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
               label: "Age",
               hintText: "23",
               controller: ageController,
-              validator: () {},
+              validator: (value) {},
               textInputType: TextInputType.number),
           const SizedBox(
             height: 10,
@@ -43,7 +46,7 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
               label: "Weight",
               hintText: "70 Kg",
               controller: weightController,
-              validator: () {},
+              validator: (value) {},
               textInputType: TextInputType.number),
           const SizedBox(
             height: 10,
@@ -52,7 +55,7 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
               label: "height",
               hintText: "170 Cm",
               controller: heightController,
-              validator: () {},
+              validator: (value) {},
               textInputType: TextInputType.number),
           const SizedBox(
             height: 10,
@@ -89,8 +92,6 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
               ),
             ),
           ),
-          
-          
           const SizedBox(
             height: 20,
           ),
@@ -109,6 +110,7 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
+                      margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: selected_index == index ? hoverColor : null,
                           borderRadius: BorderRadius.circular(15)),

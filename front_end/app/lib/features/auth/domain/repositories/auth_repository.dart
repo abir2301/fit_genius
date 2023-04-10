@@ -9,6 +9,6 @@ import '../entities/registration_request.dart';
 abstract class AuthRepository {
   Future<Either<Failure, bool>> login(LoginRequest request);
   Future<Either<Failure, bool>> registration(RegistrationRequest request);
-  Future<Either<Failure, LoginResponse>> getLoginDetails();
-  Future<Either<Failure, RegistrationResponse>> getRegistrationDetails();
+  Future<Either<Failure, LoginResponse?>> getLoginDetails();
+  Future<Either<Failure, RegistrationResponse?>> getRegistrationDetails();
 }

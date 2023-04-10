@@ -19,10 +19,11 @@ class _FavoriteSportsScreenState extends State<FavoriteSportsScreen> {
   int selected_index = 0;
   final sports = Data.sports;
   Map<String, bool> userSports = {
-    'Heart disease': false,
-    'diabetes': false,
-    'chronic kidney disease (CKD)': false,
-    'Other': false
+    'Hit': false,
+    'Zumba': false,
+    'running': false,
+    'bodybuilding': false,
+    'cardio': false
   };
   @override
   Widget build(BuildContext context) {
@@ -47,10 +48,11 @@ class _FavoriteSportsScreenState extends State<FavoriteSportsScreen> {
                 value: true,
                 onChanged: (bool newValue) {
                   userSports = {
-                    'Heart disease': false,
-                    'diabetes': false,
-                    'chronic kidney disease (CKD)': false,
-                    'Other': false
+                    'Hit': false,
+                    'Zumba': false,
+                    'running': false,
+                    'bodybuilding': false,
+                    'cardio': false
                   };
                   setState(() {
                     print("new value on change = $newValue");
@@ -65,10 +67,11 @@ class _FavoriteSportsScreenState extends State<FavoriteSportsScreen> {
                 value: false,
                 onChanged: (bool newValue) {
                   userSports = {
-                    'Heart disease': false,
-                    'diabetes': false,
-                    'chronic kidney disease (CKD)': false,
-                    'Other': false
+                   'Hit': false,
+                    'Zumba': false,
+                    'running': false,
+                    'bodybuilding': false,
+                    'cardio': false
                   };
                   setState(() {
                     _isRadioSelected = newValue;

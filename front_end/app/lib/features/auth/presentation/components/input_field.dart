@@ -1,5 +1,6 @@
 import 'package:app/core/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InputField extends StatelessWidget {
@@ -10,7 +11,7 @@ class InputField extends StatelessWidget {
   IconData? icon;
   TextEditingController controller;
   bool? isObsecure;
-  Function validator;
+  String? Function(String?) validator;
   Function? onSubmitted;
   Function? onchange;
   TextInputType? textInputType;
@@ -47,7 +48,12 @@ class InputField extends StatelessWidget {
               textAlign: TextAlign.start,
               obscureText: isObsecure ?? false,
               controller: controller,
-              validator: validator(),
+              validator: validator,
+              // inputFormatters: [
+              //   FilteringTextInputFormatter.allow(
+              //     RegExp(r"[a-zA-Z]+|\s"),
+              //   )
+              // ],
               keyboardType: textInputType,
               decoration: InputDecoration(
                 alignLabelWithHint: true,

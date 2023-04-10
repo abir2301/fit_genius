@@ -24,7 +24,7 @@ class AuthRepositoryImp implements AuthRepository {
       required this.networkInfo});
 
   @override
-  Future<Either<Failure, LoginResponse>> getLoginDetails() async {
+  Future<Either<Failure, LoginResponse?>> getLoginDetails() async {
     try {
       final localLoginDetails = await localDataSource.getCachedLoginDetails();
       return right(localLoginDetails);
@@ -34,7 +34,7 @@ class AuthRepositoryImp implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, RegistrationResponse>> getRegistrationDetails() async {
+  Future<Either<Failure, RegistrationResponse?>> getRegistrationDetails() async {
     try {
       final localRegistrationDetails =
           await localDataSource.getCachedRegistrationDetails();

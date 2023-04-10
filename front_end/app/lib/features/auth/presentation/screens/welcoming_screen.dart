@@ -34,10 +34,11 @@ class _WelcomingScreenState extends State<WelcomingScreen> {
                 height: MediaQuery.of(context).size.width * 0.1,
               ),
               Container(
-                child: Image.asset("assets/images/logo.png"),
+                height: padding_h * 7,
+                child: Image.asset("assets/images/yoga2.png"),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.1,
+                height: MediaQuery.of(context).size.width * 0.05,
               ),
               RoundedButton(
                 width: MediaQuery.of(context).size.width * 0.7,

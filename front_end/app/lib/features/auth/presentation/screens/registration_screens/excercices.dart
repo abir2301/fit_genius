@@ -87,7 +87,7 @@ class _ExcercicesScreenState extends State<ExcercicesScreen> {
           label: "",
           hintText: "2",
           controller: excerciceController,
-          validator: () {}),
+          validator: (val){}),
       Container(
         height: MediaQuery.of(context).size.height,
         child: ListView.builder(

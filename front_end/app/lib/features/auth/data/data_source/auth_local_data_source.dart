@@ -7,26 +7,31 @@ import 'package:app/features/auth/data/model/registration_response.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class AuthLocalDataSource {
-  Future<LoginResponseModel> getCachedLoginDetails();
-  Future<RegistrationResponseModel> getCachedRegistrationDetails();
+  Future<LoginResponseModel?> getCachedLoginDetails();
+  Future<RegistrationResponseModel?> getCachedRegistrationDetails();
 }
 
 class AuthLocalDataSourceImp implements AuthLocalDataSource {
   @override
   Future<LoginResponseModel?> getCachedLoginDetails() async {
-    if (await SharedServices.isLogedIn()){
+    if (await SharedServices.isLogedIn()) {
       var cachedData = await APICacheManager().getCacheData("login_details");
-return  LoginResponseModel.fromJson(cachedData.syncData as Map<String, dynamic>);
-    }
-    else {
+      return LoginResponseModel.fromJson(
+          cachedData.syncData as Map<String, dynamic>);
+    } else {
       EmptyCacheException();
     }
- 
   }
 
   @override
-  Future<RegistrationResponseModel> getCachedRegistrationDetails() {
-    // TODO: implement getCachedRegistrationDetails
-    throw UnimplementedError();
+  Future<RegistrationResponseModel?> getCachedRegistrationDetails() async {
+    if (await SharedServices.isRegistred()) {
+      var cachedData =
+          await APICacheManager().getCacheData("registration_details");
+      return RegistrationResponseModel.fromJson(
+          cachedData.syncData as Map<String, dynamic>);
+    } else {
+      EmptyCacheException();
+    }
   }
 }

@@ -8,7 +8,7 @@ import 'package:dartz/dartz.dart';
 class GetLoginDetailsUseCase {
   late final AuthRepository authRepository;
   GetLoginDetailsUseCase(this.authRepository);
-  Future<Either<Failure, LoginResponse>> call() async {
+  Future<Either<Failure, LoginResponse?>> call() async {
     return await authRepository.getLoginDetails();
   }
 }

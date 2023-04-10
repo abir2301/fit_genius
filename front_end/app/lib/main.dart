@@ -1,4 +1,5 @@
 import 'package:app/core/app_theme.dart';
+import 'package:app/features/auth/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
 
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const WelcomingScreen(),
         '/login': (context) => const LoginScreen(),
-        '/register': (context) => RegisterScreen()
+        '/register': (context) => RegisterScreen(),
+        '/home': (context) => const HomeScreen()
       },
     );
   }

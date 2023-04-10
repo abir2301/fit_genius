@@ -79,7 +79,7 @@ class _PhisicalConditionScreenState extends State<PhisicalConditionScreen> {
             textInputType: TextInputType.number,
             hintText: '2 for exemple ',
             label: '',
-            validator: () {},
+            validator: (value){},
           ),
           ImageWidget(
             width: MediaQuery.of(context).size.width * 0.5,

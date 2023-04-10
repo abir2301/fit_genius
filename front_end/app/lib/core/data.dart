@@ -21,10 +21,11 @@ class Data {
     'other',
   ];
   static List<String> sports = [
-    'Heart disease',
-    'diabetes',
-    'chronic kidney disease (CKD)',
-    'other',
+    'Hit',
+    'Zumba',
+    'running',
+    'bodybuilding',
+    'cardio',
   ];
   static List<String> sessionsDuration = [
     '20',

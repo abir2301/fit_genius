@@ -1,6 +1,8 @@
+import 'package:app/core/extensions/string_extensions.dart';
 import 'package:app/features/auth/presentation/components/input_field.dart';
 import 'package:app/features/auth/presentation/components/screen_header.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../components/image.dart';
 
@@ -25,7 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             Column(
               children: [
-                screenHeader(title: "Profile", size: 30),
+                screenHeader(title: "Acount", size: 30),
                 InputField(
                   // width: MediaQuery.of(context).size.width * 0.8,
                   label: "Email",
@@ -33,7 +35,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: Icons.email_outlined,
                   controller: emailController,
                   hintText: 'user@user.com',
-                  validator: () {},
+                  validator: (value) {
+                    if (value!.isValidEmail) {
+                      return ('Enter valid email');
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 10,
@@ -45,7 +51,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: Icons.person,
                   controller: usernameController,
                   hintText: 'abir ch ',
-                  validator: () {},
+                  validator: (value) {
+                    if (value!.isValidName) {
+                      return ('Enter valid user name ');
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 10,
@@ -58,10 +68,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: Icons.lock,
                   controller: passwordController,
                   hintText: '*******',
-                  validator: () {},
+                  validator: (value) {
+                    if (value!.isValidPassword) {
+                      return ('Enter valid password');
+                    }
+                  },
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    " don't have an account ?",
+                    style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                            decoration:
+                                TextDecoration.underline, // <-- SEE HERE
+                            color: Color(0xff474747),
+                            fontSize: 15)),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 ImageWidget(imageUrl: "assets/images/healthy_plan.png")
-                
               ],
             )
           ]),
