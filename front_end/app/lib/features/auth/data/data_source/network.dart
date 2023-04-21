@@ -1,9 +1,18 @@
 import 'dart:io';
 
+import 'package:api_cache_manager/utils/cache_manager.dart';
+import 'package:app/features/auth/data/data_source/shared_services.dart';
+import 'package:app/features/auth/data/model/login_request.dart';
+import 'package:app/features/auth/domain/entities/login_request.dart';
+import 'package:app/features/auth/domain/entities/user.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+
+import '../../../../core/error/exceptions.dart';
+import '../model/login_response.dart';
 
 class NetworkHandler {
   Future<String> getWifiIpAddress() async {
@@ -23,9 +32,10 @@ class NetworkHandler {
 
   Future<bool> checkServerConnection() async {
     try {
+      String api = await dotenv.get("API");
+
       final client = HttpClient();
-      final request =
-          await client.getUrl(Uri.parse('http://192.168.1.43:3000'));
+      final request = await client.getUrl(Uri.parse(api));
       final response = await request.close();
       final responseBody = await response.transform(utf8.decoder).join();
       if (response.statusCode == HttpStatus.ok &&
@@ -39,7 +49,6 @@ class NetworkHandler {
     }
   }
 
-  String baseurl = "http://192.168.1.43:3000/";
   // var log = Logger();
   // FlutterSecureStorage storage = FlutterSecureStorage();
   // Future get(String url) async {
@@ -59,24 +68,23 @@ class NetworkHandler {
   //   log.i(response.statusCode);
   // }
 
-  Future<http.Response?> post(String url, Map<String, String> body) async {
-    //String token = await storage.read(key: "token");
-    url = formater(url);
-    print(url);
-    if (await checkServerConnection()) {
-      var response = await http.post(
-        Uri.parse(url),
-        headers: {
-          "Content-type": "application/json",
-          // "Authorization": "Bearer $token"
-        },
-        body: jsonEncode(body),
-      );
+  Future<http.Response> post(String url, Map<String, String> body) async {
+    // String token = await storage.read(key: "token");
+    String baseurl = dotenv.get("API");
+    url = baseurl + url;
 
-      return response;
-    } else {
-      return null;
-    }
+    print(url);
+
+    var response = await http.post(
+      Uri.parse(url),
+      headers: {
+        "Content-type": "application/json",
+        // "Authorization": "Bearer $token"
+      },
+      body: jsonEncode(body),
+    );
+
+    return response;
   }
 
   // Future<http.Response> patch(String url, Map<String, String> body) async {
@@ -122,7 +130,8 @@ class NetworkHandler {
   //   return response;
   // }
 
-  String formater(String url) {
+  Future<String> formater(String url) async {
+    String baseurl = await dotenv.get("API");
     return baseurl + url;
   }
 
@@ -130,4 +139,47 @@ class NetworkHandler {
   //   String url = formater("/uploads//$imageName.jpg");
   //   return NetworkImage(url);
   // }
+
+  Future<bool> loginUser(LoginRequestModel model) async {
+    // String token = await storage.read(key: "token");
+    String baseurl = dotenv.get("API");
+    final url = '${baseurl}api/users/login';
+
+    // ignore: avoid_print
+    print(url);
+
+    var response = await http.post(
+      Uri.parse(url),
+      headers: {
+        "Content-type": "application/json",
+        // "Authorization": "Bearer $token"
+      },
+      body: jsonEncode(model.toJson()),
+    );
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      //  print(json.decode(response.body)["user"].toString());
+
+      LoginResponseModel res = LoginResponseModel(
+          token: json.decode(response.body)["token"],
+          user: User(
+              id: json.decode(response.body)["user"]["id"],
+              email: json.decode(response.body)["user"]["email"],
+              fullName: json.decode(response.body)["user"]["fullName"]));
+      await SharedServices.setLoginDetails(res)
+          // ignore: avoid_print
+          .then((value) => print("add login details "));
+    }
+
+    return (response.statusCode == 200 || response.statusCode == 201);
+  }
+
+  Future<LoginResponseModel?> getCachedLoginDetails() async {
+    if (await SharedServices.isLogedIn()) {
+      var cachedData = await APICacheManager().getCacheData("login_details");
+      return LoginResponseModel.fromJson(
+          cachedData.syncData as Map<String, dynamic>);
+    } else {
+      EmptyCacheException();
+    }
+  }
 }

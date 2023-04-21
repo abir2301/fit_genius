@@ -1,3 +1,4 @@
+import 'package:app/core/app_theme.dart';
 import 'package:app/core/extensions/string_extensions.dart';
 import 'package:app/features/auth/presentation/components/input_field.dart';
 import 'package:app/features/auth/presentation/components/screen_header.dart';
@@ -75,14 +76,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   },
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // registration function
+                  },
                   child: Text(
-                    " don't have an account ?",
+                    " Submit",
                     style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
-                            decoration:
-                                TextDecoration.underline, // <-- SEE HERE
-                            color: Color(0xff474747),
+                            fontWeight: FontWeight.bold,
+                            color: primaryColor,
                             fontSize: 15)),
                     textAlign: TextAlign.start,
                   ),

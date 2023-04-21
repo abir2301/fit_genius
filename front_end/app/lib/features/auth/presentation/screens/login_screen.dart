@@ -84,42 +84,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   RoundedButton(
                     text: 'Login',
                     onPress: () async {
-                      // await networkHandler
-                      //     .getWifiIpAddress()
-                      //     .then((value) => {print("vvvvvvallll $value")})
-                      //     .catchError((error) => {print(error.toString())});
                       bool cnx = false;
                       await networkHandler
                           .checkServerConnection()
                           .then((value) =>
+                              // ignore: avoid_print
                               {print("valll ==== $value"), cnx = value})
                           .catchError((errro) =>
-                              {print("errooor r" + errro.toString())});
+                              // ignore: avoid_print
+                              {print("errooor r$errro")});
 
                       if (cnx) {
                         if (_formKey.currentState!.validate()) {
                           LoginRequestModel model = LoginRequestModel(
                               code: login_code_controller.text);
-                          // AuthRemoteDataSourceImp auth =
-                          //     AuthRemoteDataSourceImp(client: http.Client());
-                          // await auth.login(model);
-                          // final NetworkInfo networkInfo;
-
-                          Map<String, String> data = {
-                            "code": login_code_controller.text,
-                          };
                           var response = await networkHandler
-                              .post("api/users/login", data)
+                              .loginUser(model)
                               .then((value) => {
-                                    if (value!.statusCode == 200 ||
-                                        value.statusCode == 201)
+                                    if (value)
                                       {
-                                        print("response == " +
-                                            json.decode(value!.body)['token']),
+                                        print("user login succesfully "),
                                         Navigator.pushNamed(context, '/home')
                                       }
                                     else
-                                      {}
+                                      {print("error while login ")}
                                   });
 
                           // if (response.statusCode == 200 ||
@@ -152,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           // }
                         }
                       } else {
-                        Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/login');
                       }
                     },
                     width: width,

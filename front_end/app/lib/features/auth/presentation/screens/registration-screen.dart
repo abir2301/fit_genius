@@ -61,13 +61,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
             margin: EdgeInsets.all(10),
             width: double.infinity,
             child: TextButton(
-              child: Text(currentIndex == contents.length - 1 ? "Submit" : ""),
+              child: Text(
+                currentIndex == contents.length - 1 ? "Save" : "",
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
               onPressed: () {
                 if (currentIndex == contents.length - 1) {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => CongratScreen(),
+                      builder: (_) => const CongratScreen(),
                     ),
                   );
                 }

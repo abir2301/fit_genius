@@ -55,4 +55,75 @@ class Data {
       Data.userChronicDiseases;
   set setUserSessionDuration(int duration) => Data.userSessionDuration;
   set setUserJob(Map<String, bool> job) => Data.userJob;
+
+  static var mealsPlan = {
+    "diet_id": 1100,
+    'meals': [
+      {
+        "meal_id": 1,
+        "calories": 1254,
+        "is_done": false,
+        "protein": 120,
+        "carbs": 1000,
+        "fibers": 1200,
+        "ingredients ": [
+          {'ingredient_id': 2, "name": "onion", "qantity": 100},
+          {'ingredient_id': 1, "name": "tomate", "qantity": 200},
+          {'ingredient_id': 3, "name": "povron", "qantity": 20}
+        ]
+      },
+      {
+        "meal_id": 2,
+        "calories": 1254,
+        "is_done": false,
+        "protein": 120,
+        "carbs": 1000,
+        "fibers": 1200,
+        "ingredients ": [
+          {'ingredient_id': 2, "name": "onion", "qantity": 100},
+          {'ingredient_id': 1, "name": "tomate", "qantity": 200},
+          {'ingredient_id': 3, "name": "povron", "qantity": 20}
+        ]
+      },
+      {
+        "meal_id": 3,
+        "calories": 1254,
+        "is_done": false,
+        "protein": 120,
+        "carbs": 1000,
+        "fibers": 1200,
+        "ingredients ": [
+          {'ingredient_id': 2, "name": "onion", "qantity": 100},
+          {'ingredient_id': 1, "name": "tomate", "qantity": 200},
+          {'ingredient_id': 3, "name": "povron", "qantity": 20}
+        ]
+      },
+      {
+        "meal_id": 4,
+        "calories": 1254,
+        "is_done": false,
+        "protein": 120,
+        "carbs": 1000,
+        "fibers": 1200,
+        "ingredients ": [
+          {'ingredient_id': 2, "name": "onion", "qantity": 100},
+          {'ingredient_id': 1, "name": "tomate", "qantity": 200},
+          {'ingredient_id': 3, "name": "povron", "qantity": 20}
+        ]
+      },
+      {
+        "meal_id": 5,
+        "calories": 1254,
+        "is_done": false,
+        "protein": 120,
+        "carbs": 1000,
+        "fibers": 1200,
+        "ingredients ": [
+          {'ingredient_id': 2, "name": "onion", "qantity": 100},
+          {'ingredient_id': 1, "name": "tomate", "qantity": 200},
+          {'ingredient_id': 3, "name": "povron", "qantity": 20}
+        ]
+      }
+    ]
+  };
 }

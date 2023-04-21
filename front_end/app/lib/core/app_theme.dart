@@ -11,6 +11,7 @@ const green = Color(0xff13AEC0);
 const bgcolor = Color(0xffF3F8FE);
 const hoverColor = Color(0xff717171);
 const pink = Color(0xffb64598);
+const bgLight = Color(0xffcdd6f1); 
 final appTheme = ThemeData(
     appBarTheme: AppBarTheme(
       backgroundColor: primaryColor,
@@ -61,5 +62,14 @@ registrationMessageStyle({double? size}) {
     color: blackColor,
     fontWeight: FontWeight.w500,
     fontSize: 20,
+  ));
+}
+
+ScreenTextIndication({double? size}) {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+    color: hoverColor,
+    fontWeight: FontWeight.w500,
+    fontSize: size,
   ));
 }

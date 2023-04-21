@@ -23,6 +23,7 @@ class LabeledCheckbox extends StatelessWidget {
         onChanged(!value);
       },
       child: Row(
+        verticalDirection: VerticalDirection.up,
         children: <Widget>[
           Checkbox(
             activeColor: pink,
