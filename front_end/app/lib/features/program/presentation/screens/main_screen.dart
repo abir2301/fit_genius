@@ -1,11 +1,14 @@
-import 'package:app/features/program/presentation/screens/home_screen.dart';
+import 'package:app/features/program/presentation/screens/home-screen/home_screen.dart';
 import 'package:app/features/program/presentation/screens/plan_screen.dart';
 import 'package:app/features/program/presentation/screens/profile_screen.dart';
 import 'package:app/features/program/presentation/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/app_theme.dart';
+import '../states/toggle_switch_state.dart';
 
 class FRTabbarScreen extends StatefulWidget {
   const FRTabbarScreen({super.key});
@@ -26,19 +29,19 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
 
   final List<BottomNavigationBarItem> items = [
     const BottomNavigationBarItem(
-      icon: Icon(Icons.home),
+      icon: Icon(Iconsax.home),
       label: 'Home',
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.feed),
+      icon: Icon(Iconsax.folder),
       label: 'Jounal',
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.chat),
+      icon: Icon(Iconsax.messages4),
       label: 'chat',
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.person),
+      icon: Icon(Iconsax.profile_2user),
       label: 'Profile',
     ),
   ];
@@ -51,31 +54,33 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
   @override
   Widget build(BuildContext context) {
     // SizeConfig().init(context);
-    return Scaffold(
-      backgroundColor: bgcolor,
-      body: screens[_select],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        //elevation: 1,
-        backgroundColor: secondColor,
-        items: items,
-        onTap: ((value) => setState(() => _select = value)),
-        currentIndex: _select,
-        selectedLabelStyle: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-          color: primaryColor,
-          fontWeight: FontWeight.bold,
-          fontSize: 10,
-        )),
-        showUnselectedLabels: true,
-        iconSize: 25,
-        unselectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.normal,
-          fontSize: 10,
-        ),
-        selectedItemColor: white,
-        unselectedItemColor: const Color(0xFF9E9E9E),
-      ),
-    );
+    return ChangeNotifierProvider<ToggleSwitchState>(
+        create: (context) => ToggleSwitchState(),
+        child: Scaffold(
+          backgroundColor: bgcolor,
+          body: screens[_select],
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            //elevation: 1,
+            backgroundColor: secondColor,
+            items: items,
+            onTap: ((value) => setState(() => _select = value)),
+            currentIndex: _select,
+            selectedLabelStyle: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+              // color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+            )),
+            showUnselectedLabels: true,
+            iconSize: 25,
+            unselectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+            ),
+            selectedItemColor: white,
+            unselectedItemColor: Colors.black,
+          ),
+        ));
   }
 }

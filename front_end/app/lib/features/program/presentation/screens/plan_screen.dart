@@ -1,91 +1,117 @@
-import 'package:app/features/auth/presentation/components/screen_header.dart';
+import 'package:app/features/program/presentation/components/diet_plan.dart';
+import 'package:app/features/program/presentation/components/workout_plan.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../../../core/app_theme.dart';
+import '../states/toggle_switch_state.dart';
 
-class PlanScreen extends StatefulWidget {
-  PlanScreen({super.key});
-
-  @override
-  State<PlanScreen> createState() => _PlanScreenState();
-}
-
-class _PlanScreenState extends State<PlanScreen> {
-  bool _isFirstScreenVisible = true;
-
-  void _switchScreens() {
-    setState(() {
-      _isFirstScreenVisible = !_isFirstScreenVisible;
-    });
-  }
+class PlanScreen extends StatelessWidget {
+  const PlanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: bgLight,
-              borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(50),
-                  bottomLeft: Radius.circular(50)),
+    return ChangeNotifierProvider(
+      create: (_) => ToggleSwitchState(),
+      child: const Scaffold(
+        body: PlanScreenContent(),
+      ),
+    );
+  }
+}
+
+class PlanScreenContent extends StatelessWidget {
+  const PlanScreenContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final toggleSwitchState = Provider.of<ToggleSwitchState>(context);
+    return Column(
+      children: <Widget>[
+        Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            color: bgLight,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(114),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Text(
-                      "Weekly Plan ",
-                      style: registrationMessageStyle(),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, left: 30),
+                  child: Text(
+                    "Check your plan ",
+                    style: USerPlanScreenHeader(),
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                ToggleSwitch(
+                  minWidth: 130.0,
+                  cornerRadius: 15.0,
+                  activeBgColor: [const Color(0xff4B5B97)!],
+                  inactiveBgColor: secondColor,
+                  initialLabelIndex:
+                      toggleSwitchState.isDietPlanSelected ? 0 : 1,
+                  totalSwitches: 2,
+                  changeOnTap: true,
+                  radiusStyle: true,
+                  animate: true,
+                  fontSize: 14,
+
+                  /// Set animation duration.
+                  animationDuration: 1,
+                  labels: const ['Diet Plan', 'Workout Plan'],
+                  onToggle: (index) {
+                    toggleSwitchState.isDietPlanSelected = index == 0;
+                    //  toggleSwitchState.toggleSwitcher(index!);
+                  },
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: Container(
+                    width: 120,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Icon(
+                          Iconsax.calendar,
+                          size: 30,
+                          color: Color(0xff6F6767),
+                        ),
+                        Text("Week 1",
+                            style: GoogleFonts.poppins(
+                                color: const Color(0xff6F6767),
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold)),
+                      ],
                     ),
                   ),
-                  Switch(
-                    value: true,
-                    activeColor: const Color(0xFF212121),
-                    onChanged: (value) {
-                      // setState(() {
-                      //    = !_isDark;
-                      // });
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.swap_horiz),
-                    onPressed: _switchScreens,
-                  ),
-                ],
-              ),
+                )
+              ],
             ),
           ),
-          Stack(
-            children: [
-              Visibility(
-                visible: _isFirstScreenVisible,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'First Screen',
-                    style: TextStyle(fontSize: 30),
-                  ),
-                ),
-              ),
-              Visibility(
-                visible: !_isFirstScreenVisible,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Second Screen',
-                    style: TextStyle(fontSize: 30),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+        ),
+        Expanded(
+            child: toggleSwitchState.isDietPlanSelected
+                ? DietPaln()
+                : WorkoutPlan())
+      ],
     );
   }
 }
