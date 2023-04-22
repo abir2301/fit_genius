@@ -107,6 +107,9 @@ class PlanScreenContent extends StatelessWidget {
             ),
           ),
         ),
+      
+      
+      
         Expanded(
             child: toggleSwitchState.isDietPlanSelected
                 ? DietPaln()

@@ -23,8 +23,8 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
   final screens = [
     HomeScreen(),
     PlanScreen(),
+    SettingsScreen(),
     ProfileScreen(),
-    SettingsScreen()
   ];
 
   final List<BottomNavigationBarItem> items = [
