@@ -22,28 +22,27 @@ class AuthViewModel extends StateNotifier<AuthState> {
     required this.checkTokenUsecase,
   }) : super(const AuthState.initial()) {
     checkToken();
-
-    void login(String email, String password) async {
-      state = const AuthState.loggingIn();
-      final either = await loginUsecase(email, password);
-      either.fold((user) {
-        this.user = user;
-        state = AuthState.loggedIn(user: user);
-      }, (failure) {
-        if (failure is OfflineFailure) {
-          state = AuthState.loginError(error: 'no_internet');
-        } else if (failure is ServerFailure) {
+  }
+  void login(String email, String password) async {
+    state = const AuthState.loggingIn();
+    final either = await loginUsecase(email, password);
+    either.fold((user) {
+      this.user = user;
+      state = AuthState.loggedIn(user: user);
+    }, (failure) {
+      if (failure is OfflineFailure) {
+        state = AuthState.loginError(error: 'no_internet');
+      } else if (failure is ServerFailure) {
+        state = AuthState.loginError(error: 'went_wrong');
+      } else if (failure is LoginFailure) {
+        if (failure.errors == null || failure.errors!.isEmpty) {
           state = AuthState.loginError(error: 'went_wrong');
-        } else if (failure is LoginFailure) {
-          if (failure.errors == null || failure.errors!.isEmpty) {
-            state = AuthState.loginError(error: 'went_wrong');
-          } else {
-            state = AuthState.loginError(
-                errors: mapUserMessagesFromLoginErrors(failure.errors!));
-          }
+        } else {
+          state = AuthState.loginError(
+              errors: mapUserMessagesFromLoginErrors(failure.errors!));
         }
-      });
-    }
+      }
+    });
   }
 
   void register(

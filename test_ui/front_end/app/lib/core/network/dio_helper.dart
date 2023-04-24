@@ -51,7 +51,7 @@ class DioHelper {
       return response.data;
     } on DioError catch (e) {
       print(e.response?.data);
-      print('GET error Connection Exception => ${e.message}');
+      print('GET error Connection Exception => ${e.message} ');
       throw ServerException(
           statusCode: e.response?.statusCode, error: e.response?.data);
     }
@@ -60,7 +60,7 @@ class DioHelper {
   static Future<dynamic> post(String url,
       {Map<String, dynamic>? payload}) async {
     try {
-      final response = await _dio.post(url, queryParameters: payload);
+      final response = await _dio.post(url, data: payload);
       if (response.statusCode != 200) {
         throw ServerException(
             statusCode: response.statusCode, error: response.data);
@@ -76,7 +76,7 @@ class DioHelper {
   static Future<dynamic> put(String url,
       {Map<String, dynamic>? payload}) async {
     try {
-      final response = await _dio.put(url, queryParameters: payload);
+      final response = await _dio.put(url, data: payload);
       if (response.statusCode != 200) {
         throw ServerException(
             statusCode: response.statusCode, error: response.data);

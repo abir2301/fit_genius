@@ -1,6 +1,6 @@
 import 'package:app/features/auth/presentation/screens/registration_screens/allergies_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/chronic_diseases_screen.dart';
-import 'package:app/features/auth/presentation/screens/registration_screens/congrat_screen.dart';
+
 import 'package:app/features/auth/presentation/screens/registration_screens/deficiencies_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/excercices.dart';
 

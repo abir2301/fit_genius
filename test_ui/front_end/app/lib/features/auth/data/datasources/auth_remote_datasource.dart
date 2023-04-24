@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:app/core/api/api_config.dart';
 import 'package:app/core/network/dio_helper.dart';
 import 'package:app/core/error/exceptions.dart';
+import 'package:dartz/dartz.dart';
 
 class AuthRemoteDatasource {
   Future<Map<String, dynamic>> login(String email, String password) async {
@@ -29,13 +30,13 @@ class AuthRemoteDatasource {
     }
     throw ServerException();
   }
-   Future<Map<String, dynamic>> register(String email, String name,
-      String password, String passwordConfirmation) async {
+
+  Future<Map<String, dynamic>> register(
+      String email, String name, String password) async {
     final payload = {
       'email': email,
       'name': name,
       'password': password,
-     
     };
     try {
       final body = await DioHelper.post(ApiConfig.register, payload: payload);
@@ -77,5 +78,16 @@ class AuthRemoteDatasource {
     throw ServerException();
   }
 
-
+  Future<Unit> logout() async {
+    try {
+      final body = await DioHelper.post(ApiConfig.logout);
+      DioHelper.removeToken();
+      return unit;
+    } on ServerException catch (e) {
+      if (e.statusCode == 401) {
+        throw UnauthenticatedException();
+      }
+    }
+    throw ServerException();
+  }
 }

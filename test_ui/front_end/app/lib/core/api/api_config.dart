@@ -1,9 +1,9 @@
 class ApiConfig {
-  static const String baseUrl = '/api/';
-  static const String register = 'user/register';
-  static const String login = 'user/login';
-  static const String logout = 'user/logout';
-  static const String checkToken = 'user/check';
+  static const String baseUrl = 'http://192.168.1.25:3000/';
+  static const String register = 'api/users/register';
+  static const String login = 'api/users/login';
+  static const String logout = 'api/users/logout';
+  static const String checkToken = 'api/users/check';
 
   // static const String getProducts = 'product';
   // static const String getProductById = 'product/';

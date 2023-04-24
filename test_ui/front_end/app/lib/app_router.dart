@@ -39,7 +39,8 @@ class AppRouter {
 
     fluroRouter.define('login', handler: loginHandler);
     fluroRouter.define('register', handler: registerHandler);
-    fluroRouter.define('products', handler: congratHandler);
+    // fluroRouter.define('products', handler: congratHandler);
+    fluroRouter.define('congrat', handler: congratHandler);
 
     router = fluroRouter;
   }

@@ -16,3 +16,11 @@ class NetworkInfoImpl implements NetworkInfo {
     }
   }
 }
+
+class NetworkInfoImpl1 implements NetworkInfo {
+  final InternetConnectionChecker connectionChecker;
+
+  NetworkInfoImpl1(this.connectionChecker);
+  @override
+  Future<bool> get isConnected => connectionChecker.hasConnection;
+}

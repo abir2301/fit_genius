@@ -1,22 +1,36 @@
 import 'package:app/features/auth/presentation/components/rounded_button.dart';
 import 'package:app/features/auth/presentation/components/screen_header.dart';
+import 'package:app/features/auth/presentation/providers.dart';
+import 'package:app/features/auth/presentation/states/auth_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/app_theme.dart';
+import '../../../../core/utils/functions/display_snackbar.dart';
 
-class WelcomingScreen extends StatefulWidget {
+class WelcomingScreen extends ConsumerStatefulWidget {
   const WelcomingScreen({super.key});
 
   @override
-  State<WelcomingScreen> createState() => _WelcomingScreenState();
+  ConsumerState<WelcomingScreen> createState() => _WelcomingScreenState();
 }
 
-class _WelcomingScreenState extends State<WelcomingScreen> {
+class _WelcomingScreenState extends ConsumerState<WelcomingScreen> {
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(authProvider);
     final padding_v = MediaQuery.of(context).size.width * 0.1;
     final padding_h = MediaQuery.of(context).size.width * 0.1;
-
+    ref.listen(authProvider, (previous, next) {
+      if (next.isLoggedIn) {
+        Navigator.pushReplacementNamed(context, 'congrat');
+      } else {
+        String? error = next.getLoginError;
+        if (error != null) {
+          displaySnackbar(context, error);
+        }
+      }
+    });
     return Scaffold(
       backgroundColor: bgcolor,
       body: ListView(children: [
