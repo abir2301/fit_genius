@@ -39,19 +39,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   void _onSubmitted() {
     FocusScope.of(context).unfocus();
     bool isError = false;
-    if (_emailController.text.isEmpty) {
-      isError = true;
-      setState(() {
-        _emailError = 'required_field';
-      });
-    }
-    if (_passwordController.text.isEmpty) {
-      isError = true;
-      setState(() {
-        _passwordError = 'required_field';
-      });
-    }
-    if (!isError) {
+    // if (_emailController.text.isEmpty) {
+    //   isError = true;
+    //   setState(() {
+    //     _emailError = 'required_field';
+    //   });
+    // }
+    // if (_passwordController.text.isEmpty) {
+    //   isError = true;
+    //   setState(() {
+    //     _passwordError = 'required_field';
+    //   });
+    // }
+    if (_formKey.currentState!.validate()) {
       if (!ref.read(authProvider).isLoading) {
         ref
             .read(authProvider.notifier)
@@ -86,6 +86,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       if (next.isLoggedIn) {
         Navigator.of(context).pushReplacementNamed('congrat');
       } else {
+        print("not login in yet ");
         String? error = next.getLoginError;
         if (error != null) {
           displaySnackbar(context, error);
@@ -139,12 +140,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     },
                     isObsecure: false,
                     width: width,
-                    label: "",
-                    hintText: "",
+                    label: "Email",
+                    hintText: "abir@gmail.com",
                     controller: _emailController,
                     validator: (val) {
-                      if (val!.isEmpty) {
-                        return ("login code can not be empty ");
+                      if (val!.isValidEmail) {
+                        return ("invalid email ");
                       }
                     },
                   ),
@@ -158,12 +159,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       },
                       isObsecure: true,
                       width: width,
-                      label: "",
-                      hintText: "",
+                      label: "Password",
+                      hintText: "*****",
                       controller: _passwordController,
                       validator: (val) {
-                        if (val!.isEmpty) {
-                          return ("login code can not be empty ");
+                        if (val!.isValidPassword) {
+                          return ("invalid password  ");
                         }
                       }),
                   // RoundedButton(
@@ -189,11 +190,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   //             _emailController.text, _passwordController.text);
                   //       }
                   //     }
-
                   //   },
                   //   width: width,
                   //   withBgColor: true,
                   // ),
+
                   ElevatedButton(
                     onPressed: state.isLoading ? null : _onSubmitted,
                     style: ElevatedButton.styleFrom(primary: Colors.pink),
@@ -218,7 +219,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                 loggedIn: (_) => 'done'),
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 17.sp,
+                                //  fontSize: 17.sp,
                                 fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -226,7 +227,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-
                   Consumer(
                     builder: (context, ref, child) {
                       final state = ref.watch(authProvider);
@@ -251,7 +251,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       );
                     },
                   ),
-
                   TextButton(
                     onPressed: () =>
                         {Navigator.pushNamed(context, '/register')},

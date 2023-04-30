@@ -4,12 +4,12 @@ import 'package:app/features/auth/presentation/screens/registration_screens/cong
 import 'package:flutter/material.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/content.dart';
 
-class RegisterScreen extends StatefulWidget {
+class UserInformation extends StatefulWidget {
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _UserInformationState createState() => _UserInformationState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _UserInformationState extends State<UserInformation> {
   int currentIndex = 0;
   late PageController _controller;
 

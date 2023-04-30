@@ -4,14 +4,12 @@ import 'package:app/features/auth/presentation/screens/registration_screens/chro
 import 'package:app/features/auth/presentation/screens/registration_screens/deficiencies_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/excercices.dart';
 
-
 import 'package:app/features/auth/presentation/screens/registration_screens/phisical_condition_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/private_info_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 List<Widget> contents = [
-  ProfileScreen(),
   PrivateInfoScreen(),
   PhisicalConditionScreen(),
   DeficienciesScreen(),

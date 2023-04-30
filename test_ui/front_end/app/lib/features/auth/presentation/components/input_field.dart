@@ -12,6 +12,7 @@ class InputField extends StatelessWidget {
   TextEditingController controller;
   bool? isObsecure;
   String? Function(String?) validator;
+
   Function? onSubmitted;
   Function? onchange;
   TextInputType? textInputType;

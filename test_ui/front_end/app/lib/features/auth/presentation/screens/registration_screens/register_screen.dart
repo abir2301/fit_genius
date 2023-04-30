@@ -1,24 +1,24 @@
-import 'package:app/core/app_theme.dart';
 import 'package:app/core/extensions/string_extensions.dart';
-import 'package:app/features/auth/presentation/components/input_field.dart';
-import 'package:app/features/auth/presentation/components/screen_header.dart';
 import 'package:app/features/auth/presentation/providers.dart';
 import 'package:app/features/auth/presentation/states/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../core/app_theme.dart';
 import '../../../../../core/utils/functions/display_snackbar.dart';
 import '../../components/image.dart';
+import '../../components/input_field.dart';
+import '../../components/screen_header.dart';
 
-class ProfileScreen extends ConsumerStatefulWidget {
-  const ProfileScreen({super.key});
+class RegisterScreen extends ConsumerStatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  ConsumerState<ProfileScreen> createState() => _ProfileScreenState();
+  ConsumerState<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _ProfileScreenState extends ConsumerState<ProfileScreen> {
+class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

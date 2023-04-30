@@ -1,10 +1,12 @@
 import 'package:app/features/auth/presentation/screens/registration_screens/congrat_screen.dart';
+import 'package:app/features/auth/presentation/screens/registration_screens/register_screen.dart';
 import 'package:app/features/auth/presentation/screens/welcoming_screen.dart';
+import 'package:app/main_screen.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'features/auth/presentation/screens/user_info_screens.dart';
 
 import 'features/auth/presentation/screens/login_screen.dart';
-import 'features/auth/presentation/screens/registration-screen.dart';
 
 class AppRouter {
   static late FluroRouter router;
@@ -12,13 +14,21 @@ class AppRouter {
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return const LoginScreen();
   });
-  static Handler registerHandler = Handler(
+  static Handler userInfoHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+    return UserInformation();
+  });
+  static Handler registrationHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return RegisterScreen();
   });
   static Handler welcommingHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return const WelcomingScreen();
+  });
+  static Handler mainScreenHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+    return const MainScreen();
   });
   static Handler congratHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -35,10 +45,10 @@ class AppRouter {
             )),
       );
     });
-    fluroRouter.define('/', handler: welcommingHandler);
+    fluroRouter.define('/', handler: mainScreenHandler);
 
     fluroRouter.define('login', handler: loginHandler);
-    fluroRouter.define('register', handler: registerHandler);
+    // fluroRouter.define('/', handler: userInfoHandler);
     // fluroRouter.define('products', handler: congratHandler);
     fluroRouter.define('congrat', handler: congratHandler);
 

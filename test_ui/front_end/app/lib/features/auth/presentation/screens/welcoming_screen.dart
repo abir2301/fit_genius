@@ -1,6 +1,7 @@
 import 'package:app/features/auth/presentation/components/rounded_button.dart';
 import 'package:app/features/auth/presentation/components/screen_header.dart';
 import 'package:app/features/auth/presentation/providers.dart';
+import 'package:app/features/auth/presentation/screens/login_screen.dart';
 import 'package:app/features/auth/presentation/states/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,7 +32,8 @@ class _WelcomingScreenState extends ConsumerState<WelcomingScreen> {
         }
       }
     });
-    return Scaffold(
+    return 
+    Scaffold(
       backgroundColor: bgcolor,
       body: ListView(children: [
         Padding(
@@ -75,5 +77,7 @@ class _WelcomingScreenState extends ConsumerState<WelcomingScreen> {
         ),
       ]),
     );
+ 
+ 
   }
 }
