@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../models/");
 const Hp = db.hp;
+
 exports.create = async (req, res) => {
   const hp = req.body;
   if (Object.keys(req.body).length === 2) {
@@ -8,6 +9,7 @@ exports.create = async (req, res) => {
     const query = await Hp.findOne({
       where: {
         name: req.body.name,
+        type : req.body.type
       },
     });
     if (!query) {
@@ -135,3 +137,6 @@ exports.delete = async (req, res) => {
       });
   }
 };
+
+
+

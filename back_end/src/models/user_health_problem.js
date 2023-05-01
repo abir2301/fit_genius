@@ -1,4 +1,4 @@
-const userHp = (sequelize, Sequelize) => {
+module.exports = (sequelize, Sequelize) => {
   const UserHp = sequelize.define(
     "userHp",
     {},
@@ -10,4 +10,3 @@ const userHp = (sequelize, Sequelize) => {
 
   return UserHp;
 };
-module.exports = userHp;

@@ -25,20 +25,23 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = connection;
-db.sequelize
-  .sync({ alter : true })
-  .then(console.log("  successfully created tables  "))
-  .catch(function (err) {
-    console.log("Server failed to start due to error: %s", err);
-  });
 
-db.users = require("./user.js")(connection, Sequelize);
+db.user = require("./user.js")(connection, Sequelize);
 db.profile = require("./profile")(connection, Sequelize);
 db.hp = require("./health_problems")(connection, Sequelize);
 db.userHp = require("./user_health_problem")(connection, Sequelize);
-db.users.hasOne(db.profile, { onDelete: "CASCADE" });
-db.profile.belongsTo(db.users, { onDelete: "CASCADE" });
-db.users.belongsToMany(db.hp, { through: db.userHp });
-db.hp.belongsToMany(db.users, { through: db.userHp });
+db.userProgram = require("./user_program")(connection, Sequelize);
+db.user.hasOne(db.profile, { onDelete: "CASCADE" });
+db.profile.belongsTo(db.user, {
+  foreignKey: { allowNull: true },
+  onDelete: "CASCADE",
+});
+db.user.hasOne(db.userProgram, { onDelete: "CASCADE" });
+db.userProgram.belongsTo(db.user, {
+  foreignKey: { allowNull: true },
+  onDelete: "CASCADE",
+});
+db.user.belongsToMany(db.hp, { through: db.userHp, onDelete: "CASCADE" });
+db.hp.belongsToMany(db.user, { through: db.userHp, onDelete: "CASCADE" });
 
 module.exports = db;

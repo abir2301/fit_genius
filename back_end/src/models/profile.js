@@ -5,22 +5,17 @@ const profile = (sequelize, Sequelize) => {
       age: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        validate :{
-          isNumeric :{
-            msg : "age must be a number type "
-          }
-        }
-       
       },
       gender: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("male", "female", "other"),
+        //  type: Sequelize.STRING,
         allowNull: true,
-        validate: {
-          isIn: {
-            args: [["female", "male"]],
-            msg: "gender  value must be female or male ",
-          },
-        },
+        // validate: {
+        //   isIn: {
+        //     args: [["female", "male"]],
+        //     msg: "gender  value must be female or male ",
+        //   },
+        // },
       },
       weight: {
         type: Sequelize.FLOAT,
@@ -32,35 +27,49 @@ const profile = (sequelize, Sequelize) => {
         allowNull: true,
         isNumeric: true,
       },
-      diet_type: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-        validate: {
-          isIn: {
-            msg: " please verify goal input value ",
-            args: ["normal", "vegan", "vegitarian"],
-          },
-        },
-      },
+      // diet_type: {
+      //   type: Sequelize.TEXT,
+      //   allowNull: true,
+      //   validate: {
+      //     isIn: {
+      //       msg: " please verify goal input value ",
+      //       args: ["normal", "vegan", "vegitarian"],
+      //     },
+      //   },
+      // },
       activity_level: {
         type: Sequelize.TEXT,
+        type: Sequelize.ENUM(
+          "sedentary",
+          "lightly active",
+          "moderately active",
+          "very active",
+          "extra active"
+        ),
+
         allowNull: true,
-        validate: {
-          isIn: {
-            msg: " please verify activity level  input value ",
-            args: ["active", "light active", "very active"],
-          },
-        },
+        // validate: {
+        //   isIn: {
+        //     msg: " please verify activity level  input value ",
+        //     args: [
+        //       "sedentary",
+        //       "lightly-active",
+        //       "moderately active",
+        //       "very active",
+        //       "extra active",
+        //     ],
+        //   },
+        // },
       },
       goal: {
-        type: Sequelize.TEXT,
+        type: Sequelize.ENUM("lose weight", "maintain weight", "gain weight"),
         allowNull: true,
-          validate: {
-            isIn: {
-              msg: " please verify goal input value ",
-              args: ["lose weight", "maintain weight", "gain weight"],
-            }
-        },
+        // validate: {
+        //   isIn: {
+        //     msg: " please verify goal input value ",
+        //     args: ["lose weight", "maintain weight", "gain weight"],
+        //   },
+        // },
       },
     },
     {

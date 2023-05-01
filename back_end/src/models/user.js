@@ -1,10 +1,10 @@
 // const { default: isEmail } = require("validator/lib/isEmail")
-const bcrypt = require('bcrypt')
+const bcrypt = require("bcrypt");
 const user = (sequelize, Sequelize) => {
   const User = sequelize.define(
     "users",
     {
-      fullName: {
+      name: {
         type: Sequelize.STRING,
         validate: {
           len: {
@@ -13,13 +13,12 @@ const user = (sequelize, Sequelize) => {
           },
         },
         allowNull: false,
-       
       },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
-       
+         unique: true,
+
         validate: {
           notNull: {
             msg: "email must not be null ",
@@ -33,13 +32,12 @@ const user = (sequelize, Sequelize) => {
       password: {
         type: Sequelize.STRING,
         allowNull: false,
-        set(value){
+        set(value) {
           const salt = bcrypt.genSaltSync(12);
-          const hash = bcrypt.hashSync(value, salt)
+          const hash = bcrypt.hashSync(value, salt);
           console.log(bcrypt.compare(hash, value));
-          this.setDataValue("password", hash );
+          this.setDataValue("password", hash);
         },
-        
       },
     },
     {
@@ -48,7 +46,6 @@ const user = (sequelize, Sequelize) => {
     }
   );
 
-  
   return User;
 };
 module.exports = user;
