@@ -87,3 +87,6 @@ String? getUserMessageFromProductError(ProductError error) {
   }
   return null;
 }
+enum UserInfoError{
+  invalidInputs 
+}

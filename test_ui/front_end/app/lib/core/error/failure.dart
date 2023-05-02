@@ -77,3 +77,11 @@ class UnauthenticatedFailure extends Failure {
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
+class UserInfoFailure extends Failure {
+  List<UserInfoError>? errors ; 
+  UserInfoFailure({this.errors});
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+
+}

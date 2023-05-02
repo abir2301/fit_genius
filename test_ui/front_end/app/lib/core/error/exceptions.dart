@@ -20,6 +20,11 @@ class RegisterException implements Exception {
 
 class CheckTokenException implements Exception {}
 
-
-
 class UnauthenticatedException implements Exception {}
+
+class UserInfo implements Exception {
+  List<String>? messages;
+  UserInfo({
+    this.messages,
+  });
+}
