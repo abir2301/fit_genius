@@ -1,6 +1,8 @@
 import 'package:app/features/auth/presentation/components/regsiter-screens_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../core/app_theme.dart';
 import '../../components/image.dart';
 import '../../components/input_field.dart';
 import '../../components/label_radio.dart';
@@ -79,12 +81,37 @@ class _PhisicalConditionScreenState extends State<PhisicalConditionScreen> {
             textInputType: TextInputType.number,
             hintText: '2 for exemple ',
             label: '',
-            validator: (value){},
+            validator: (value) {},
           ),
           ImageWidget(
             width: MediaQuery.of(context).size.width * 0.5,
             imageUrl: 'assets/images/yoga.png',
-          )
+          ),
+          TextButton(
+            onPressed: () {
+              // print("button");
+              // FocusScope.of(context).unfocus();
+              // if (_formKey.currentState!.validate()) {
+              //   if (!ref.read(authProvider).isLoading) {
+              //     print("register ");
+              //     ref.read(authProvider.notifier).register(
+              //           _emailController.text,
+              //           _nameController.text,
+              //           _passwordController.text,
+              //         );
+              //   }
+              // }
+            },
+            child: Text(
+              " Submit",
+              style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: primaryColor,
+                      fontSize: 15)),
+              textAlign: TextAlign.start,
+            ),
+          ),
         ],
       )
     ]);

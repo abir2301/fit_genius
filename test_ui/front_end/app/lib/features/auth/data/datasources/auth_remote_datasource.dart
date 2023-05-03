@@ -68,7 +68,10 @@ class AuthRemoteDatasource {
     try {
       final body = await DioHelper.get(ApiConfig.checkToken);
       final map = jsonDecode(body) as Map;
+      print(map);
       final userMap = map['user'] as Map<String, dynamic>;
+      print("user ");
+      print(userMap);
       return userMap;
     } on ServerException catch (e) {
       if (e.statusCode == 401) {

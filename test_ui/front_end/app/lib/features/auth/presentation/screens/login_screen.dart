@@ -167,65 +167,66 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           return ("invalid password  ");
                         }
                       }),
-                  // RoundedButton(
-                  //   text: 'Login',
-                  //   onPress: () async {
-                  //     FocusScope.of(context).unfocus();
-                  //     bool isError = false;
-                  //     if (_emailController.text.isEmpty) {
-                  //       isError = true;
-                  //       setState(() {
-                  //         _emailError = 'required_field';
-                  //       });
-                  //     }
-                  //     if (_passwordController.text.isEmpty) {
-                  //       isError = true;
-                  //       setState(() {
-                  //         _passwordError = 'required_field';
-                  //       });
-                  //     }
-                  //     if (!isError) {
-                  //       if (!ref.read(authProvider).isLoading) {
-                  //         ref.read(authProvider.notifier).login(
-                  //             _emailController.text, _passwordController.text);
-                  //       }
-                  //     }
-                  //   },
-                  //   width: width,
-                  //   withBgColor: true,
+                  RoundedButton(
+                    text: 'Login',
+                    onPress: () async {
+                      FocusScope.of(context).unfocus();
+                      bool isError = false;
+                      if (_emailController.text.isEmpty) {
+                        isError = true;
+                        setState(() {
+                          _emailError = 'required_field';
+                        });
+                      }
+                      if (_passwordController.text.isEmpty) {
+                        isError = true;
+                        setState(() {
+                          _passwordError = 'required_field';
+                        });
+                      }
+                      if (!isError) {
+                        if (!ref.read(authProvider).isLoading) {
+                          ref.read(authProvider.notifier).login(
+                              _emailController.text, _passwordController.text);
+                        }
+                      }
+                    },
+                    width: width,
+                    withBgColor: true,
+                  ),
+
+                  // ElevatedButton(
+                  //   onPressed: state.isLoading ? null : _onSubmitted,
+                  //   style: ElevatedButton.styleFrom(primary: Colors.pink),
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Row(
+                  //       crossAxisAlignment: CrossAxisAlignment.center,
+                  //       mainAxisSize: MainAxisSize.min,
+                  //       children: [
+                  //         state.maybeWhen(
+                  //             orElse: () => const Icon(Icons.login_rounded,
+                  //                 color: Colors.white, size: 30),
+                  //             loggingIn: () => const CircularProgressIndicator(
+                  //                 color: Colors.white),
+                  //             loggedIn: (_) => const Icon(Icons.done,
+                  //                 color: Colors.white, size: 30)),
+                  //         const SizedBox(width: 10),
+                  //         Text(
+                  //           state.maybeWhen(
+                  //               orElse: () => 'login',
+                  //               loggingIn: () => 'logging_in',
+                  //               loggedIn: (_) => 'done'),
+                  //           style: TextStyle(
+                  //               color: Colors.white,
+                  //               //  fontSize: 17.sp,
+                  //               fontWeight: FontWeight.bold),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
                   // ),
 
-                  ElevatedButton(
-                    onPressed: state.isLoading ? null : _onSubmitted,
-                    style: ElevatedButton.styleFrom(primary: Colors.pink),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          state.maybeWhen(
-                              orElse: () => const Icon(Icons.login_rounded,
-                                  color: Colors.white, size: 30),
-                              loggingIn: () => const CircularProgressIndicator(
-                                  color: Colors.white),
-                              loggedIn: (_) => const Icon(Icons.done,
-                                  color: Colors.white, size: 30)),
-                          const SizedBox(width: 10),
-                          Text(
-                            state.maybeWhen(
-                                orElse: () => 'login',
-                                loggingIn: () => 'logging_in',
-                                loggedIn: (_) => 'done'),
-                            style: TextStyle(
-                                color: Colors.white,
-                                //  fontSize: 17.sp,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                   const SizedBox(height: 10),
                   Consumer(
                     builder: (context, ref, child) {

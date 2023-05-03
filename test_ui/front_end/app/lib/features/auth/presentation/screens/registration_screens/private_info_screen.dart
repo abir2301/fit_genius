@@ -4,6 +4,7 @@ import 'package:app/features/auth/presentation/components/label_radio.dart';
 import 'package:app/features/auth/presentation/components/regsiter-screens_pattern.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/cache/cache_healper.dart';
 import '../../components/screen_header.dart';
 
 class PrivateInfoScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
     "assets/images/balancoire.png",
     "assets/images/body.png"
   ];
+
   @override
   Widget build(BuildContext context) {
     return RegsiterScreensPatern(list: [
@@ -43,6 +45,9 @@ class _PrivateInfoScreenState extends State<PrivateInfoScreen> {
             height: 10,
           ),
           InputField(
+              onchange: (String value) {
+                print(value);
+              },
               label: "Weight",
               hintText: "70 Kg",
               controller: weightController,

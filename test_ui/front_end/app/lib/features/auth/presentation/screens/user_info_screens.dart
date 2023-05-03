@@ -33,7 +33,7 @@ class _UserInformationState extends State<UserInformation> {
           Expanded(
             child: PageView.builder(
               controller: _controller,
-              itemCount: contents.length,
+              itemCount: contents!.length,
               onPageChanged: (int index) {
                 setState(() {
                   currentIndex = index;

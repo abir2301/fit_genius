@@ -12,7 +12,7 @@ class InputField extends StatelessWidget {
   TextEditingController controller;
   bool? isObsecure;
   String? Function(String?) validator;
-
+  Function? onEditingComplete;
   Function? onSubmitted;
   Function? onchange;
   TextInputType? textInputType;
@@ -24,6 +24,7 @@ class InputField extends StatelessWidget {
       required this.validator,
       this.onSubmitted,
       this.onchange,
+      this.onEditingComplete,
       this.icon,
       this.isObsecure,
       this.textInputType})
@@ -45,6 +46,9 @@ class InputField extends StatelessWidget {
           SizedBox(
             width: width,
             child: TextFormField(
+              onEditingComplete: onEditingComplete,
+
+              onChanged: (value) => onchange,
               obscuringCharacter: '*',
               textAlign: TextAlign.start,
               obscureText: isObsecure ?? false,

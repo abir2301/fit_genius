@@ -30,6 +30,7 @@ class AppRouter {
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return const MainScreen();
   });
+  //UserInformation
   static Handler congratHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return const CongratScreen();
@@ -45,10 +46,10 @@ class AppRouter {
             )),
       );
     });
-    fluroRouter.define('/', handler: mainScreenHandler);
-
+    //fluroRouter.define('/', handler: mainScreenHandler);
+    //  fluroRouter.define('/', handler: registrationHandler);
     fluroRouter.define('login', handler: loginHandler);
-    // fluroRouter.define('/', handler: userInfoHandler);
+    fluroRouter.define('/', handler: userInfoHandler);
     // fluroRouter.define('products', handler: congratHandler);
     fluroRouter.define('congrat', handler: congratHandler);
 

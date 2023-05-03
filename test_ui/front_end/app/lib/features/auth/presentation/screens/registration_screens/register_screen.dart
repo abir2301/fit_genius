@@ -37,7 +37,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     final state = ref.watch(authProvider);
     ref.listen(authProvider, (previous, next) {
       if (next.isRegistered) {
-        Navigator.of(context).pushReplacementNamed('congrat');
+        Navigator.of(context).pushReplacementNamed('userInfo');
       } else {
         String? error = next.getRegisterError;
         if (error != null) {
@@ -118,7 +118,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     controller: _passwordController,
                     hintText: '*******',
                     validator: (value) {
-                      if (!value!.isValidPassword) {
+                      if (value!.isEmpty) {
                         return (' Invalid password');
                       }
                       return null;
