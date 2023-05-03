@@ -19,14 +19,16 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     return Consumer(builder: (context, ref, child) {
       final state = ref.watch(authProvider);
       return state.maybeWhen(
-          unnauthenticated: () => WelcomingScreen(),
-          initial: () => InitialScreen(),
-          orElse: () => InitialScreen(),
-          loggingOut: () => WelcomingScreen(),
-          loggedOut: () => WelcomingScreen(),
-          loggedIn: (_) => CongratScreen(),
-          registered: (_) => CongratScreen(),
-          checked: (_) => CongratScreen());
+        checkingToken: () => InitialScreen(),
+        checked: (_) => CongratScreen(),
+        unnauthenticated: () => WelcomingScreen(),
+        initial: () => InitialScreen(),
+        orElse: () => WelcomingScreen(),
+        loggingOut: () => WelcomingScreen(),
+        loggedOut: () => WelcomingScreen(),
+        loggedIn: (_) => CongratScreen(),
+        registered: (_) => CongratScreen(),
+      );
     });
   }
 }

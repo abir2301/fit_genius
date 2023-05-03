@@ -22,9 +22,9 @@ class CheckTokenException implements Exception {}
 
 class UnauthenticatedException implements Exception {}
 
-class UserInfo implements Exception {
+class UserInfoException implements Exception {
   List<String>? messages;
-  UserInfo({
+  UserInfoException({
     this.messages,
   });
 }

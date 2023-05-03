@@ -24,6 +24,7 @@ mixin _$Profile {
   String get weight => throw _privateConstructorUsedError;
   String get height => throw _privateConstructorUsedError;
   String get goal => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
   String get activity_level => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $ProfileCopyWith<$Res> {
       String weight,
       String height,
       String goal,
+      String gender,
       String activity_level});
 }
 
@@ -61,6 +63,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? weight = null,
     Object? height = null,
     Object? goal = null,
+    Object? gender = null,
     Object? activity_level = null,
   }) {
     return _then(_value.copyWith(
@@ -79,6 +82,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
       goal: null == goal
           ? _value.goal
           : goal // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
       activity_level: null == activity_level
           ? _value.activity_level
@@ -100,6 +107,7 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       String weight,
       String height,
       String goal,
+      String gender,
       String activity_level});
 }
 
@@ -117,6 +125,7 @@ class __$$_ProfileCopyWithImpl<$Res>
     Object? weight = null,
     Object? height = null,
     Object? goal = null,
+    Object? gender = null,
     Object? activity_level = null,
   }) {
     return _then(_$_Profile(
@@ -136,6 +145,10 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.goal
           : goal // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
       activity_level: null == activity_level
           ? _value.activity_level
           : activity_level // ignore: cast_nullable_to_non_nullable
@@ -152,6 +165,7 @@ class _$_Profile implements _Profile {
       required this.weight,
       required this.height,
       required this.goal,
+      required this.gender,
       required this.activity_level});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
@@ -166,11 +180,13 @@ class _$_Profile implements _Profile {
   @override
   final String goal;
   @override
+  final String gender;
+  @override
   final String activity_level;
 
   @override
   String toString() {
-    return 'Profile(age: $age, weight: $weight, height: $height, goal: $goal, activity_level: $activity_level)';
+    return 'Profile(age: $age, weight: $weight, height: $height, goal: $goal, gender: $gender, activity_level: $activity_level)';
   }
 
   @override
@@ -182,14 +198,15 @@ class _$_Profile implements _Profile {
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.goal, goal) || other.goal == goal) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.activity_level, activity_level) ||
                 other.activity_level == activity_level));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, age, weight, height, goal, activity_level);
+  int get hashCode => Object.hash(
+      runtimeType, age, weight, height, goal, gender, activity_level);
 
   @JsonKey(ignore: true)
   @override
@@ -211,6 +228,7 @@ abstract class _Profile implements Profile {
       required final String weight,
       required final String height,
       required final String goal,
+      required final String gender,
       required final String activity_level}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
@@ -223,6 +241,8 @@ abstract class _Profile implements Profile {
   String get height;
   @override
   String get goal;
+  @override
+  String get gender;
   @override
   String get activity_level;
   @override

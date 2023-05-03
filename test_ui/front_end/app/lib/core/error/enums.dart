@@ -87,6 +87,45 @@ String? getUserMessageFromProductError(ProductError error) {
   }
   return null;
 }
-enum UserInfoError{
-  invalidInputs 
+
+enum UserInfoError {
+  invalidAge,
+  invalidHeight,
+  invalidWeight,
+  invalidGoal,
+  invalidActivity_level,
+  invalidGender,
+  healthProblemError
+}
+
+List<UserInfoError> mapProfileErrorsFromMessages(List<String> messages) {
+  List<UserInfoError> errors = [];
+  if (messages.contains("Weight must be a number") ||
+      messages.contains("weight is  invalid.")) {
+    errors.add(UserInfoError.invalidWeight);
+  }
+   if (messages.contains("Gender must be male or female") ||
+      messages.contains("gender is invalid.")) {
+    errors.add(UserInfoError.invalidGender);
+  }
+  if (messages.contains("height must be a number") ||
+      messages.contains("height is  invalid.")) {
+    errors.add(UserInfoError.invalidHeight);
+  }
+  if (messages.contains("age must be a number") ||
+      messages.contains("age is  invalid.")) {
+    errors.add(UserInfoError.invalidAge);
+  }
+  if (messages.contains("goal  must be  gain or lost ") ||
+      messages.contains("goal is invalid.")) {
+    errors.add(UserInfoError.invalidGoal);
+  }
+  if (messages.contains("activity level   must be   or  ") ||
+      messages.contains("activity_level  is  invalid.")) {
+    errors.add(UserInfoError.invalidActivity_level);
+  }
+  if (messages.contains("invalid selected health problem .")) {
+    errors.add(UserInfoError.healthProblemError);
+  }
+  return errors;
 }

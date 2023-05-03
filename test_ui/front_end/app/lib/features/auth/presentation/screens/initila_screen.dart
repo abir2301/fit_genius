@@ -13,7 +13,7 @@ class InitialScreen extends ConsumerStatefulWidget {
 class _InitialScreenState extends ConsumerState<InitialScreen> {
   @override
   Widget build(BuildContext context) {
-    final padding_v = MediaQuery.of(context).size.width * 0.1;
+    final padding_v = MediaQuery.of(context).size.width * 0.3;
     final padding_h = MediaQuery.of(context).size.width * 0.1;
     return Scaffold(
       backgroundColor: bgcolor,

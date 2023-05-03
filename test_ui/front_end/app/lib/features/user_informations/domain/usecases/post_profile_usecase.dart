@@ -8,8 +8,8 @@ class PostProfileUsecase {
   late ProfileRepository profileRepository;
   PostProfileUsecase({required this.profileRepository});
   Future<Either<Profile, Failure>> call(int age, String weight, String height,
-      String goal, String activity_level) async {
+      String goal, String activity_level, String gender) async {
     return await profileRepository.postProfile(
-        age, weight, height, goal, activity_level);
+        age, weight, height, goal, activity_level, gender);
   }
 }

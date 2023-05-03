@@ -10,6 +10,7 @@ class Profile with _$Profile {
     required String weight,
     required String height,
     required String goal,
+    required String gender,
     required String activity_level,
   }) = _Profile;
   factory Profile.fromJson(Map<String, dynamic> json) =>
