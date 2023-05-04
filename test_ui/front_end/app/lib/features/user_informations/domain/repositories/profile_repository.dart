@@ -2,16 +2,11 @@ import 'package:app/features/user_informations/domain/models/profile.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failure.dart';
+import '../models/hp.dart';
 
 abstract class ProfileRepository {
-  Future<Either<Profile, Failure>> postProfile(
-      int age,
-      String weight,
-      // ignore: non_constant_identifier_names
-      String height,
-      String goal,
-      String gender,
-      String activity_level);
+  Future<Either<Profile, Failure>> postProfile(int age, String weight,
+      String height, String goal, String gender, String activity_level);
   Future<Either<Profile, Failure>> getProfile();
   Future<Either<Unit, Failure>> updateProfile(
       int age,
@@ -21,4 +16,8 @@ abstract class ProfileRepository {
       String goal,
       String activity_level,
       String gender);
+
+  Future<Either<Hps, Failure>> getHps(String type);
+  Future<Either<Hps, Failure>> postHp(String name);
+  Future<Either<Hps, Failure>> removeHp(String name);
 }

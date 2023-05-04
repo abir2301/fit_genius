@@ -73,7 +73,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         return (' Invalid email');
                       }
                       return null;
-                    },
+                    }, onEditingComplete: () {  },
                   ),
                   SizedBox(
                     height: 10,
@@ -97,7 +97,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         return (' Invalid user name ');
                       }
                       return null;
-                    },
+                    }, onEditingComplete: () {  },
                   ),
                   SizedBox(
                     height: 10,
@@ -122,7 +122,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         return (' Invalid password');
                       }
                       return null;
-                    },
+                    }, onEditingComplete: () {  },
                   ),
                   TextButton(
                     onPressed: () {

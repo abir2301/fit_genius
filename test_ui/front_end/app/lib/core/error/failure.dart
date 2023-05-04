@@ -83,5 +83,18 @@ class UserInfoFailure extends Failure {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
-
+ 
 }
+// class UserHpFailure extends Failure {
+//   String? message;
+//   WrongDataFailure({
+//     this.message,
+//   });
+// }
+
+
+//   class HpsFailure extends Failure {
+//   String? message;
+//   WrongDataFailure({
+//     this.message,
+//   });}

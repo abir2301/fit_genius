@@ -19,7 +19,7 @@ mixin _$UserInfoState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
@@ -29,7 +29,7 @@ mixin _$UserInfoState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
@@ -39,7 +39,7 @@ mixin _$UserInfoState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
@@ -50,7 +50,7 @@ mixin _$UserInfoState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -62,7 +62,7 @@ mixin _$UserInfoState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -72,7 +72,7 @@ mixin _$UserInfoState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -147,7 +147,7 @@ class _$_UserInfoInitial
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
@@ -160,7 +160,7 @@ class _$_UserInfoInitial
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
@@ -173,7 +173,7 @@ class _$_UserInfoInitial
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
@@ -190,7 +190,7 @@ class _$_UserInfoInitial
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -205,7 +205,7 @@ class _$_UserInfoInitial
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -218,7 +218,7 @@ class _$_UserInfoInitial
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -261,13 +261,13 @@ class _$_UserInfoStateLoading
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserInfoState.isLoading()';
+    return 'UserInfoState.loading()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'UserInfoState.isLoading'));
+    properties.add(DiagnosticsProperty('type', 'UserInfoState.loading'));
   }
 
   @override
@@ -283,41 +283,41 @@ class _$_UserInfoStateLoading
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
   }) {
-    return isLoading();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
   }) {
-    return isLoading?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
     required TResult orElse(),
   }) {
-    if (isLoading != null) {
-      return isLoading();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -326,7 +326,7 @@ class _$_UserInfoStateLoading
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -334,35 +334,35 @@ class _$_UserInfoStateLoading
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
   }) {
-    return isLoading(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
   }) {
-    return isLoading?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
     required TResult orElse(),
   }) {
-    if (isLoading != null) {
-      return isLoading(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
@@ -448,7 +448,7 @@ class _$_UserInfoStateError
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
@@ -461,7 +461,7 @@ class _$_UserInfoStateError
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
@@ -474,7 +474,7 @@ class _$_UserInfoStateError
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
@@ -491,7 +491,7 @@ class _$_UserInfoStateError
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -506,7 +506,7 @@ class _$_UserInfoStateError
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -519,7 +519,7 @@ class _$_UserInfoStateError
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -593,7 +593,7 @@ class _$_UserInfoStatePostingProfile
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
@@ -606,7 +606,7 @@ class _$_UserInfoStatePostingProfile
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
@@ -619,7 +619,7 @@ class _$_UserInfoStatePostingProfile
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
@@ -636,7 +636,7 @@ class _$_UserInfoStatePostingProfile
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -651,7 +651,7 @@ class _$_UserInfoStatePostingProfile
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -664,7 +664,7 @@ class _$_UserInfoStatePostingProfile
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -770,7 +770,7 @@ class _$_UserInfoStatePostedProfile
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
@@ -783,7 +783,7 @@ class _$_UserInfoStatePostedProfile
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
@@ -796,7 +796,7 @@ class _$_UserInfoStatePostedProfile
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
@@ -813,7 +813,7 @@ class _$_UserInfoStatePostedProfile
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -828,7 +828,7 @@ class _$_UserInfoStatePostedProfile
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -841,7 +841,7 @@ class _$_UserInfoStatePostedProfile
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -965,7 +965,7 @@ class _$_UserInfoStatePostingProfileError
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLoading,
+    required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
@@ -978,7 +978,7 @@ class _$_UserInfoStatePostingProfileError
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLoading,
+    TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
@@ -991,7 +991,7 @@ class _$_UserInfoStatePostingProfileError
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLoading,
+    TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
@@ -1008,7 +1008,7 @@ class _$_UserInfoStatePostingProfileError
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UserInfoInitial value) initial,
-    required TResult Function(_UserInfoStateLoading value) isLoading,
+    required TResult Function(_UserInfoStateLoading value) loading,
     required TResult Function(_UserInfoStateError value) error,
     required TResult Function(_UserInfoStatePostingProfile value)
         postingProfile,
@@ -1023,7 +1023,7 @@ class _$_UserInfoStatePostingProfileError
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserInfoInitial value)? initial,
-    TResult? Function(_UserInfoStateLoading value)? isLoading,
+    TResult? Function(_UserInfoStateLoading value)? loading,
     TResult? Function(_UserInfoStateError value)? error,
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
@@ -1036,7 +1036,7 @@ class _$_UserInfoStatePostingProfileError
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserInfoInitial value)? initial,
-    TResult Function(_UserInfoStateLoading value)? isLoading,
+    TResult Function(_UserInfoStateLoading value)? loading,
     TResult Function(_UserInfoStateError value)? error,
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,

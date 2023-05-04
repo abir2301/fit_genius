@@ -5,8 +5,8 @@ import '../../../../core/error/exceptions.dart';
 import '../../../../core/network/dio_helper.dart';
 
 class UserInfoRemoteDataSource {
-  Future<Map<String, String>> postProfile(int age, String weight, String height,
-      String goal, String activity_level, String gender) async {
+  Future<Map<String, dynamic>> postProfile(int age, String weight,
+      String height, String goal, String activity_level, String gender) async {
     final payload = {
       'age': age,
       "height": height,
@@ -20,7 +20,7 @@ class UserInfoRemoteDataSource {
       final body =
           await DioHelper.post(ApiConfig.postProfile, payload: payload);
       final map = jsonDecode(body) as Map;
-      final profile = map['data'] as Map<String, String>;
+      final profile = map['data'] as Map<String, dynamic>;
       return profile;
     } on ServerException catch (e) {
       if (e.statusCode == 401) {

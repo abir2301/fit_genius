@@ -12,7 +12,7 @@ class InputField extends StatelessWidget {
   TextEditingController controller;
   bool? isObsecure;
   String? Function(String?) validator;
-  Function? onEditingComplete;
+  final Function() onEditingComplete;
   Function? onSubmitted;
   Function? onchange;
   TextInputType? textInputType;
@@ -24,7 +24,7 @@ class InputField extends StatelessWidget {
       required this.validator,
       this.onSubmitted,
       this.onchange,
-      this.onEditingComplete,
+      required this.onEditingComplete,
       this.icon,
       this.isObsecure,
       this.textInputType})

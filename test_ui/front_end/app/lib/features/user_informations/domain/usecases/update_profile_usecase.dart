@@ -8,8 +8,8 @@ class UpdateProfileUsecase {
   late ProfileRepository profileRepository;
   UpdateProfileUsecase({required this.profileRepository});
   Future<Either<Unit, Failure>> call(int age, String weight, String height,
-      String goal, String activity_level) async {
+      String goal, String activity_level, String gender) async {
     return await profileRepository.updateProfile(
-        age, weight, height, goal, activity_level);
+        age, weight, height, goal, activity_level, gender);
   }
 }

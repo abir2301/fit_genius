@@ -83,11 +83,12 @@ class _ExcercicesScreenState extends State<ExcercicesScreen> {
       ),
       screenHeader(title: " How many times/week ?", size: 20),
       InputField(
+          onEditingComplete: () {},
           textInputType: TextInputType.number,
           label: "",
           hintText: "2",
           controller: excerciceController,
-          validator: (val){}),
+          validator: (val) {}),
       Container(
         height: MediaQuery.of(context).size.height,
         child: ListView.builder(

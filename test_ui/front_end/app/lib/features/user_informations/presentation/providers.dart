@@ -3,7 +3,7 @@ import 'package:app/features/user_informations/presentation/viewmodel/profile_vi
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '/injection_container.dart' as ic;
 
-final profileProvider =
+final userInfoProvider =
     StateNotifierProvider<ProfileViewModel, UserInfoState>((ref) {
   return ic.sl<ProfileViewModel>();
 });

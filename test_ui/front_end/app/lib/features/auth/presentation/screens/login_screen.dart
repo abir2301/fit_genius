@@ -147,7 +147,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       if (val!.isValidEmail) {
                         return ("invalid email ");
                       }
-                    },
+                    }, onEditingComplete: () {  },
                   ),
                   InputField(
                       onchange: (txt) {
@@ -166,7 +166,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         if (val!.isValidPassword) {
                           return ("invalid password  ");
                         }
-                      }),
+                      }, onEditingComplete: () {  },),
                   RoundedButton(
                     text: 'Login',
                     onPress: () async {

@@ -74,6 +74,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       }
                       return null;
                     },
+                    onEditingComplete: () {},
                   ),
                   SizedBox(
                     height: 10,
@@ -98,6 +99,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       }
                       return null;
                     },
+                    onEditingComplete: () {},
                   ),
                   SizedBox(
                     height: 10,
@@ -123,6 +125,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       }
                       return null;
                     },
+                    onEditingComplete: () {},
                   ),
                   TextButton(
                     onPressed: () {
