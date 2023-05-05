@@ -69,9 +69,9 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
   void postingProfile() async {
     state = UserInfoState.postingProfile();
   }
-   void postedgProfile() async {
+
+  void postedgProfile() async {
     state = UserInfoState.postedProfile(profile: profile!);
-    
   }
 
   void display() {
@@ -80,7 +80,7 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
 
   void postProfile() async {
     print("credentiall " + weight + height);
-
+    state = UserInfoState.loading();
     final either = await postProfileUsecase(
         age, weight, height, goal, activity_level, gender);
     either.fold((profile) {

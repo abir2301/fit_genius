@@ -24,10 +24,6 @@ class _InitialScreenState extends ConsumerState<InitialScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              screenHeader(
-                title: "Fit-Genius \n App",
-                size: 30,
-              ),
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.1,
               ),

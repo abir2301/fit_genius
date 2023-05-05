@@ -3,33 +3,35 @@ import 'package:app/features/auth/presentation/components/label_checkedbox.dart'
 import 'package:app/features/auth/presentation/components/register_screen/question.component.dart';
 import 'package:app/features/auth/presentation/components/regsiter-screens_pattern.dart';
 import 'package:app/features/auth/presentation/components/screen_header.dart';
+import 'package:app/features/user_informations/presentation/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:math';
 
 import '../../../../../core/data.dart';
+import '../../../../user_informations/domain/models/hp.dart';
 import '../../components/label_radio.dart';
 
-class DeficienciesScreen extends StatefulWidget {
+class DeficienciesScreen extends ConsumerStatefulWidget {
   const DeficienciesScreen({super.key});
 
   @override
-  State<DeficienciesScreen> createState() => _DeficienciesScreenState();
+  ConsumerState<DeficienciesScreen> createState() => _DeficienciesScreenState();
 }
 
-class _DeficienciesScreenState extends State<DeficienciesScreen> {
+class _DeficienciesScreenState extends ConsumerState<DeficienciesScreen> {
   bool _isRadioSelected = false;
   int selected_index = 0;
   final deficiencies = Data.deficiencies;
-  Map<String, bool> userDeficiencies = {
-    'Iron': false,
-    'Vitamin D': false,
-    'Vitamin B12': false,
-    'Calcium': false,
-    'Magnesium': false,
-    'Other': false
-  };
+  bool enable = false;
+  List<bool> bools = [false, false, false, false];
+
+  late Hps? hps;
+
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(hpProvider);
+
     return RegsiterScreensPatern(list: [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -62,19 +64,11 @@ class _DeficienciesScreenState extends State<DeficienciesScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LabelRadio(
-                label: "Yes ",
+                label: "Yes",
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 groupValue: _isRadioSelected,
                 value: true,
                 onChanged: (bool newValue) {
-                  userDeficiencies = {
-                    'Iron': false,
-                    'Vitamin D': false,
-                    'Vitamin B12': false,
-                    'Calcium': false,
-                    'Magnesium': false,
-                    'Other': false
-                  };
                   setState(() {
                     print("new value on change = $newValue");
                     _isRadioSelected = newValue;
@@ -87,16 +81,9 @@ class _DeficienciesScreenState extends State<DeficienciesScreen> {
                 groupValue: _isRadioSelected,
                 value: false,
                 onChanged: (bool newValue) {
-                  userDeficiencies = {
-                    'Iron': false,
-                    'Vitamin D': false,
-                    'Vitamin B12': false,
-                    'Calcium': false,
-                    'Magnesium': false,
-                    'Other': false
-                  };
                   setState(() {
                     _isRadioSelected = newValue;
+                    bools = [false, false, false, false];
                   });
                 },
               )
@@ -105,26 +92,53 @@ class _DeficienciesScreenState extends State<DeficienciesScreen> {
         ),
       ),
       Container(
-        height: MediaQuery.of(context).size.height,
-        child: ListView.builder(
-            itemCount: deficiencies.length,
-            itemBuilder: (context, index) {
-              return LabeledCheckbox(
-                label: deficiencies[index],
-                value: userDeficiencies[deficiencies[index]] ?? false,
-                onChanged: (bool result) {
-                  if (_isRadioSelected) {
-                    setState(() {
-                      userDeficiencies[deficiencies[index]] = result;
-                      Data.userDeficiencies = userDeficiencies;
-                    });
-                  }
-                },
-              );
-            }),
-      )
-   
-   
+          height: MediaQuery.of(context).size.width * 0.8,
+          child: state.maybeWhen(
+            orElse: () => const Center(
+                child: Text(
+              "something went wrong ",
+              style: TextStyle(fontWeight: FontWeight.bold, color: pink),
+            )),
+            loading: () => Container(
+              height: 100,
+              width: 100,
+              child: const CircularProgressIndicator(
+                color: pink,
+              ),
+            ),
+            loadedDef: (hps) => ListView.builder(
+                itemCount: hps.data.length,
+                itemBuilder: (context, index) {
+                  return LabeledCheckbox(
+                    label: hps.data[index].name,
+                    value: bools[index],
+                    onChanged: (bool result) {
+                      if (_isRadioSelected) {
+                        setState(() {
+                          bools[index] = !bools[index];
+                          if (bools[index] == true) {
+                            ref
+                                .read(hpProvider.notifier)
+                                .addUserHp(hps.data[index]);
+                          } else {
+                            ref
+                                .read(hpProvider.notifier)
+                                .removeUserHp(hps.data[index]);
+                          }
+                        });
+                      }
+                    },
+                  );
+                }),
+          )),
+      Container(
+          child: TextButton(
+              onPressed: () {
+                if (ref.read(hpProvider.notifier).userHps.data.length != 0) {
+                  ref.read(hpProvider.notifier).postUserHp();
+                }
+              },
+              child: Text('submit '))),
     ]);
   }
 }

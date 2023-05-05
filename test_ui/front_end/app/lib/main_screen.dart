@@ -23,7 +23,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         checked: (_) => CongratScreen(),
         unnauthenticated: () => WelcomingScreen(),
         initial: () => InitialScreen(),
-        orElse: () => InitialScreen(),
+        orElse: () => WelcomingScreen(),
         loggingOut: () => WelcomingScreen(),
         loggedOut: () => WelcomingScreen(),
         loggedIn: (_) => CongratScreen(),

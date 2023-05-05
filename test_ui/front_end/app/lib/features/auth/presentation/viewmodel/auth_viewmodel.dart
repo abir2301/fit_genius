@@ -87,17 +87,21 @@ class AuthViewModel extends StateNotifier<AuthState> {
   }
 
   void checkToken() async {
+    print("chekkin ");
     state = const AuthState.checkingToken();
     final either = await checkTokenUsecase();
     either.fold((user) {
       this.user = user;
       state = AuthState.checked(user: user);
+      print("is checked ");
+      print(user);
     }, (failure) {
       if (failure is OfflineFailure) {
         state = AuthState.checkTokenError(error: 'no_internet');
       } else if (failure is ServerFailure) {
         state = AuthState.checkTokenError(error: 'went_wrong_when_reconnect');
       } else if (failure is UnauthenticatedFailure) {
+        print("is unautenticated ");
         state = const AuthState.unnauthenticated();
       }
     });

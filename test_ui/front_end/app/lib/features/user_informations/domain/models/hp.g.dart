@@ -7,11 +7,13 @@ part of 'hp.dart';
 // **************************************************************************
 
 _$_Hp _$$_HpFromJson(Map<String, dynamic> json) => _$_Hp(
+      id: json['id'] as int,
       name: json['name'] as String,
       type: json['type'] as String,
     );
 
 Map<String, dynamic> _$$_HpToJson(_$_Hp instance) => <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'type': instance.type,
     };

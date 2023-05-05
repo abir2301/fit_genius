@@ -8,10 +8,9 @@ class ApiConfig {
   static const String postProfile = 'api/profiles/post';
   static const String getProfile = 'api/users/profiles/get';
   static const String putProfile = 'api/users/profiles/put';
-  // static const String getProducts = 'product';
-  // static const String getProductById = 'product/';
-
-  // static const String getCart = 'cart';
-  // static const String addToCart = 'cart/item';
-  // static const String removeFromCart = 'cart/item';
+  //manage health problems
+  // static const String getUserHp = 'api/profiles/post';
+  static const String postHp = 'api/users/hp';
+  // static const String deleteHp = 'api/profiles/post';
+  static const String getHps = 'api/hp';
 }

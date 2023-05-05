@@ -147,26 +147,29 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       if (val!.isValidEmail) {
                         return ("invalid email ");
                       }
-                    }, onEditingComplete: () {  },
+                    },
+                    onEditingComplete: () {},
                   ),
                   InputField(
-                      onchange: (txt) {
-                        if (txt.isNotEmpty) {
-                          setState(() {
-                            _passwordError = null;
-                          });
-                        }
-                      },
-                      isObsecure: true,
-                      width: width,
-                      label: "Password",
-                      hintText: "*****",
-                      controller: _passwordController,
-                      validator: (val) {
-                        if (val!.isValidPassword) {
-                          return ("invalid password  ");
-                        }
-                      }, onEditingComplete: () {  },),
+                    onchange: (txt) {
+                      if (txt.isNotEmpty) {
+                        setState(() {
+                          _passwordError = null;
+                        });
+                      }
+                    },
+                    isObsecure: true,
+                    width: width,
+                    label: "Password",
+                    hintText: "*****",
+                    controller: _passwordController,
+                    validator: (val) {
+                      if (val!.isValidPassword) {
+                        return ("invalid password  ");
+                      }
+                    },
+                    onEditingComplete: () {},
+                  ),
                   RoundedButton(
                     text: 'Login',
                     onPress: () async {
@@ -253,8 +256,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     },
                   ),
                   TextButton(
-                    onPressed: () =>
-                        {Navigator.pushNamed(context, '/register')},
+                    onPressed: () => {Navigator.pushNamed(context, 'register')},
                     child: Text(
                       " don't have an account ?",
                       style: GoogleFonts.poppins(

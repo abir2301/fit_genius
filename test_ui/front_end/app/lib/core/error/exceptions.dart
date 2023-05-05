@@ -28,3 +28,12 @@ class UserInfoException implements Exception {
     this.messages,
   });
 }
+
+class HpsException implements Exception {}
+
+class HpException implements Exception {
+  int? statusCode;
+  HpException({
+    this.statusCode,
+  });
+}

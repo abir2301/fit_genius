@@ -5,6 +5,7 @@ part 'hp.g.dart';
 @freezed
 class Hp with _$Hp {
   const factory Hp({
+    required int id,
     required String name,
     required String type,
   }) = _Hp;

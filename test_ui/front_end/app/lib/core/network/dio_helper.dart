@@ -43,7 +43,8 @@ class DioHelper {
 
   static Future<String> get(String url, {Map<String, dynamic>? payload}) async {
     try {
-      final response = await _dio.get(url, queryParameters: payload);
+      final response =
+          await _dio.get(url, queryParameters: payload, data: payload);
       if (response.statusCode != 200) {
         throw ServerException(
             statusCode: response.statusCode, error: response.data);

@@ -20,6 +20,7 @@ Hp _$HpFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Hp {
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
@@ -33,7 +34,7 @@ abstract class $HpCopyWith<$Res> {
   factory $HpCopyWith(Hp value, $Res Function(Hp) then) =
       _$HpCopyWithImpl<$Res, Hp>;
   @useResult
-  $Res call({String name, String type});
+  $Res call({int id, String name, String type});
 }
 
 /// @nodoc
@@ -48,10 +49,15 @@ class _$HpCopyWithImpl<$Res, $Val extends Hp> implements $HpCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -70,7 +76,7 @@ abstract class _$$_HpCopyWith<$Res> implements $HpCopyWith<$Res> {
       __$$_HpCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String type});
+  $Res call({int id, String name, String type});
 }
 
 /// @nodoc
@@ -82,10 +88,15 @@ class __$$_HpCopyWithImpl<$Res> extends _$HpCopyWithImpl<$Res, _$_Hp>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? type = null,
   }) {
     return _then(_$_Hp(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -101,10 +112,12 @@ class __$$_HpCopyWithImpl<$Res> extends _$HpCopyWithImpl<$Res, _$_Hp>
 /// @nodoc
 @JsonSerializable()
 class _$_Hp implements _Hp {
-  const _$_Hp({required this.name, required this.type});
+  const _$_Hp({required this.id, required this.name, required this.type});
 
   factory _$_Hp.fromJson(Map<String, dynamic> json) => _$$_HpFromJson(json);
 
+  @override
+  final int id;
   @override
   final String name;
   @override
@@ -112,7 +125,7 @@ class _$_Hp implements _Hp {
 
   @override
   String toString() {
-    return 'Hp(name: $name, type: $type)';
+    return 'Hp(id: $id, name: $name, type: $type)';
   }
 
   @override
@@ -120,13 +133,14 @@ class _$_Hp implements _Hp {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Hp &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, type);
+  int get hashCode => Object.hash(runtimeType, id, name, type);
 
   @JsonKey(ignore: true)
   @override
@@ -143,11 +157,15 @@ class _$_Hp implements _Hp {
 }
 
 abstract class _Hp implements Hp {
-  const factory _Hp({required final String name, required final String type}) =
-      _$_Hp;
+  const factory _Hp(
+      {required final int id,
+      required final String name,
+      required final String type}) = _$_Hp;
 
   factory _Hp.fromJson(Map<String, dynamic> json) = _$_Hp.fromJson;
 
+  @override
+  int get id;
   @override
   String get name;
   @override

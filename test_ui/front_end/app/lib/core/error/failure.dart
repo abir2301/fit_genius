@@ -25,11 +25,11 @@ class ServerFailure extends Failure {
 }
 
 class EmptyCacheFailure extends Failure {
-   String? message;
+  String? message;
   EmptyCacheFailure({
     this.message,
   });
-  
+
   @override
   // TODO: implement props
   List<Object?> get props => [];
@@ -40,17 +40,18 @@ class WrongDataFailure extends Failure {
   WrongDataFailure({
     this.message,
   });
-  
+
   @override
   // TODO: implement props
   List<Object?> get props => [];
 }
+
 class LoginFailure extends Failure {
   List<LoginError>? errors;
   LoginFailure({
     this.errors,
   });
-  
+
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
@@ -61,7 +62,7 @@ class RegisterFailure extends Failure {
   RegisterFailure({
     this.errors,
   });
-  
+
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
@@ -72,29 +73,35 @@ class CheckTokenFailure extends Failure {
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
+
 class UnauthenticatedFailure extends Failure {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
+
 class UserInfoFailure extends Failure {
-  List<UserInfoError>? errors ; 
+  List<UserInfoError>? errors;
   UserInfoFailure({this.errors});
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
- 
 }
-// class UserHpFailure extends Failure {
-//   String? message;
-//   WrongDataFailure({
-//     this.message,
-//   });
-// }
 
+class HpFailure extends Failure {
+  String? message;
+  HpFailure({
+    this.message,
+  });
 
-//   class HpsFailure extends Failure {
-//   String? message;
-//   WrongDataFailure({
-//     this.message,
-//   });}
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}
+
+class HpsFailure extends Failure {
+  
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}

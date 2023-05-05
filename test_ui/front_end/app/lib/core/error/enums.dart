@@ -104,7 +104,7 @@ List<UserInfoError> mapProfileErrorsFromMessages(List<String> messages) {
       messages.contains("weight is  invalid.")) {
     errors.add(UserInfoError.invalidWeight);
   }
-   if (messages.contains("Gender must be male or female") ||
+  if (messages.contains("Gender must be male or female") ||
       messages.contains("gender is invalid.")) {
     errors.add(UserInfoError.invalidGender);
   }
@@ -128,4 +128,22 @@ List<UserInfoError> mapProfileErrorsFromMessages(List<String> messages) {
     errors.add(UserInfoError.healthProblemError);
   }
   return errors;
+}
+
+enum HpError {
+  notFoundError,
+}
+
+HpError? getHpErrorFromStatusCode(int statusCode) {
+  if (statusCode == 404) {
+    return HpError.notFoundError;
+  }
+  return null;
+}
+
+String? getUserMessageFromHpError(ProductError error) {
+  if (error == HpError.notFoundError) {
+    return 'not found hp';
+  }
+  return null;
 }
