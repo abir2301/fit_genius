@@ -19,7 +19,7 @@ class HpRemoteDataSource {
       print(data);
       return data;
     } on ServerException catch (e) {
-      if (e.statusCode == 422) {
+      if (e.statusCode == 404) {
         throw HpsException();
       }
     }

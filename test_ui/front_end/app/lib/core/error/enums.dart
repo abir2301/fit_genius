@@ -143,7 +143,43 @@ HpError? getHpErrorFromStatusCode(int statusCode) {
 
 String? getUserMessageFromHpError(ProductError error) {
   if (error == HpError.notFoundError) {
-    return 'not found hp';
+    return 'not_found_hp';
+  }
+  return null;
+}
+
+enum ProgramError {
+  notFoundError,
+}
+
+ProgramError? getProgramErrorFromStatusCode(int statusCode) {
+  if (statusCode == 404) {
+    return ProgramError.notFoundError;
+  }
+  return null;
+}
+
+String? getUserMessageFromProgramError(ProgramError error) {
+  if (error == ProgramError.notFoundError) {
+    return 'program_not_found';
+  }
+  return null;
+}
+
+enum UserProgramError {
+  notFoundError,
+}
+
+UserProgramError? getUserProgramErrorFromStatusCode(int statusCode) {
+  if (statusCode == 404) {
+    return UserProgramError.notFoundError;
+  }
+  return null;
+}
+
+String? getUserMessageFromUserProgramError(UserProgramError error) {
+  if (error == ProductError.notFoundError) {
+    return 'user_program_not_found';
   }
   return null;
 }

@@ -1,6 +1,7 @@
 import 'package:app/features/auth/presentation/screens/registration_screens/congrat_screen.dart';
 import 'package:app/features/auth/presentation/screens/registration_screens/register_screen.dart';
 import 'package:app/features/auth/presentation/screens/welcoming_screen.dart';
+import 'package:app/features/programs/presentation/views/screens/test_program.dart';
 import 'package:app/main_screen.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,11 @@ class AppRouter {
     return const CongratScreen();
   });
 
+  static Handler userHomeHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+    return const TestProgramScreens();
+  });
+
   static void configureRoutes(FluroRouter fluroRouter) {
     fluroRouter.notFoundHandler = Handler(
         handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -46,10 +52,11 @@ class AppRouter {
             )),
       );
     });
-    //fluroRouter.define('/', handler: mainScreenHandler);
+    fluroRouter.define('/', handler: mainScreenHandler);
     fluroRouter.define('register', handler: registrationHandler);
     fluroRouter.define('login', handler: loginHandler);
-    fluroRouter.define('/', handler: userInfoHandler);
+    //fluroRouter.define('/', handler: userInfoHandler);
+    fluroRouter.define('/home', handler: userHomeHandler);
     // fluroRouter.define('products', handler: congratHandler);
     fluroRouter.define('congrat', handler: congratHandler);
 

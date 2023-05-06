@@ -100,8 +100,27 @@ class HpFailure extends Failure {
 }
 
 class HpsFailure extends Failure {
-  
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
+
+class ProgramFailure extends Failure {
+  ProgramError? error;
+  ProgramFailure({
+    this.error,
+  });
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}
+class USerProgramFailure extends Failure {
+  ProgramError? error;
+  USerProgramFailure({
+    this.error,
+  });
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}
+

@@ -1,10 +1,12 @@
 import 'package:app/features/auth/presentation/screens/registration_screens/congrat_screen.dart';
 import 'package:app/features/auth/presentation/screens/welcoming_screen.dart';
+import 'package:app/features/programs/presentation/views/screens/test_program.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'features/auth/presentation/providers.dart';
 import 'features/auth/presentation/screens/initila_screen.dart';
+import 'features/programs/presentation/views/pages/main_screen.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({super.key});
@@ -20,7 +22,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       final state = ref.watch(authProvider);
       return state.maybeWhen(
         checkingToken: () => InitialScreen(),
-        checked: (_) => CongratScreen(),
+        checked: (_) => FRTabbarScreen(),
         unnauthenticated: () => WelcomingScreen(),
         initial: () => InitialScreen(),
         orElse: () => WelcomingScreen(),

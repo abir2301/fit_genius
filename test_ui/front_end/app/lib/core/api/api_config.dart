@@ -13,4 +13,7 @@ class ApiConfig {
   static const String postHp = 'api/users/hp';
   // static const String deleteHp = 'api/profiles/post';
   static const String getHps = 'api/hp';
+  // user program
+  static const getProgram = 'api/plans/';
+  static const getPerformance = 'api/plans/performance';
 }

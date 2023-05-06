@@ -37,3 +37,17 @@ class HpException implements Exception {
     this.statusCode,
   });
 }
+
+class ProgramException implements Exception {
+  int? statusCode;
+  ProgramException({
+    this.statusCode,
+  });
+}
+
+class UserProgramException implements Exception {
+  int? statusCode;
+  UserProgramException({
+    this.statusCode,
+  });
+}
