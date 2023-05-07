@@ -1,3 +1,4 @@
+import 'package:app/core/cache/cache_healper.dart';
 import 'package:app/features/programs/presentation/states/program_state.dart';
 import 'package:app/features/user_informations/presentation/providers.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,19 @@ class CaloryProgressor extends ConsumerStatefulWidget {
 
 class _CaloryProgressorState extends ConsumerState<CaloryProgressor> {
   Program? program;
+  // @override
+  // void initState() {
+  //   Future<void>.delayed(Duration.zero, () {
+  //     // ref.read(programProvider.notifier).calculFoodCalories();
+  //     // print("calories total ");
+  //     // print(
+  //     //   ref.read(programProvider.notifier).calories.toDouble(),
+  //     // );
+  //     super.initState();
+  //   });
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(programProvider);
@@ -38,17 +52,18 @@ class _CaloryProgressorState extends ConsumerState<CaloryProgressor> {
                       .toString(),
                   style: ScreenTextIndication(),
                 ),
-                orElse: () => Text("0", style: ScreenTextIndication()),
+                orElse: () => Text("??", style: ScreenTextIndication()),
                 loading: () => Text("?", style: ScreenTextIndication()),
                 initial: () => Text(
                   "?",
                   style: ScreenTextIndication(),
                 ),
                 todayProgram: (program) => Text(
-                  ref
-                      .read(programProvider.notifier)
-                      .consumedCalories
-                      .toString(),
+                  "1200",
+                  // ref
+                  //     .read(programProvider.notifier)
+                  //     .consumedCalories
+                  //     .toString(),
                   style: ScreenTextIndication(),
                 ),
               ),
@@ -61,13 +76,10 @@ class _CaloryProgressorState extends ConsumerState<CaloryProgressor> {
         ),
         Container(
             child: CircularProgressor(
-          radius: 40,
-          currentProgress: ref
-              .read(programProvider.notifier)
-              .getConsumedCalories()
-              .toDouble(),
-          result: ref.read(programProvider.notifier).calories.toDouble() ?? 100,
-        )),
+                radius: 40,
+                currentProgress: CacheHelper.getInt("calories").toDouble(),
+                //ref.read(programProvider.notifier).consumedCalories.toDouble(),
+                result: CacheHelper.getInt("calories").toDouble())),
         Padding(
           padding:
               EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),

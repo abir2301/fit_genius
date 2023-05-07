@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:app/core/cache/cache_healper.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart'; // Import the intl package
 
@@ -25,19 +26,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   String _todayDate = '';
   List meals = Data.mealsPlan['meals'] as List;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _updateTodayDate();
-  // }
-
-  // void _updateTodayDate() {
-  //   setState(() {
-  //     _todayDate = DateFormat.yMd().format(DateTime.now());
-  //   });
-
-  //   Timer(Duration(seconds: 1), _updateTodayDate);
-  // }
+  @override
+  void initState() {
+    Future<void>.delayed(Duration.zero, () {
+      super.initState();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,45 +136,98 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               height: 10,
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width * 0.5,
-                              child: GridView.builder(
-                                  itemCount: data.length,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  padding: const EdgeInsets.only(
-                                    left: 5,
-                                    right: 1,
-                                  ),
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 4,
-                                    childAspectRatio: 0.8,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    return Align(
-                                      alignment: Alignment.center,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          CircularProgressor(
-                                            radius: 30,
-                                            currentProgress: data[index]
-                                                ['curent'],
-                                            result: data[index]['result'],
-                                          ),
-                                          SizedBox(
-                                            height: 30,
-                                          ),
-                                          Text(
-                                            data[index]['titre'],
-                                            style:
-                                                ScreenTextIndication(size: 15),
-                                          )
-                                        ],
+                                height: MediaQuery.of(context).size.width * 0.5,
+                                child: state.maybeWhen(
+                                  orElse: () => Center(
+                                      child: Text('something went wrong ')),
+                                  loading: () => Center(
+                                    child: Container(
+                                      child: CircularProgressIndicator(
+                                        color: pink,
                                       ),
-                                    );
-                                  }),
-                            )
+                                    ),
+                                  ),
+                                  todayProgram: (userProgram) =>
+                                      GridView.builder(
+                                          itemCount: 3,
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          padding: const EdgeInsets.only(
+                                            left: 5,
+                                            right: 1,
+                                          ),
+                                          gridDelegate:
+                                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 4,
+                                            childAspectRatio: 0.8,
+                                          ),
+                                          itemBuilder: (context, index) {
+                                            return Align(
+                                              alignment: Alignment.center,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  CircularProgressor(
+                                                    radius: 30,
+                                                    currentProgress:
+                                                        CacheHelper.getInt(
+                                                                "fats")
+                                                            .toDouble(),
+                                                    result: data[index]
+                                                        ['result'],
+                                                  ),
+                                                  SizedBox(
+                                                    height: 30,
+                                                  ),
+                                                  Text(
+                                                    data[index]['titre'],
+                                                    style: ScreenTextIndication(
+                                                        size: 15),
+                                                  )
+                                                ],
+                                              ),
+                                            );
+                                          }),
+                                  newCalcul: (userProgram) => GridView.builder(
+                                      itemCount: 3,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      padding: const EdgeInsets.only(
+                                        left: 5,
+                                        right: 1,
+                                      ),
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 4,
+                                        childAspectRatio: 0.8,
+                                      ),
+                                      itemBuilder: (context, index) {
+                                        return Align(
+                                          alignment: Alignment.center,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              CircularProgressor(
+                                                radius: 30,
+                                                currentProgress: data[index]
+                                                    ['curent'],
+                                                result: data[index]['result'],
+                                              ),
+                                              SizedBox(
+                                                height: 30,
+                                              ),
+                                              Text(
+                                                data[index]['titre'],
+                                                style: ScreenTextIndication(
+                                                    size: 15),
+                                              )
+                                            ],
+                                          ),
+                                        );
+                                      }),
+                                ))
                           ],
                         ),
                       ]),

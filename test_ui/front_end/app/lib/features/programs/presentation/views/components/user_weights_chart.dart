@@ -24,14 +24,14 @@ class _WeightChartState extends ConsumerState<WeightChart> {
   @override
   void initState() {
     Future<void>.delayed(Duration.zero, () {
-      ref.read(programProvider.notifier).getPeformance();
+      ref.read(performanceProvider.notifier).getPeformance();
       super.initState();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(programProvider);
+    final state = ref.watch(performanceProvider);
     return state.maybeWhen(
       initial: () => Center(
         child: Container(

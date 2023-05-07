@@ -14,10 +14,8 @@ import '../../domain/usecases/get_program_usecase.dart';
 
 class ProgramViewModel extends StateNotifier<ProgramState> {
   late GetProgramUsecase getProgramUsecase;
-  late GetPerformanceUsecase getPerformanceUsecase;
-  Program? program;
 
-  UserPerformance? userPerformance;
+  Program? program;
 
   late List<Meal> todayMeals = [];
   int consumedProtein = 0;
@@ -27,7 +25,7 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
   int consumedCalories = 0;
   int expendedCalories = 0;
   int protein = 0;
-  int nbWeek = 0;
+
   int fats = 0;
   int carbs = 0;
   int calories = 0;
@@ -38,10 +36,10 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
     {"titre": "carbs", "result": 100.0, "curent": 10.0},
     {"titre": "fibers", "result": 100.0, "curent": 10.0}
   ];
-  ProgramViewModel(
-      {required this.getProgramUsecase, required this.getPerformanceUsecase})
-      : super(const ProgramState.initial()) {
-    // init();
+  ProgramViewModel({
+    required this.getProgramUsecase,
+  }) : super(const ProgramState.initial()) {
+    init();
 
     // calculFoodCalories();
     // calculFoodCarbs();
@@ -55,43 +53,73 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
     int today = int.parse(DateFormat('yyyyMMdd').format(DateTime.now()));
     state = const ProgramState.initial();
     if (CacheHelper.containsKey("date")) {
+      print("cache date " + CacheHelper.getInt("date").toString());
       if (CacheHelper.getInt("date") == today) {
-        print("today ");
+        print("today program ");
         await getProgram();
-        print(program);
-        print("object");
+
+        calculFoodCalories();
+        calculFoodCarbs();
+        calculFoodProtein();
+        calculFoodFats();
+
+        if (!CacheHelper.containsKey("carbs")) {
+          CacheHelper.setInt("carbs", carbs);
+        }
+        if (!CacheHelper.containsKey("fats")) {
+          CacheHelper.setInt("fats", fats);
+        }
+        if (!CacheHelper.containsKey("calories")) {
+          CacheHelper.setInt("calories", calories);
+        }
+        if (!CacheHelper.containsKey("protein")) {
+          CacheHelper.setInt("protein", protein);
+        }
+        print(CacheHelper.getInt("calories"));
+
         state = ProgramState.todayProgram(userProgram: program!);
-      } else if (CacheHelper.getInt("date") - today < -7) {
+      } else if (CacheHelper.getInt("week") - today < -7) {
         await getProgram();
         iniDate();
+        initWeek();
         initBools();
+
+        calculFoodCalories();
+        calculFoodCarbs();
+        calculFoodProtein();
+        calculFoodFats();
         print("new week");
-        // state = ProgramState.newWeekProgram(userProgram: program!);
         state = ProgramState.todayProgram(userProgram: program!);
       } else {
         await getProgram();
         initBools();
-        print("new day");
-        //  state = ProgramState.newDayProgram(userProgram: program!);
+        iniDate();
+
+        calculFoodCalories();
+        calculFoodCarbs();
+        calculFoodProtein();
+        calculFoodFats();
+        print("new day program ");
         state = ProgramState.todayProgram(userProgram: program!);
       }
     } else {
       state = const ProgramState.gettingProgram();
-
       await getProgram();
       iniDate();
       initBools();
+      initWeek();
+
+      calculFoodCalories();
+      calculFoodCarbs();
+      calculFoodProtein();
+      calculFoodFats();
       state = ProgramState.todayProgram(userProgram: program!);
     }
 
-    calculFoodCalories();
-    calculFoodCarbs();
-    calculFoodProtein();
-    calculFoodFats();
-
-    // await getPeformance();
-    // nbWeek = userPerformance!.data.length;
-    // print(nbWeek);
+    // calculFoodCalories();
+    // calculFoodCarbs();
+    // calculFoodProtein();
+    // calculFoodFats();
   }
 
 // get data of now
@@ -116,6 +144,11 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
         "date", int.parse(DateFormat('yyyyMMdd').format(DateTime.now())));
   }
 
+  void initWeek() {
+    CacheHelper.setInt(
+        "week", int.parse(DateFormat('yyyyMMdd').format(DateTime.now())));
+  }
+
 // usecase
   Future<void> getProgram() async {
     state = ProgramState.gettingProgram();
@@ -128,7 +161,7 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
       if (failure is OfflineFailure) {
         state = const ProgramState.error(error: 'no_internet');
       } else if (failure is ServerFailure) {
-        state = const ProgramState.error(error: 'went wrong ');
+        state = const ProgramState.error(error: ' server went wrong ');
       } else if (failure is UnauthenticatedFailure) {
         state = const ProgramState.error(error: 'went_wrong_register_again');
       } else if (failure is ProgramFailure) {
@@ -140,33 +173,9 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
     return null;
   }
 
-  Future<void> getPeformance() async {
-    state = ProgramState.gettingPerformance();
-    final either = await getPerformanceUsecase();
-    either.fold((performance) {
-      userPerformance = performance;
-      // nbWeek = performance.data.length;
-      state = ProgramState.loadedPerformance(userPErformance: performance);
-      print("view model performace ");
-      print(performance);
-    }, (failure) {
-      if (failure is OfflineFailure) {
-        state = const ProgramState.error(error: 'no_internet');
-      } else if (failure is ServerFailure) {
-        state = const ProgramState.error(error: 'went wrong ');
-      } else if (failure is UnauthenticatedFailure) {
-        state = const ProgramState.error(error: 'went_wrong_register_again');
-      }
-      // else  {
-      //   state = ProgramState.performanceError(
-      //       error: getUSerMessageFr(
-      //           failure.error as UserProgramError));
-      // }
-    });
-  }
-
 // calcul  total food credential
   void calculFoodCarbs() {
+    carbs = 0;
     for (int i = 0; i < program!.meals.length; i++) {
       carbs += carbs + program!.meals[i].carbs;
     }
@@ -174,6 +183,7 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
   }
 
   void calculFoodCalories() {
+    calories = 0;
     for (int i = 0; i < program!.meals.length; i++) {
       calories += calories + program!.meals[i].calories;
     }
@@ -181,12 +191,14 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
   }
 
   void calculFoodProtein() {
+    protein = 0;
     for (int i = 0; i < program!.meals.length; i++) {
       protein += protein + program!.meals[i].protein;
     }
   }
 
   void calculFoodFats() {
+    fats = 0;
     for (int i = 0; i < program!.meals.length; i++) {
       fats += fats + program!.meals[i].fats;
     }
@@ -213,6 +225,8 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
         consumedProtein += i.protein;
       }
     }
+    print("consumed protein = ");
+    print(consumedProtein);
   }
 
   void addCarbs(String meal) {
@@ -244,9 +258,22 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
     addCalories(name);
     addCarbs(name);
     addFats(name);
-    addFats(name);
+    addProtein(name);
     print("fn consumed calories ");
-    print(consumedCalories);
+    print(
+        "${consumedCalories} cal ${consumedCarbs} carbs + ${consumedFats} fats + ${consumedProtein}");
+    state = ProgramState.newCalcul(userProgram: program!);
+  }
+
+  void unselectMeal(String name) {
+    CacheHelper.setBool(name, false);
+    removeCalories(name);
+    removeCarbs(name);
+    removeFats(name);
+    removeProtein(name);
+    print("fn consumed calories ");
+    print(
+        "${consumedCalories} cal ${consumedCarbs} carbs + ${consumedFats} fats + ${consumedProtein}");
     state = ProgramState.newCalcul(userProgram: program!);
   }
 

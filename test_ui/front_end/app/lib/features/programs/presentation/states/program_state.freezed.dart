@@ -25,6 +25,9 @@ mixin _$ProgramState {
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -43,6 +46,8 @@ mixin _$ProgramState {
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -60,6 +65,8 @@ mixin _$ProgramState {
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -80,6 +87,7 @@ mixin _$ProgramState {
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -99,6 +107,7 @@ mixin _$ProgramState {
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -116,6 +125,7 @@ mixin _$ProgramState {
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -199,6 +209,9 @@ class _$_ProgramInitial
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -220,6 +233,8 @@ class _$_ProgramInitial
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -240,6 +255,8 @@ class _$_ProgramInitial
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -266,6 +283,7 @@ class _$_ProgramInitial
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -288,6 +306,7 @@ class _$_ProgramInitial
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -308,6 +327,7 @@ class _$_ProgramInitial
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -381,6 +401,9 @@ class _$_ProgramStateLoading
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -402,6 +425,8 @@ class _$_ProgramStateLoading
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -422,6 +447,8 @@ class _$_ProgramStateLoading
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -448,6 +475,7 @@ class _$_ProgramStateLoading
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -470,6 +498,7 @@ class _$_ProgramStateLoading
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -490,6 +519,7 @@ class _$_ProgramStateLoading
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -566,6 +596,9 @@ class _$_ProgramStateGettingProgram
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -587,6 +620,8 @@ class _$_ProgramStateGettingProgram
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -607,6 +642,8 @@ class _$_ProgramStateGettingProgram
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -633,6 +670,7 @@ class _$_ProgramStateGettingProgram
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -655,6 +693,7 @@ class _$_ProgramStateGettingProgram
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -675,6 +714,7 @@ class _$_ProgramStateGettingProgram
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -752,6 +792,9 @@ class _$_ProgramStateGettingPerformance
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -773,6 +816,8 @@ class _$_ProgramStateGettingPerformance
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -793,6 +838,8 @@ class _$_ProgramStateGettingPerformance
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -819,6 +866,7 @@ class _$_ProgramStateGettingPerformance
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -841,6 +889,7 @@ class _$_ProgramStateGettingPerformance
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -861,6 +910,7 @@ class _$_ProgramStateGettingPerformance
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -976,6 +1026,9 @@ class _$_ProgramStateLoadedProgram
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -997,6 +1050,8 @@ class _$_ProgramStateLoadedProgram
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -1017,6 +1072,8 @@ class _$_ProgramStateLoadedProgram
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -1043,6 +1100,7 @@ class _$_ProgramStateLoadedProgram
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -1065,6 +1123,7 @@ class _$_ProgramStateLoadedProgram
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1085,6 +1144,7 @@ class _$_ProgramStateLoadedProgram
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1206,6 +1266,9 @@ class _$_ProgramStateloadedPerformance
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -1227,6 +1290,8 @@ class _$_ProgramStateloadedPerformance
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -1247,6 +1312,8 @@ class _$_ProgramStateloadedPerformance
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -1273,6 +1340,7 @@ class _$_ProgramStateloadedPerformance
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -1295,6 +1363,7 @@ class _$_ProgramStateloadedPerformance
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1315,6 +1384,7 @@ class _$_ProgramStateloadedPerformance
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1340,6 +1410,266 @@ abstract class _ProgramStateloadedPerformance implements ProgramState {
   @JsonKey(ignore: true)
   _$$_ProgramStateloadedPerformanceCopyWith<_$_ProgramStateloadedPerformance>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ProgramStateloadedDataCopyWith<$Res> {
+  factory _$$_ProgramStateloadedDataCopyWith(_$_ProgramStateloadedData value,
+          $Res Function(_$_ProgramStateloadedData) then) =
+      __$$_ProgramStateloadedDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserPerformance userPErformance, Program userProgram});
+
+  $UserPerformanceCopyWith<$Res> get userPErformance;
+  $ProgramCopyWith<$Res> get userProgram;
+}
+
+/// @nodoc
+class __$$_ProgramStateloadedDataCopyWithImpl<$Res>
+    extends _$ProgramStateCopyWithImpl<$Res, _$_ProgramStateloadedData>
+    implements _$$_ProgramStateloadedDataCopyWith<$Res> {
+  __$$_ProgramStateloadedDataCopyWithImpl(_$_ProgramStateloadedData _value,
+      $Res Function(_$_ProgramStateloadedData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userPErformance = null,
+    Object? userProgram = null,
+  }) {
+    return _then(_$_ProgramStateloadedData(
+      userPErformance: null == userPErformance
+          ? _value.userPErformance
+          : userPErformance // ignore: cast_nullable_to_non_nullable
+              as UserPerformance,
+      userProgram: null == userProgram
+          ? _value.userProgram
+          : userProgram // ignore: cast_nullable_to_non_nullable
+              as Program,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserPerformanceCopyWith<$Res> get userPErformance {
+    return $UserPerformanceCopyWith<$Res>(_value.userPErformance, (value) {
+      return _then(_value.copyWith(userPErformance: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProgramCopyWith<$Res> get userProgram {
+    return $ProgramCopyWith<$Res>(_value.userProgram, (value) {
+      return _then(_value.copyWith(userProgram: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ProgramStateloadedData
+    with DiagnosticableTreeMixin
+    implements _ProgramStateloadedData {
+  const _$_ProgramStateloadedData(
+      {required this.userPErformance, required this.userProgram});
+
+  @override
+  final UserPerformance userPErformance;
+  @override
+  final Program userProgram;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProgramState.loadedData(userPErformance: $userPErformance, userProgram: $userProgram)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProgramState.loadedData'))
+      ..add(DiagnosticsProperty('userPErformance', userPErformance))
+      ..add(DiagnosticsProperty('userProgram', userProgram));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ProgramStateloadedData &&
+            (identical(other.userPErformance, userPErformance) ||
+                other.userPErformance == userPErformance) &&
+            (identical(other.userProgram, userProgram) ||
+                other.userProgram == userProgram));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userPErformance, userProgram);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ProgramStateloadedDataCopyWith<_$_ProgramStateloadedData> get copyWith =>
+      __$$_ProgramStateloadedDataCopyWithImpl<_$_ProgramStateloadedData>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() gettingProgram,
+    required TResult Function() gettingPerformance,
+    required TResult Function(Program program) loadedProgram,
+    required TResult Function(UserPerformance userPErformance)
+        loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
+    required TResult Function(List<String>? errors, String? error) programError,
+    required TResult Function(String error) error,
+    required TResult Function(List<String>? errors, String? error)
+        performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
+  }) {
+    return loadedData(userPErformance, userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? gettingProgram,
+    TResult? Function()? gettingPerformance,
+    TResult? Function(Program program)? loadedProgram,
+    TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
+    TResult? Function(List<String>? errors, String? error)? programError,
+    TResult? Function(String error)? error,
+    TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
+  }) {
+    return loadedData?.call(userPErformance, userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? gettingProgram,
+    TResult Function()? gettingPerformance,
+    TResult Function(Program program)? loadedProgram,
+    TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
+    TResult Function(List<String>? errors, String? error)? programError,
+    TResult Function(String error)? error,
+    TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (loadedData != null) {
+      return loadedData(userPErformance, userProgram);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProgramInitial value) initial,
+    required TResult Function(_ProgramStateLoading value) loading,
+    required TResult Function(_ProgramStateGettingProgram value) gettingProgram,
+    required TResult Function(_ProgramStateGettingPerformance value)
+        gettingPerformance,
+    required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
+    required TResult Function(_ProgramStateloadedPerformance value)
+        loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
+    required TResult Function(_ProgramStateProgramError value) programError,
+    required TResult Function(_ProgramStateError value) error,
+    required TResult Function(_ProgramStatePerformanceError value)
+        performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
+  }) {
+    return loadedData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProgramInitial value)? initial,
+    TResult? Function(_ProgramStateLoading value)? loading,
+    TResult? Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult? Function(_ProgramStateGettingPerformance value)?
+        gettingPerformance,
+    TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
+    TResult? Function(_ProgramStateProgramError value)? programError,
+    TResult? Function(_ProgramStateError value)? error,
+    TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
+  }) {
+    return loadedData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProgramInitial value)? initial,
+    TResult Function(_ProgramStateLoading value)? loading,
+    TResult Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
+    TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
+    TResult Function(_ProgramStateProgramError value)? programError,
+    TResult Function(_ProgramStateError value)? error,
+    TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (loadedData != null) {
+      return loadedData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProgramStateloadedData implements ProgramState {
+  const factory _ProgramStateloadedData(
+      {required final UserPerformance userPErformance,
+      required final Program userProgram}) = _$_ProgramStateloadedData;
+
+  UserPerformance get userPErformance;
+  Program get userProgram;
+  @JsonKey(ignore: true)
+  _$$_ProgramStateloadedDataCopyWith<_$_ProgramStateloadedData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1444,6 +1774,9 @@ class _$_ProgramStateProgramError
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -1465,6 +1798,8 @@ class _$_ProgramStateProgramError
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -1485,6 +1820,8 @@ class _$_ProgramStateProgramError
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -1511,6 +1848,7 @@ class _$_ProgramStateProgramError
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -1533,6 +1871,7 @@ class _$_ProgramStateProgramError
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1553,6 +1892,7 @@ class _$_ProgramStateProgramError
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1663,6 +2003,9 @@ class _$_ProgramStateError
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -1684,6 +2027,8 @@ class _$_ProgramStateError
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -1704,6 +2049,8 @@ class _$_ProgramStateError
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -1730,6 +2077,7 @@ class _$_ProgramStateError
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -1752,6 +2100,7 @@ class _$_ProgramStateError
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1772,6 +2121,7 @@ class _$_ProgramStateError
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -1902,6 +2252,9 @@ class _$_ProgramStatePerformanceError
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -1923,6 +2276,8 @@ class _$_ProgramStatePerformanceError
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -1943,6 +2298,8 @@ class _$_ProgramStatePerformanceError
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -1969,6 +2326,7 @@ class _$_ProgramStatePerformanceError
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -1991,6 +2349,7 @@ class _$_ProgramStatePerformanceError
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2011,6 +2370,7 @@ class _$_ProgramStatePerformanceError
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2133,6 +2493,9 @@ class _$_ProgramStateTodayProgram
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -2154,6 +2517,8 @@ class _$_ProgramStateTodayProgram
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -2174,6 +2539,8 @@ class _$_ProgramStateTodayProgram
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -2200,6 +2567,7 @@ class _$_ProgramStateTodayProgram
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -2222,6 +2590,7 @@ class _$_ProgramStateTodayProgram
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2242,6 +2611,7 @@ class _$_ProgramStateTodayProgram
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2363,6 +2733,9 @@ class _$_ProgramStateNewDayProgram
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -2384,6 +2757,8 @@ class _$_ProgramStateNewDayProgram
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -2404,6 +2779,8 @@ class _$_ProgramStateNewDayProgram
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -2430,6 +2807,7 @@ class _$_ProgramStateNewDayProgram
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -2452,6 +2830,7 @@ class _$_ProgramStateNewDayProgram
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2472,6 +2851,7 @@ class _$_ProgramStateNewDayProgram
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2593,6 +2973,9 @@ class _$_ProgramStateNewWeekProgram
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -2614,6 +2997,8 @@ class _$_ProgramStateNewWeekProgram
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -2634,6 +3019,8 @@ class _$_ProgramStateNewWeekProgram
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -2660,6 +3047,7 @@ class _$_ProgramStateNewWeekProgram
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -2682,6 +3070,7 @@ class _$_ProgramStateNewWeekProgram
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2702,6 +3091,7 @@ class _$_ProgramStateNewWeekProgram
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2821,6 +3211,9 @@ class _$_ProgramStateNewCalcul
     required TResult Function(Program program) loadedProgram,
     required TResult Function(UserPerformance userPErformance)
         loadedPerformance,
+    required TResult Function(
+            UserPerformance userPErformance, Program userProgram)
+        loadedData,
     required TResult Function(List<String>? errors, String? error) programError,
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
@@ -2842,6 +3235,8 @@ class _$_ProgramStateNewCalcul
     TResult? Function()? gettingPerformance,
     TResult? Function(Program program)? loadedProgram,
     TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
@@ -2862,6 +3257,8 @@ class _$_ProgramStateNewCalcul
     TResult Function()? gettingPerformance,
     TResult Function(Program program)? loadedProgram,
     TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(UserPerformance userPErformance, Program userProgram)?
+        loadedData,
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
@@ -2888,6 +3285,7 @@ class _$_ProgramStateNewCalcul
     required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
     required TResult Function(_ProgramStateloadedPerformance value)
         loadedPerformance,
+    required TResult Function(_ProgramStateloadedData value) loadedData,
     required TResult Function(_ProgramStateProgramError value) programError,
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
@@ -2910,6 +3308,7 @@ class _$_ProgramStateNewCalcul
         gettingPerformance,
     TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateloadedData value)? loadedData,
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
@@ -2930,6 +3329,7 @@ class _$_ProgramStateNewCalcul
     TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
     TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
     TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateloadedData value)? loadedData,
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,

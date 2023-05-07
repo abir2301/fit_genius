@@ -23,12 +23,57 @@ class _MealsCkeckListState extends ConsumerState<MealsCkeckList> {
     bool _isRadioSelected = false;
     final state = ref.watch(programProvider);
     return state.maybeWhen(
-        orElse: () => Text("error "),
-        initial: () => const CircularProgressIndicator(
-              color: pink,
-              strokeWidth: 10,
+        orElse: () => const Center(child: Text("something went wrong ")),
+        initial: () => Center(
+              child: Container(
+                height: 100,
+                width: 100,
+                child: const CircularProgressIndicator(
+                  color: pink,
+                  strokeWidth: 10,
+                ),
+              ),
             ),
-        
+        newCalcul: (program) => Container(
+              height: 200,
+              child: ListView.builder(
+                  itemCount: program.meals.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 50,
+                        width: 200,
+                        decoration: BoxDecoration(
+                            color: Color(0xffb2bee8),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 8),
+                          child: MealCheck(
+                              label: program.meals[index].name +
+                                  "  :   ${program.meals[index].calories.toString()} KCL",
+                              value: CacheHelper.getBool(
+                                  program.meals[index].name),
+                              onChanged: (bool result) {
+                                setState(() {
+                                  if (result)
+                                    ref
+                                        .read(programProvider.notifier)
+                                        .selectMeal(program.meals[index].name);
+                                  else {
+                                    ref
+                                        .read(programProvider.notifier)
+                                        .unselectMeal(
+                                            program.meals[index].name);
+                                  }
+                                });
+                              }),
+                        ),
+                      ),
+                    );
+                  }),
+            ),
         todayProgram: (program) => Container(
               height: 200,
               child: ListView.builder(
@@ -56,6 +101,12 @@ class _MealsCkeckListState extends ConsumerState<MealsCkeckList> {
                                     ref
                                         .read(programProvider.notifier)
                                         .selectMeal(program.meals[index].name);
+                                  else {
+                                    ref
+                                        .read(programProvider.notifier)
+                                        .unselectMeal(
+                                            program.meals[index].name);
+                                  }
                                 });
                               }),
                         ),

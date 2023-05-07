@@ -13,14 +13,14 @@ class _NbWeebState extends ConsumerState<NbWeeb> {
   @override
   void initState() {
     Future<void>.delayed(Duration.zero, () {
-      ref.read(programProvider.notifier).getPeformance();
+      ref.read(performanceProvider.notifier).getPeformance();
       super.initState();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(programProvider);
+    final state = ref.watch(performanceProvider);
     return state.maybeWhen(
       loadedProgram: (program) => Text("new p "),
       orElse: () => Text("week ??"),
@@ -31,7 +31,8 @@ class _NbWeebState extends ConsumerState<NbWeeb> {
               color: const Color(0xff6F6767),
               fontSize: 18,
               fontWeight: FontWeight.bold)),
-      initial: () => Text(ref.read(programProvider.notifier).nbWeek.toString(),
+      initial: () => Text(
+          ref.read(performanceProvider.notifier).nbWeek.toString(),
           style: GoogleFonts.poppins(
               color: const Color(0xff6F6767),
               fontSize: 18,

@@ -2,6 +2,7 @@ import 'package:app/features/programs/data/data_sources/remote_data_source.dart'
 import 'package:app/features/programs/domain/repositories/program_repository.dart';
 import 'package:app/features/programs/domain/usecases/get_performance_usecase.dart';
 import 'package:app/features/programs/domain/usecases/get_program_usecase.dart';
+import 'package:app/features/programs/presentation/viewmodels/performance_view_model.dart';
 import 'package:app/features/programs/presentation/viewmodels/program_view_model.dart';
 import 'package:app/features/user_informations/data/datasources/hp_remote_data_source.dart';
 import 'package:app/features/user_informations/data/repositories/hp_repository_impl.dart';
@@ -52,8 +53,11 @@ Future<void> init() async {
   sl.registerLazySingleton(
       () => AllHpViewModel(getHpsUsecase: sl(), postHpUsecase: sl()));
 
-  sl.registerLazySingleton(() =>
-      ProgramViewModel(getPerformanceUsecase: sl(), getProgramUsecase: sl()));
+  sl.registerLazySingleton(() => ProgramViewModel(getProgramUsecase: sl()));
+
+  sl.registerLazySingleton(() => PerformanceViewModel(
+        getPerformanceUsecase: sl(),
+      ));
   //!usecases
   sl.registerLazySingleton(
       () => LoginUsecase(authRepository: sl<AuthRepositoryImpl>()));

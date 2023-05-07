@@ -24,6 +24,11 @@ class ProgramState with _$ProgramState {
   const factory ProgramState.loadedPerformance(
           {required UserPerformance userPErformance}) =
       _ProgramStateloadedPerformance;
+
+  const factory ProgramState.loadedData(
+      {required UserPerformance userPErformance,
+      required Program userProgram}) = _ProgramStateloadedData;
+
   const factory ProgramState.programError(
       {List<String>? errors, String? error}) = _ProgramStateProgramError;
   const factory ProgramState.error({required String error}) =
@@ -39,5 +44,6 @@ class ProgramState with _$ProgramState {
       _ProgramStateNewDayProgram;
   const factory ProgramState.newWeekProgram({required Program userProgram}) =
       _ProgramStateNewWeekProgram;
-  const factory ProgramState.newCalcul({required Program userProgram}) = _ProgramStateNewCalcul;
+  const factory ProgramState.newCalcul({required Program userProgram}) =
+      _ProgramStateNewCalcul;
 }

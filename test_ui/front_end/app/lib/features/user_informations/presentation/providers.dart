@@ -6,6 +6,7 @@ import 'package:app/features/user_informations/presentation/viewmodel/def_health
 import 'package:app/features/user_informations/presentation/viewmodel/dis_health_problem_viewmodel.dart';
 import 'package:app/features/user_informations/presentation/viewmodel/profile_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../programs/presentation/viewmodels/performance_view_model.dart';
 import '../../programs/presentation/viewmodels/program_view_model.dart';
 import '/injection_container.dart' as ic;
 
@@ -27,4 +28,9 @@ final allHpProvider = StateNotifierProvider<AllHpViewModel, HpState>((ref) {
 final programProvider =
     StateNotifierProvider<ProgramViewModel, ProgramState>((ref) {
   return ic.sl<ProgramViewModel>();
+});
+
+final performanceProvider =
+    StateNotifierProvider<PerformanceViewModel, ProgramState>((ref) {
+  return ic.sl<PerformanceViewModel>();
 });

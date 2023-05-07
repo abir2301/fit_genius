@@ -1,5 +1,5 @@
 class ApiConfig {
-  static const String baseUrl = 'http://192.168.1.33:3000/';
+  static const String baseUrl = 'http://192.168.1.13:3000/';
   static const String register = 'api/users/register';
   static const String login = 'api/users/login';
   static const String logout = 'api/users/logout';
