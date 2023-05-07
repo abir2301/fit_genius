@@ -1,3 +1,4 @@
+import 'package:app/core/cache/cache_healper.dart';
 import 'package:app/core/error/failure.dart';
 import 'package:app/features/user_informations/domain/usecases/get_profile_usecase.dart';
 import 'package:app/features/user_informations/presentation/states/user_info_state.dart';
@@ -11,6 +12,7 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
   late GetProfileUsecase getProfileUsecase;
   Profile? profile;
   late String weight;
+  late String userWeight;
   late int age;
   late String height;
   late String activity_level;
@@ -86,6 +88,19 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
   void gettProfile() async {
     await getProfile();
     state = UserInfoState.gottenProfile(profile: profile!);
+    if (CacheHelper.containsKey("weight")) {
+    } else {
+      CacheHelper.setString("weight", profile!.weight);
+    }
+    userWeight = CacheHelper.getString("weight");
+  }
+
+  //CacheHelper.setString("weight", userWeight);
+
+  void updateUSerWeight(String newWeight) {
+    userWeight = newWeight;
+    CacheHelper.setString("weight", newWeight);
+    print(userWeight);
   }
 
   void postProfile() async {

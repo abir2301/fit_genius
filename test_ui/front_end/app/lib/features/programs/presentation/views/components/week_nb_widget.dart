@@ -12,16 +12,25 @@ class NbWeeb extends ConsumerStatefulWidget {
 class _NbWeebState extends ConsumerState<NbWeeb> {
   @override
   void initState() {
-    ref.read(programProvider.notifier).getPeformance();
-    super.initState();
+    Future<void>.delayed(Duration.zero, () {
+      ref.read(programProvider.notifier).getPeformance();
+      super.initState();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(programProvider);
     return state.maybeWhen(
+      loadedProgram: (program) => Text("new p "),
       orElse: () => Text("week ??"),
       error: (error) => Text(error),
+      loadedPerformance: (userPErformance) => Text(
+          " week : " + userPErformance.data.length.toString(),
+          style: GoogleFonts.poppins(
+              color: const Color(0xff6F6767),
+              fontSize: 18,
+              fontWeight: FontWeight.bold)),
       initial: () => Text(ref.read(programProvider.notifier).nbWeek.toString(),
           style: GoogleFonts.poppins(
               color: const Color(0xff6F6767),

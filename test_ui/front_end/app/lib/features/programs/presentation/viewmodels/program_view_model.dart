@@ -41,7 +41,7 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
   ProgramViewModel(
       {required this.getProgramUsecase, required this.getPerformanceUsecase})
       : super(const ProgramState.initial()) {
-    init();
+    // init();
 
     // calculFoodCalories();
     // calculFoodCarbs();
@@ -79,7 +79,7 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
       state = const ProgramState.gettingProgram();
 
       await getProgram();
-     iniDate();
+      iniDate();
       initBools();
       state = ProgramState.todayProgram(userProgram: program!);
     }
@@ -146,7 +146,7 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
     either.fold((performance) {
       userPerformance = performance;
       // nbWeek = performance.data.length;
-      //state = ProgramState.loadedPerformance(userPErformance: performance);
+      state = ProgramState.loadedPerformance(userPErformance: performance);
       print("view model performace ");
       print(performance);
     }, (failure) {

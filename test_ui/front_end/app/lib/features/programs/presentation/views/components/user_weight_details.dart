@@ -1,7 +1,10 @@
+import 'package:app/core/cache/cache_healper.dart';
+import 'package:app/features/user_informations/presentation/viewmodel/profile_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/app_theme.dart';
 import '../../../../user_informations/presentation/providers.dart';
@@ -26,6 +29,7 @@ class _UserWeightDetailsState extends ConsumerState<UserWeightDetails> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(userInfoProvider);
+    String weight = ref.read(userInfoProvider.notifier).userWeight;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -43,6 +47,10 @@ class _UserWeightDetailsState extends ConsumerState<UserWeightDetails> {
               Column(
                 children: [
                   state.maybeWhen(
+                    initial: () => Text(
+                      "  ?? ",
+                      style: textTheme(),
+                    ),
                     orElse: () => Text(
                       "  ?? ",
                       style: textTheme(),
@@ -65,6 +73,10 @@ class _UserWeightDetailsState extends ConsumerState<UserWeightDetails> {
               Column(
                 children: [
                   state.maybeWhen(
+                    initial: () => Text(
+                      "  ?? ",
+                      style: textTheme(),
+                    ),
                     orElse: () => Text(
                       "  ?? ",
                       style: textTheme(),
@@ -76,7 +88,7 @@ class _UserWeightDetailsState extends ConsumerState<UserWeightDetails> {
                       style: textTheme(color: Color(0xff555555)),
                     ),
                     gottenProfile: (profile) => Text(
-                      profile.weight + " KG ",
+                      weight + " KG ",
                       style: textTheme(color: Colors.white),
                     ),
                   ),

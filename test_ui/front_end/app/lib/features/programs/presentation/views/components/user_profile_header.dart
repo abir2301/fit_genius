@@ -67,7 +67,7 @@ class _UserProfileHeaderState extends ConsumerState<UserProfileHeader> {
                   Container(
                       height: 80,
                       width: 80,
-                      child: Image.asset("assets/images/users/h1.png")),
+                      child: Image.asset("assets/images/user_avatar.png")),
                   const SizedBox(
                     width: 8,
                   ),

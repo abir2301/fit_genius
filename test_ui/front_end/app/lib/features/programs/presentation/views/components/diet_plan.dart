@@ -1,3 +1,4 @@
+import 'package:app/core/app_theme.dart';
 import 'package:app/features/programs/presentation/views/pages/program_screens/meals_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,12 +24,25 @@ class _DietPalnState extends ConsumerState<DietPaln> {
     "salade.png"
   ];
   @override
+  void initState() {
+    Future<void>.delayed(Duration.zero, () {
+      ref.read(programProvider.notifier).init();
+      super.initState();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final state = ref.watch(programProvider);
     return Container(
         height: 500,
         width: MediaQuery.of(context).size.width * 0.9,
         child: state.maybeWhen(
+          gettingProgram: () => Container(
+            child: CircularProgressIndicator(
+              color: pink,
+            ),
+          ),
           orElse: () => Text("????"),
           loading: () => Text("loading"),
           todayProgram: (userProgram) => ListView.builder(
