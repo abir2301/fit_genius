@@ -6,7 +6,7 @@ class ApiConfig {
   static const String checkToken = 'api/users/check';
   // user info inputs
   static const String postProfile = 'api/profiles/post';
-  static const String getProfile = 'api/users/profiles/get';
+  static const String getProfile = 'api/profiles/get';
   static const String putProfile = 'api/users/profiles/put';
   //manage health problems
   // static const String getUserHp = 'api/profiles/post';

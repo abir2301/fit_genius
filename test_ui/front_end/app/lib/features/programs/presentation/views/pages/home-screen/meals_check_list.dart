@@ -1,49 +1,68 @@
+import 'package:app/core/cache/cache_healper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../../core/app_theme.dart';
 import '../../../../../../core/data.dart';
+import '../../../../../user_informations/presentation/providers.dart';
+import '../../../../domain/models/program/program.dart';
 
-
-
-class MealsCkeckList extends StatefulWidget {
+class MealsCkeckList extends ConsumerStatefulWidget {
   const MealsCkeckList({super.key});
 
   @override
-  State<MealsCkeckList> createState() => _MealsCkeckListState();
+  ConsumerState<MealsCkeckList> createState() => _MealsCkeckListState();
 }
 
-class _MealsCkeckListState extends State<MealsCkeckList> {
+class _MealsCkeckListState extends ConsumerState<MealsCkeckList> {
   List meals = Data.mealsPlan['meals'] as List;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      child: ListView.builder(
-          itemCount: meals.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 50,
-                width: 200,
-                decoration: BoxDecoration(
-                    color: Color(0xffb2bee8),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                  child: MealCheck(
-                      label: "meal : " +
-                          meals[index]['meal_id'].toString() +
-                          "  0/ ${meals[index]['calories'].toString()} Kacl",
-                      value: false,
-                      onChanged: (bool result) {}),
-                ),
-              ),
-            );
-          }),
-    );
+    bool _isRadioSelected = false;
+    final state = ref.watch(programProvider);
+    return state.maybeWhen(
+        orElse: () => Text("error "),
+        initial: () => const CircularProgressIndicator(
+              color: pink,
+              strokeWidth: 10,
+            ),
+        
+        todayProgram: (program) => Container(
+              height: 200,
+              child: ListView.builder(
+                  itemCount: program.meals.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 50,
+                        width: 200,
+                        decoration: BoxDecoration(
+                            color: Color(0xffb2bee8),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 8),
+                          child: MealCheck(
+                              label: program.meals[index].name +
+                                  "  :   ${program.meals[index].calories.toString()} KCL",
+                              value: CacheHelper.getBool(
+                                  program.meals[index].name),
+                              onChanged: (bool result) {
+                                setState(() {
+                                  if (result)
+                                    ref
+                                        .read(programProvider.notifier)
+                                        .selectMeal(program.meals[index].name);
+                                });
+                              }),
+                        ),
+                      ),
+                    );
+                  }),
+            ));
   }
 }
 

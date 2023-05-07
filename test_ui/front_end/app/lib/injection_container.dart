@@ -40,7 +40,8 @@ Future<void> init() async {
       logoutUsecase: sl(),
       checkTokenUsecase: sl()));
 
-  sl.registerLazySingleton(() => ProfileViewModel(postProfileUsecase: sl()));
+  sl.registerLazySingleton(() =>
+      ProfileViewModel(postProfileUsecase: sl(), getProfileUsecase: sl()));
 
   sl.registerLazySingleton(
       () => HpViewModel(getHpsUsecase: sl(), postHpUsecase: sl()));
@@ -65,6 +66,7 @@ Future<void> init() async {
 
   sl.registerLazySingleton(
       () => PostProfileUsecase(profileRepository: sl<ProfileReposotoryImpl>()));
+
   sl.registerLazySingleton(
       () => GetProfileUsecase(profileRepository: sl<ProfileReposotoryImpl>()));
 

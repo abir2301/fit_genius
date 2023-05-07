@@ -53,11 +53,12 @@ class UserInfoRemoteDataSource {
     throw ServerException();
   }
 
-  Future<Map<String, String>> getProfile() async {
+  Future<Map<String, dynamic>> getProfile() async {
     try {
       final body = await DioHelper.get(ApiConfig.getProfile);
       final map = jsonDecode(body) as Map;
-      final profile = map['data'] as Map<String, String>;
+      final profile = map['data'];
+      print(profile);
       return profile;
     } on ServerException catch (error) {
       print(" get profile error ${error}");

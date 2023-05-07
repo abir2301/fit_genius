@@ -129,10 +129,10 @@ class __$$_ProgramCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Program implements _Program {
   const _$_Program(
-      {required this.desc,
-      required this.objectif,
-      required final List<Meal> meals,
-      required final List<Workout> workouts})
+      {this.desc = '',
+      this.objectif = 0,
+      final List<Meal> meals = const [],
+      final List<Workout> workouts = const []})
       : _meals = meals,
         _workouts = workouts;
 
@@ -140,11 +140,14 @@ class _$_Program implements _Program {
       _$$_ProgramFromJson(json);
 
   @override
+  @JsonKey()
   final String desc;
   @override
+  @JsonKey()
   final int objectif;
   final List<Meal> _meals;
   @override
+  @JsonKey()
   List<Meal> get meals {
     if (_meals is EqualUnmodifiableListView) return _meals;
     // ignore: implicit_dynamic_type
@@ -153,6 +156,7 @@ class _$_Program implements _Program {
 
   final List<Workout> _workouts;
   @override
+  @JsonKey()
   List<Workout> get workouts {
     if (_workouts is EqualUnmodifiableListView) return _workouts;
     // ignore: implicit_dynamic_type
@@ -201,10 +205,10 @@ class _$_Program implements _Program {
 
 abstract class _Program implements Program {
   const factory _Program(
-      {required final String desc,
-      required final int objectif,
-      required final List<Meal> meals,
-      required final List<Workout> workouts}) = _$_Program;
+      {final String desc,
+      final int objectif,
+      final List<Meal> meals,
+      final List<Workout> workouts}) = _$_Program;
 
   factory _Program.fromJson(Map<String, dynamic> json) = _$_Program.fromJson;
 

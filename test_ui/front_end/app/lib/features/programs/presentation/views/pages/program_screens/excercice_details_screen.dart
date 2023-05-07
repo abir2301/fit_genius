@@ -13,8 +13,7 @@ class Excercice {
   late bool isDone;
   late int duree;
   Excercice(
-      {required this.id,
-      required this.name,
+      {required this.name,
       required this.image,
       required this.desc,
       required this.isDone,

@@ -7,14 +7,16 @@ part of 'program.dart';
 // **************************************************************************
 
 _$_Program _$$_ProgramFromJson(Map<String, dynamic> json) => _$_Program(
-      desc: json['desc'] as String,
-      objectif: json['objectif'] as int,
-      meals: (json['meals'] as List<dynamic>)
-          .map((e) => Meal.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      workouts: (json['workouts'] as List<dynamic>)
-          .map((e) => Workout.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      desc: json['desc'] as String? ?? '',
+      objectif: json['objectif'] as int? ?? 0,
+      meals: (json['meals'] as List<dynamic>?)
+              ?.map((e) => Meal.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      workouts: (json['workouts'] as List<dynamic>?)
+              ?.map((e) => Workout.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_ProgramToJson(_$_Program instance) =>

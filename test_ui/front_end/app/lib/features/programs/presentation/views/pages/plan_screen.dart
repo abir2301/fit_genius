@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,9 +7,8 @@ import 'package:toggle_switch/toggle_switch.dart';
 import '../../../../../core/app_theme.dart';
 import '../../states/toggle_switch_state.dart';
 import '../components/diet_plan.dart';
+import '../components/week_nb_widget.dart';
 import '../components/workout_plan.dart';
-
-
 
 class PlanScreen extends StatelessWidget {
   const PlanScreen({super.key});
@@ -97,11 +95,7 @@ class PlanScreenContent extends StatelessWidget {
                           size: 30,
                           color: Color(0xff6F6767),
                         ),
-                        Text("Week 1",
-                            style: GoogleFonts.poppins(
-                                color: const Color(0xff6F6767),
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold)),
+                        NbWeeb(),
                       ],
                     ),
                   ),
@@ -110,9 +104,6 @@ class PlanScreenContent extends StatelessWidget {
             ),
           ),
         ),
-      
-      
-      
         Expanded(
             child: toggleSwitchState.isDietPlanSelected
                 ? DietPaln()

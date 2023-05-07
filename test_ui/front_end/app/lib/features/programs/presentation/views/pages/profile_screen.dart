@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../../core/app_theme.dart';
 import '../components/rounded_button.dart';
+import '../components/user_profile_header.dart';
+import '../components/user_weight_details.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -22,127 +24,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
     ));
   }
 
+  String _weight = 'N/A';
+
+  Future<void> _showWeightInputDialog() async {
+    final newWeight = await showDialog(
+      context: context,
+      builder: (_) => WeightInputDialog(),
+    );
+
+    if (newWeight != null) {
+      setState(() {
+        _weight = newWeight;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                color: bgLight,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50),
-                ),
-              ),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      height: 30,
-                      width: 30,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.settings,
-                            color: grey,
-                          )),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Icon(
-                            Icons.person_2_outlined,
-                            size: 40,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "heyy user ",
-                                style: textTheme(),
-                              ),
-                              Text("weight lost ", style: textTheme()),
-                              Text("1250 Kcal/ day", style: textTheme())
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            // done
+            UserProfileHeader(),
+
             SizedBox(
               height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                // height: 50,
-                constraints: const BoxConstraints(
-                    maxHeight: double.infinity, minHeight: double.minPositive),
-                decoration: BoxDecoration(
-                    color: secondColor,
-                    borderRadius: BorderRadius.circular(12)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "100.2" + "KG",
-                            style: textTheme(color: Color(0xff555555)),
-                          ),
-                          Text("Starting ",
-                              style: textTheme(
-                                  size: 13, color: Color(0xff555555))),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("98.2" + "KG",
-                              style: textTheme(color: Color(0xff555555))),
-                          Text("Current",
-                              style: textTheme(
-                                  size: 13, color: Color(0xff555555))),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("98.2" + "KG",
-                              style: textTheme(color: Color(0xffffffff))),
-                          Text("Desired",
-                              style: textTheme(
-                                  size: 13, color: Color(0xffffffff))),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
+            UserWeightDetails(),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
               child: Row(
@@ -150,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   RoundedTextButton(
                     color: secondColor,
-                    onPress: () {},
+                    onPress: _showWeightInputDialog,
                     label: "Add weight",
                   ),
                   RoundedTextButton(
@@ -181,6 +90,53 @@ class _ProfileScreenState extends State<ProfileScreen> {
             //       ],
             //     ))
           ],
+        ),
+      ],
+    );
+  }
+}
+
+class WeightInputDialog extends StatefulWidget {
+  @override
+  _WeightInputDialogState createState() => _WeightInputDialogState();
+}
+
+class _WeightInputDialogState extends State<WeightInputDialog> {
+  late TextEditingController _weightController;
+
+  @override
+  void initState() {
+    super.initState();
+    _weightController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _weightController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Enter Weight'),
+      content: TextField(
+        controller: _weightController,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(labelText: 'Weight'),
+      ),
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop(_weightController.text);
+          },
+          child: Text('Save'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text('Cancel'),
         ),
       ],
     );

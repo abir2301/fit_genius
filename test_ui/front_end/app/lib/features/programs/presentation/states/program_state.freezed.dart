@@ -29,6 +29,10 @@ mixin _$ProgramState {
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +46,10 @@ mixin _$ProgramState {
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,10 @@ mixin _$ProgramState {
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +84,10 @@ mixin _$ProgramState {
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +102,10 @@ mixin _$ProgramState {
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +119,10 @@ mixin _$ProgramState {
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,6 +203,10 @@ class _$_ProgramInitial
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return initial();
   }
@@ -195,6 +223,10 @@ class _$_ProgramInitial
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return initial?.call();
   }
@@ -211,6 +243,10 @@ class _$_ProgramInitial
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -234,6 +270,10 @@ class _$_ProgramInitial
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return initial(this);
   }
@@ -251,6 +291,10 @@ class _$_ProgramInitial
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return initial?.call(this);
   }
@@ -267,6 +311,10 @@ class _$_ProgramInitial
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -337,6 +385,10 @@ class _$_ProgramStateLoading
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return loading();
   }
@@ -353,6 +405,10 @@ class _$_ProgramStateLoading
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return loading?.call();
   }
@@ -369,6 +425,10 @@ class _$_ProgramStateLoading
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -392,6 +452,10 @@ class _$_ProgramStateLoading
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return loading(this);
   }
@@ -409,6 +473,10 @@ class _$_ProgramStateLoading
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return loading?.call(this);
   }
@@ -425,6 +493,10 @@ class _$_ProgramStateLoading
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -498,6 +570,10 @@ class _$_ProgramStateGettingProgram
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return gettingProgram();
   }
@@ -514,6 +590,10 @@ class _$_ProgramStateGettingProgram
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return gettingProgram?.call();
   }
@@ -530,6 +610,10 @@ class _$_ProgramStateGettingProgram
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (gettingProgram != null) {
@@ -553,6 +637,10 @@ class _$_ProgramStateGettingProgram
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return gettingProgram(this);
   }
@@ -570,6 +658,10 @@ class _$_ProgramStateGettingProgram
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return gettingProgram?.call(this);
   }
@@ -586,6 +678,10 @@ class _$_ProgramStateGettingProgram
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (gettingProgram != null) {
@@ -660,6 +756,10 @@ class _$_ProgramStateGettingPerformance
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return gettingPerformance();
   }
@@ -676,6 +776,10 @@ class _$_ProgramStateGettingPerformance
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return gettingPerformance?.call();
   }
@@ -692,6 +796,10 @@ class _$_ProgramStateGettingPerformance
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (gettingPerformance != null) {
@@ -715,6 +823,10 @@ class _$_ProgramStateGettingPerformance
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return gettingPerformance(this);
   }
@@ -732,6 +844,10 @@ class _$_ProgramStateGettingPerformance
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return gettingPerformance?.call(this);
   }
@@ -748,6 +864,10 @@ class _$_ProgramStateGettingPerformance
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (gettingPerformance != null) {
@@ -860,6 +980,10 @@ class _$_ProgramStateLoadedProgram
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return loadedProgram(program);
   }
@@ -876,6 +1000,10 @@ class _$_ProgramStateLoadedProgram
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return loadedProgram?.call(program);
   }
@@ -892,6 +1020,10 @@ class _$_ProgramStateLoadedProgram
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (loadedProgram != null) {
@@ -915,6 +1047,10 @@ class _$_ProgramStateLoadedProgram
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return loadedProgram(this);
   }
@@ -932,6 +1068,10 @@ class _$_ProgramStateLoadedProgram
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return loadedProgram?.call(this);
   }
@@ -948,6 +1088,10 @@ class _$_ProgramStateLoadedProgram
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (loadedProgram != null) {
@@ -1066,6 +1210,10 @@ class _$_ProgramStateloadedPerformance
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return loadedPerformance(userPErformance);
   }
@@ -1082,6 +1230,10 @@ class _$_ProgramStateloadedPerformance
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return loadedPerformance?.call(userPErformance);
   }
@@ -1098,6 +1250,10 @@ class _$_ProgramStateloadedPerformance
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (loadedPerformance != null) {
@@ -1121,6 +1277,10 @@ class _$_ProgramStateloadedPerformance
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return loadedPerformance(this);
   }
@@ -1138,6 +1298,10 @@ class _$_ProgramStateloadedPerformance
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return loadedPerformance?.call(this);
   }
@@ -1154,6 +1318,10 @@ class _$_ProgramStateloadedPerformance
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (loadedPerformance != null) {
@@ -1280,6 +1448,10 @@ class _$_ProgramStateProgramError
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return programError(errors, this.error);
   }
@@ -1296,6 +1468,10 @@ class _$_ProgramStateProgramError
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return programError?.call(errors, this.error);
   }
@@ -1312,6 +1488,10 @@ class _$_ProgramStateProgramError
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (programError != null) {
@@ -1335,6 +1515,10 @@ class _$_ProgramStateProgramError
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return programError(this);
   }
@@ -1352,6 +1536,10 @@ class _$_ProgramStateProgramError
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return programError?.call(this);
   }
@@ -1368,6 +1556,10 @@ class _$_ProgramStateProgramError
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (programError != null) {
@@ -1475,6 +1667,10 @@ class _$_ProgramStateError
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return error(this.error);
   }
@@ -1491,6 +1687,10 @@ class _$_ProgramStateError
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return error?.call(this.error);
   }
@@ -1507,6 +1707,10 @@ class _$_ProgramStateError
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1530,6 +1734,10 @@ class _$_ProgramStateError
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return error(this);
   }
@@ -1547,6 +1755,10 @@ class _$_ProgramStateError
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return error?.call(this);
   }
@@ -1563,6 +1775,10 @@ class _$_ProgramStateError
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1690,6 +1906,10 @@ class _$_ProgramStatePerformanceError
     required TResult Function(String error) error,
     required TResult Function(List<String>? errors, String? error)
         performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
   }) {
     return performanceError(errors, this.error);
   }
@@ -1706,6 +1926,10 @@ class _$_ProgramStatePerformanceError
     TResult? Function(List<String>? errors, String? error)? programError,
     TResult? Function(String error)? error,
     TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
   }) {
     return performanceError?.call(errors, this.error);
   }
@@ -1722,6 +1946,10 @@ class _$_ProgramStatePerformanceError
     TResult Function(List<String>? errors, String? error)? programError,
     TResult Function(String error)? error,
     TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
     required TResult orElse(),
   }) {
     if (performanceError != null) {
@@ -1745,6 +1973,10 @@ class _$_ProgramStatePerformanceError
     required TResult Function(_ProgramStateError value) error,
     required TResult Function(_ProgramStatePerformanceError value)
         performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
   }) {
     return performanceError(this);
   }
@@ -1762,6 +1994,10 @@ class _$_ProgramStatePerformanceError
     TResult? Function(_ProgramStateProgramError value)? programError,
     TResult? Function(_ProgramStateError value)? error,
     TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
   }) {
     return performanceError?.call(this);
   }
@@ -1778,6 +2014,10 @@ class _$_ProgramStatePerformanceError
     TResult Function(_ProgramStateProgramError value)? programError,
     TResult Function(_ProgramStateError value)? error,
     TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
     required TResult orElse(),
   }) {
     if (performanceError != null) {
@@ -1797,4 +2037,921 @@ abstract class _ProgramStatePerformanceError implements ProgramState {
   @JsonKey(ignore: true)
   _$$_ProgramStatePerformanceErrorCopyWith<_$_ProgramStatePerformanceError>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ProgramStateTodayProgramCopyWith<$Res> {
+  factory _$$_ProgramStateTodayProgramCopyWith(
+          _$_ProgramStateTodayProgram value,
+          $Res Function(_$_ProgramStateTodayProgram) then) =
+      __$$_ProgramStateTodayProgramCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Program userProgram});
+
+  $ProgramCopyWith<$Res> get userProgram;
+}
+
+/// @nodoc
+class __$$_ProgramStateTodayProgramCopyWithImpl<$Res>
+    extends _$ProgramStateCopyWithImpl<$Res, _$_ProgramStateTodayProgram>
+    implements _$$_ProgramStateTodayProgramCopyWith<$Res> {
+  __$$_ProgramStateTodayProgramCopyWithImpl(_$_ProgramStateTodayProgram _value,
+      $Res Function(_$_ProgramStateTodayProgram) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userProgram = null,
+  }) {
+    return _then(_$_ProgramStateTodayProgram(
+      userProgram: null == userProgram
+          ? _value.userProgram
+          : userProgram // ignore: cast_nullable_to_non_nullable
+              as Program,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProgramCopyWith<$Res> get userProgram {
+    return $ProgramCopyWith<$Res>(_value.userProgram, (value) {
+      return _then(_value.copyWith(userProgram: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ProgramStateTodayProgram
+    with DiagnosticableTreeMixin
+    implements _ProgramStateTodayProgram {
+  const _$_ProgramStateTodayProgram({required this.userProgram});
+
+  @override
+  final Program userProgram;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProgramState.todayProgram(userProgram: $userProgram)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProgramState.todayProgram'))
+      ..add(DiagnosticsProperty('userProgram', userProgram));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ProgramStateTodayProgram &&
+            (identical(other.userProgram, userProgram) ||
+                other.userProgram == userProgram));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userProgram);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ProgramStateTodayProgramCopyWith<_$_ProgramStateTodayProgram>
+      get copyWith => __$$_ProgramStateTodayProgramCopyWithImpl<
+          _$_ProgramStateTodayProgram>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() gettingProgram,
+    required TResult Function() gettingPerformance,
+    required TResult Function(Program program) loadedProgram,
+    required TResult Function(UserPerformance userPErformance)
+        loadedPerformance,
+    required TResult Function(List<String>? errors, String? error) programError,
+    required TResult Function(String error) error,
+    required TResult Function(List<String>? errors, String? error)
+        performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
+  }) {
+    return todayProgram(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? gettingProgram,
+    TResult? Function()? gettingPerformance,
+    TResult? Function(Program program)? loadedProgram,
+    TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(List<String>? errors, String? error)? programError,
+    TResult? Function(String error)? error,
+    TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
+  }) {
+    return todayProgram?.call(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? gettingProgram,
+    TResult Function()? gettingPerformance,
+    TResult Function(Program program)? loadedProgram,
+    TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(List<String>? errors, String? error)? programError,
+    TResult Function(String error)? error,
+    TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (todayProgram != null) {
+      return todayProgram(userProgram);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProgramInitial value) initial,
+    required TResult Function(_ProgramStateLoading value) loading,
+    required TResult Function(_ProgramStateGettingProgram value) gettingProgram,
+    required TResult Function(_ProgramStateGettingPerformance value)
+        gettingPerformance,
+    required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
+    required TResult Function(_ProgramStateloadedPerformance value)
+        loadedPerformance,
+    required TResult Function(_ProgramStateProgramError value) programError,
+    required TResult Function(_ProgramStateError value) error,
+    required TResult Function(_ProgramStatePerformanceError value)
+        performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
+  }) {
+    return todayProgram(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProgramInitial value)? initial,
+    TResult? Function(_ProgramStateLoading value)? loading,
+    TResult? Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult? Function(_ProgramStateGettingPerformance value)?
+        gettingPerformance,
+    TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateProgramError value)? programError,
+    TResult? Function(_ProgramStateError value)? error,
+    TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
+  }) {
+    return todayProgram?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProgramInitial value)? initial,
+    TResult Function(_ProgramStateLoading value)? loading,
+    TResult Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
+    TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateProgramError value)? programError,
+    TResult Function(_ProgramStateError value)? error,
+    TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (todayProgram != null) {
+      return todayProgram(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProgramStateTodayProgram implements ProgramState {
+  const factory _ProgramStateTodayProgram(
+      {required final Program userProgram}) = _$_ProgramStateTodayProgram;
+
+  Program get userProgram;
+  @JsonKey(ignore: true)
+  _$$_ProgramStateTodayProgramCopyWith<_$_ProgramStateTodayProgram>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ProgramStateNewDayProgramCopyWith<$Res> {
+  factory _$$_ProgramStateNewDayProgramCopyWith(
+          _$_ProgramStateNewDayProgram value,
+          $Res Function(_$_ProgramStateNewDayProgram) then) =
+      __$$_ProgramStateNewDayProgramCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Program userProgram});
+
+  $ProgramCopyWith<$Res> get userProgram;
+}
+
+/// @nodoc
+class __$$_ProgramStateNewDayProgramCopyWithImpl<$Res>
+    extends _$ProgramStateCopyWithImpl<$Res, _$_ProgramStateNewDayProgram>
+    implements _$$_ProgramStateNewDayProgramCopyWith<$Res> {
+  __$$_ProgramStateNewDayProgramCopyWithImpl(
+      _$_ProgramStateNewDayProgram _value,
+      $Res Function(_$_ProgramStateNewDayProgram) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userProgram = null,
+  }) {
+    return _then(_$_ProgramStateNewDayProgram(
+      userProgram: null == userProgram
+          ? _value.userProgram
+          : userProgram // ignore: cast_nullable_to_non_nullable
+              as Program,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProgramCopyWith<$Res> get userProgram {
+    return $ProgramCopyWith<$Res>(_value.userProgram, (value) {
+      return _then(_value.copyWith(userProgram: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ProgramStateNewDayProgram
+    with DiagnosticableTreeMixin
+    implements _ProgramStateNewDayProgram {
+  const _$_ProgramStateNewDayProgram({required this.userProgram});
+
+  @override
+  final Program userProgram;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProgramState.newDayProgram(userProgram: $userProgram)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProgramState.newDayProgram'))
+      ..add(DiagnosticsProperty('userProgram', userProgram));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ProgramStateNewDayProgram &&
+            (identical(other.userProgram, userProgram) ||
+                other.userProgram == userProgram));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userProgram);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ProgramStateNewDayProgramCopyWith<_$_ProgramStateNewDayProgram>
+      get copyWith => __$$_ProgramStateNewDayProgramCopyWithImpl<
+          _$_ProgramStateNewDayProgram>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() gettingProgram,
+    required TResult Function() gettingPerformance,
+    required TResult Function(Program program) loadedProgram,
+    required TResult Function(UserPerformance userPErformance)
+        loadedPerformance,
+    required TResult Function(List<String>? errors, String? error) programError,
+    required TResult Function(String error) error,
+    required TResult Function(List<String>? errors, String? error)
+        performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
+  }) {
+    return newDayProgram(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? gettingProgram,
+    TResult? Function()? gettingPerformance,
+    TResult? Function(Program program)? loadedProgram,
+    TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(List<String>? errors, String? error)? programError,
+    TResult? Function(String error)? error,
+    TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
+  }) {
+    return newDayProgram?.call(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? gettingProgram,
+    TResult Function()? gettingPerformance,
+    TResult Function(Program program)? loadedProgram,
+    TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(List<String>? errors, String? error)? programError,
+    TResult Function(String error)? error,
+    TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (newDayProgram != null) {
+      return newDayProgram(userProgram);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProgramInitial value) initial,
+    required TResult Function(_ProgramStateLoading value) loading,
+    required TResult Function(_ProgramStateGettingProgram value) gettingProgram,
+    required TResult Function(_ProgramStateGettingPerformance value)
+        gettingPerformance,
+    required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
+    required TResult Function(_ProgramStateloadedPerformance value)
+        loadedPerformance,
+    required TResult Function(_ProgramStateProgramError value) programError,
+    required TResult Function(_ProgramStateError value) error,
+    required TResult Function(_ProgramStatePerformanceError value)
+        performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
+  }) {
+    return newDayProgram(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProgramInitial value)? initial,
+    TResult? Function(_ProgramStateLoading value)? loading,
+    TResult? Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult? Function(_ProgramStateGettingPerformance value)?
+        gettingPerformance,
+    TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateProgramError value)? programError,
+    TResult? Function(_ProgramStateError value)? error,
+    TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
+  }) {
+    return newDayProgram?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProgramInitial value)? initial,
+    TResult Function(_ProgramStateLoading value)? loading,
+    TResult Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
+    TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateProgramError value)? programError,
+    TResult Function(_ProgramStateError value)? error,
+    TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (newDayProgram != null) {
+      return newDayProgram(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProgramStateNewDayProgram implements ProgramState {
+  const factory _ProgramStateNewDayProgram(
+      {required final Program userProgram}) = _$_ProgramStateNewDayProgram;
+
+  Program get userProgram;
+  @JsonKey(ignore: true)
+  _$$_ProgramStateNewDayProgramCopyWith<_$_ProgramStateNewDayProgram>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ProgramStateNewWeekProgramCopyWith<$Res> {
+  factory _$$_ProgramStateNewWeekProgramCopyWith(
+          _$_ProgramStateNewWeekProgram value,
+          $Res Function(_$_ProgramStateNewWeekProgram) then) =
+      __$$_ProgramStateNewWeekProgramCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Program userProgram});
+
+  $ProgramCopyWith<$Res> get userProgram;
+}
+
+/// @nodoc
+class __$$_ProgramStateNewWeekProgramCopyWithImpl<$Res>
+    extends _$ProgramStateCopyWithImpl<$Res, _$_ProgramStateNewWeekProgram>
+    implements _$$_ProgramStateNewWeekProgramCopyWith<$Res> {
+  __$$_ProgramStateNewWeekProgramCopyWithImpl(
+      _$_ProgramStateNewWeekProgram _value,
+      $Res Function(_$_ProgramStateNewWeekProgram) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userProgram = null,
+  }) {
+    return _then(_$_ProgramStateNewWeekProgram(
+      userProgram: null == userProgram
+          ? _value.userProgram
+          : userProgram // ignore: cast_nullable_to_non_nullable
+              as Program,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProgramCopyWith<$Res> get userProgram {
+    return $ProgramCopyWith<$Res>(_value.userProgram, (value) {
+      return _then(_value.copyWith(userProgram: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ProgramStateNewWeekProgram
+    with DiagnosticableTreeMixin
+    implements _ProgramStateNewWeekProgram {
+  const _$_ProgramStateNewWeekProgram({required this.userProgram});
+
+  @override
+  final Program userProgram;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProgramState.newWeekProgram(userProgram: $userProgram)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProgramState.newWeekProgram'))
+      ..add(DiagnosticsProperty('userProgram', userProgram));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ProgramStateNewWeekProgram &&
+            (identical(other.userProgram, userProgram) ||
+                other.userProgram == userProgram));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userProgram);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ProgramStateNewWeekProgramCopyWith<_$_ProgramStateNewWeekProgram>
+      get copyWith => __$$_ProgramStateNewWeekProgramCopyWithImpl<
+          _$_ProgramStateNewWeekProgram>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() gettingProgram,
+    required TResult Function() gettingPerformance,
+    required TResult Function(Program program) loadedProgram,
+    required TResult Function(UserPerformance userPErformance)
+        loadedPerformance,
+    required TResult Function(List<String>? errors, String? error) programError,
+    required TResult Function(String error) error,
+    required TResult Function(List<String>? errors, String? error)
+        performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
+  }) {
+    return newWeekProgram(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? gettingProgram,
+    TResult? Function()? gettingPerformance,
+    TResult? Function(Program program)? loadedProgram,
+    TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(List<String>? errors, String? error)? programError,
+    TResult? Function(String error)? error,
+    TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
+  }) {
+    return newWeekProgram?.call(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? gettingProgram,
+    TResult Function()? gettingPerformance,
+    TResult Function(Program program)? loadedProgram,
+    TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(List<String>? errors, String? error)? programError,
+    TResult Function(String error)? error,
+    TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (newWeekProgram != null) {
+      return newWeekProgram(userProgram);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProgramInitial value) initial,
+    required TResult Function(_ProgramStateLoading value) loading,
+    required TResult Function(_ProgramStateGettingProgram value) gettingProgram,
+    required TResult Function(_ProgramStateGettingPerformance value)
+        gettingPerformance,
+    required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
+    required TResult Function(_ProgramStateloadedPerformance value)
+        loadedPerformance,
+    required TResult Function(_ProgramStateProgramError value) programError,
+    required TResult Function(_ProgramStateError value) error,
+    required TResult Function(_ProgramStatePerformanceError value)
+        performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
+  }) {
+    return newWeekProgram(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProgramInitial value)? initial,
+    TResult? Function(_ProgramStateLoading value)? loading,
+    TResult? Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult? Function(_ProgramStateGettingPerformance value)?
+        gettingPerformance,
+    TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateProgramError value)? programError,
+    TResult? Function(_ProgramStateError value)? error,
+    TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
+  }) {
+    return newWeekProgram?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProgramInitial value)? initial,
+    TResult Function(_ProgramStateLoading value)? loading,
+    TResult Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
+    TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateProgramError value)? programError,
+    TResult Function(_ProgramStateError value)? error,
+    TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (newWeekProgram != null) {
+      return newWeekProgram(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProgramStateNewWeekProgram implements ProgramState {
+  const factory _ProgramStateNewWeekProgram(
+      {required final Program userProgram}) = _$_ProgramStateNewWeekProgram;
+
+  Program get userProgram;
+  @JsonKey(ignore: true)
+  _$$_ProgramStateNewWeekProgramCopyWith<_$_ProgramStateNewWeekProgram>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ProgramStateNewCalculCopyWith<$Res> {
+  factory _$$_ProgramStateNewCalculCopyWith(_$_ProgramStateNewCalcul value,
+          $Res Function(_$_ProgramStateNewCalcul) then) =
+      __$$_ProgramStateNewCalculCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Program userProgram});
+
+  $ProgramCopyWith<$Res> get userProgram;
+}
+
+/// @nodoc
+class __$$_ProgramStateNewCalculCopyWithImpl<$Res>
+    extends _$ProgramStateCopyWithImpl<$Res, _$_ProgramStateNewCalcul>
+    implements _$$_ProgramStateNewCalculCopyWith<$Res> {
+  __$$_ProgramStateNewCalculCopyWithImpl(_$_ProgramStateNewCalcul _value,
+      $Res Function(_$_ProgramStateNewCalcul) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userProgram = null,
+  }) {
+    return _then(_$_ProgramStateNewCalcul(
+      userProgram: null == userProgram
+          ? _value.userProgram
+          : userProgram // ignore: cast_nullable_to_non_nullable
+              as Program,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProgramCopyWith<$Res> get userProgram {
+    return $ProgramCopyWith<$Res>(_value.userProgram, (value) {
+      return _then(_value.copyWith(userProgram: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ProgramStateNewCalcul
+    with DiagnosticableTreeMixin
+    implements _ProgramStateNewCalcul {
+  const _$_ProgramStateNewCalcul({required this.userProgram});
+
+  @override
+  final Program userProgram;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProgramState.newCalcul(userProgram: $userProgram)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProgramState.newCalcul'))
+      ..add(DiagnosticsProperty('userProgram', userProgram));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ProgramStateNewCalcul &&
+            (identical(other.userProgram, userProgram) ||
+                other.userProgram == userProgram));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userProgram);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ProgramStateNewCalculCopyWith<_$_ProgramStateNewCalcul> get copyWith =>
+      __$$_ProgramStateNewCalculCopyWithImpl<_$_ProgramStateNewCalcul>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() gettingProgram,
+    required TResult Function() gettingPerformance,
+    required TResult Function(Program program) loadedProgram,
+    required TResult Function(UserPerformance userPErformance)
+        loadedPerformance,
+    required TResult Function(List<String>? errors, String? error) programError,
+    required TResult Function(String error) error,
+    required TResult Function(List<String>? errors, String? error)
+        performanceError,
+    required TResult Function(Program userProgram) todayProgram,
+    required TResult Function(Program userProgram) newDayProgram,
+    required TResult Function(Program userProgram) newWeekProgram,
+    required TResult Function(Program userProgram) newCalcul,
+  }) {
+    return newCalcul(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? gettingProgram,
+    TResult? Function()? gettingPerformance,
+    TResult? Function(Program program)? loadedProgram,
+    TResult? Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult? Function(List<String>? errors, String? error)? programError,
+    TResult? Function(String error)? error,
+    TResult? Function(List<String>? errors, String? error)? performanceError,
+    TResult? Function(Program userProgram)? todayProgram,
+    TResult? Function(Program userProgram)? newDayProgram,
+    TResult? Function(Program userProgram)? newWeekProgram,
+    TResult? Function(Program userProgram)? newCalcul,
+  }) {
+    return newCalcul?.call(userProgram);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? gettingProgram,
+    TResult Function()? gettingPerformance,
+    TResult Function(Program program)? loadedProgram,
+    TResult Function(UserPerformance userPErformance)? loadedPerformance,
+    TResult Function(List<String>? errors, String? error)? programError,
+    TResult Function(String error)? error,
+    TResult Function(List<String>? errors, String? error)? performanceError,
+    TResult Function(Program userProgram)? todayProgram,
+    TResult Function(Program userProgram)? newDayProgram,
+    TResult Function(Program userProgram)? newWeekProgram,
+    TResult Function(Program userProgram)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (newCalcul != null) {
+      return newCalcul(userProgram);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProgramInitial value) initial,
+    required TResult Function(_ProgramStateLoading value) loading,
+    required TResult Function(_ProgramStateGettingProgram value) gettingProgram,
+    required TResult Function(_ProgramStateGettingPerformance value)
+        gettingPerformance,
+    required TResult Function(_ProgramStateLoadedProgram value) loadedProgram,
+    required TResult Function(_ProgramStateloadedPerformance value)
+        loadedPerformance,
+    required TResult Function(_ProgramStateProgramError value) programError,
+    required TResult Function(_ProgramStateError value) error,
+    required TResult Function(_ProgramStatePerformanceError value)
+        performanceError,
+    required TResult Function(_ProgramStateTodayProgram value) todayProgram,
+    required TResult Function(_ProgramStateNewDayProgram value) newDayProgram,
+    required TResult Function(_ProgramStateNewWeekProgram value) newWeekProgram,
+    required TResult Function(_ProgramStateNewCalcul value) newCalcul,
+  }) {
+    return newCalcul(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProgramInitial value)? initial,
+    TResult? Function(_ProgramStateLoading value)? loading,
+    TResult? Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult? Function(_ProgramStateGettingPerformance value)?
+        gettingPerformance,
+    TResult? Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult? Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult? Function(_ProgramStateProgramError value)? programError,
+    TResult? Function(_ProgramStateError value)? error,
+    TResult? Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult? Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult? Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult? Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult? Function(_ProgramStateNewCalcul value)? newCalcul,
+  }) {
+    return newCalcul?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProgramInitial value)? initial,
+    TResult Function(_ProgramStateLoading value)? loading,
+    TResult Function(_ProgramStateGettingProgram value)? gettingProgram,
+    TResult Function(_ProgramStateGettingPerformance value)? gettingPerformance,
+    TResult Function(_ProgramStateLoadedProgram value)? loadedProgram,
+    TResult Function(_ProgramStateloadedPerformance value)? loadedPerformance,
+    TResult Function(_ProgramStateProgramError value)? programError,
+    TResult Function(_ProgramStateError value)? error,
+    TResult Function(_ProgramStatePerformanceError value)? performanceError,
+    TResult Function(_ProgramStateTodayProgram value)? todayProgram,
+    TResult Function(_ProgramStateNewDayProgram value)? newDayProgram,
+    TResult Function(_ProgramStateNewWeekProgram value)? newWeekProgram,
+    TResult Function(_ProgramStateNewCalcul value)? newCalcul,
+    required TResult orElse(),
+  }) {
+    if (newCalcul != null) {
+      return newCalcul(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProgramStateNewCalcul implements ProgramState {
+  const factory _ProgramStateNewCalcul({required final Program userProgram}) =
+      _$_ProgramStateNewCalcul;
+
+  Program get userProgram;
+  @JsonKey(ignore: true)
+  _$$_ProgramStateNewCalculCopyWith<_$_ProgramStateNewCalcul> get copyWith =>
+      throw _privateConstructorUsedError;
 }

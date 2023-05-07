@@ -30,4 +30,14 @@ class ProgramState with _$ProgramState {
       _ProgramStateError;
   const factory ProgramState.performanceError(
       {List<String>? errors, String? error}) = _ProgramStatePerformanceError;
+
+  // user interations
+  const factory ProgramState.todayProgram({required Program userProgram}) =
+      _ProgramStateTodayProgram;
+
+  const factory ProgramState.newDayProgram({required Program userProgram}) =
+      _ProgramStateNewDayProgram;
+  const factory ProgramState.newWeekProgram({required Program userProgram}) =
+      _ProgramStateNewWeekProgram;
+  const factory ProgramState.newCalcul({required Program userProgram}) = _ProgramStateNewCalcul;
 }

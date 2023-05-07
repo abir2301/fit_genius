@@ -18,7 +18,7 @@ extension DetectPostState on UserInfoState {
       (this is _UserInfoStatePostingProfileError)
           ? (this as _UserInfoStatePostingProfileError).error
           : null;
-  // bool get isgottenProfile => this is _UserInfoStateGottenProfile;
+  bool get isgottenProfile => this is _UserInfoStateGottenProfile;
   // bool get isPuttedProfile => this is _UserInfoStatePuttedProfile;
 }
 
@@ -48,4 +48,12 @@ class UserInfoState with _$UserInfoState {
       _UserInfoStatePostedProfile;
   const factory UserInfoState.postError({List<String>? errors, String? error}) =
       _UserInfoStatePostingProfileError;
+  // get profile
+
+  const factory UserInfoState.gettingProfile() = _UserInfoStateGettingProfile;
+  const factory UserInfoState.gottenProfile({required Profile profile}) =
+      _UserInfoStateGottenProfile;
+  const factory UserInfoState.gettingProfileError(
+      {List<String>? errors,
+      String? error}) = _UserInfoStateGettinggProfileError;
 }

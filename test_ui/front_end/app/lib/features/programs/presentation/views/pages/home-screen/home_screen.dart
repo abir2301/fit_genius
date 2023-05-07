@@ -21,32 +21,44 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   bool _isRadioSelected = false;
   int selected_index = 0;
-  List data = [
-    {"titre": "protein", "result": 100.0, "curent": 10.0},
-    {"titre": "fats", "result": 100.0, "curent": 10.0},
-    {"titre": "carbs", "result": 100.0, "curent": 10.0},
-    {"titre": "fibers", "result": 100.0, "curent": 10.0}
-  ];
+
   String _todayDate = '';
   List meals = Data.mealsPlan['meals'] as List;
 
-  @override
-  void initState() {
-    super.initState();
-    _updateTodayDate();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _updateTodayDate();
+  // }
 
-  void _updateTodayDate() {
-    setState(() {
-      _todayDate = DateFormat.yMd().format(DateTime.now());
-    });
+  // void _updateTodayDate() {
+  //   setState(() {
+  //     _todayDate = DateFormat.yMd().format(DateTime.now());
+  //   });
 
-    Timer(Duration(seconds: 1), _updateTodayDate);
-  }
+  //   Timer(Duration(seconds: 1), _updateTodayDate);
+  // }
 
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(programProvider);
+    List data = [
+      {
+        "titre": "protein",
+        "result": ref.read(programProvider.notifier).protein.toDouble(),
+        "curent": ref.read(programProvider.notifier).consumedProtein.toDouble()
+      },
+      {
+        "titre": "fats",
+        "result": ref.read(programProvider.notifier).fats.toDouble(),
+        "curent": ref.read(programProvider.notifier).consumedFats.toDouble()
+      },
+      {
+        "titre": "carbs",
+        "result": ref.read(programProvider.notifier).carbs.toDouble(),
+        "curent": ref.read(programProvider.notifier).consumedCarbs.toDouble()
+      },
+    ];
     var length;
     return Scaffold(
       backgroundColor: bgcolor,
@@ -88,7 +100,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             width: 20,
                           ),
                           Text(
-                            _todayDate,
+                            ref.read(programProvider.notifier).getDate(),
                             style: TextStyle(
                                 color: Color(0xffFFFFFF), fontSize: 15),
                           ),
@@ -144,24 +156,28 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                     childAspectRatio: 0.8,
                                   ),
                                   itemBuilder: (context, index) {
-                                    return Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        CircularProgressor(
-                                          radius: 25,
-                                          currentProgress: data[index]
-                                              ['curent'],
-                                          result: data[index]['result'],
-                                        ),
-                                        SizedBox(
-                                          height: 30,
-                                        ),
-                                        Text(
-                                          data[index]['titre'],
-                                          style: ScreenTextIndication(size: 15),
-                                        )
-                                      ],
+                                    return Align(
+                                      alignment: Alignment.center,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          CircularProgressor(
+                                            radius: 30,
+                                            currentProgress: data[index]
+                                                ['curent'],
+                                            result: data[index]['result'],
+                                          ),
+                                          SizedBox(
+                                            height: 30,
+                                          ),
+                                          Text(
+                                            data[index]['titre'],
+                                            style:
+                                                ScreenTextIndication(size: 15),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   }),
                             )

@@ -24,6 +24,10 @@ mixin _$UserInfoState {
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +38,9 @@ mixin _$UserInfoState {
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +51,9 @@ mixin _$UserInfoState {
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +67,11 @@ mixin _$UserInfoState {
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +82,10 @@ mixin _$UserInfoState {
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +96,10 @@ mixin _$UserInfoState {
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +175,10 @@ class _$_UserInfoInitial
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) {
     return initial();
   }
@@ -165,6 +192,9 @@ class _$_UserInfoInitial
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) {
     return initial?.call();
   }
@@ -178,6 +208,9 @@ class _$_UserInfoInitial
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -197,6 +230,11 @@ class _$_UserInfoInitial
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) {
     return initial(this);
   }
@@ -210,6 +248,10 @@ class _$_UserInfoInitial
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) {
     return initial?.call(this);
   }
@@ -223,6 +265,10 @@ class _$_UserInfoInitial
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -288,6 +334,10 @@ class _$_UserInfoStateLoading
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) {
     return loading();
   }
@@ -301,6 +351,9 @@ class _$_UserInfoStateLoading
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) {
     return loading?.call();
   }
@@ -314,6 +367,9 @@ class _$_UserInfoStateLoading
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -333,6 +389,11 @@ class _$_UserInfoStateLoading
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) {
     return loading(this);
   }
@@ -346,6 +407,10 @@ class _$_UserInfoStateLoading
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) {
     return loading?.call(this);
   }
@@ -359,6 +424,10 @@ class _$_UserInfoStateLoading
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -453,6 +522,10 @@ class _$_UserInfoStateError
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) {
     return error(this.error);
   }
@@ -466,6 +539,9 @@ class _$_UserInfoStateError
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) {
     return error?.call(this.error);
   }
@@ -479,6 +555,9 @@ class _$_UserInfoStateError
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -498,6 +577,11 @@ class _$_UserInfoStateError
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) {
     return error(this);
   }
@@ -511,6 +595,10 @@ class _$_UserInfoStateError
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) {
     return error?.call(this);
   }
@@ -524,6 +612,10 @@ class _$_UserInfoStateError
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -598,6 +690,10 @@ class _$_UserInfoStatePostingProfile
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) {
     return postingProfile();
   }
@@ -611,6 +707,9 @@ class _$_UserInfoStatePostingProfile
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) {
     return postingProfile?.call();
   }
@@ -624,6 +723,9 @@ class _$_UserInfoStatePostingProfile
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) {
     if (postingProfile != null) {
@@ -643,6 +745,11 @@ class _$_UserInfoStatePostingProfile
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) {
     return postingProfile(this);
   }
@@ -656,6 +763,10 @@ class _$_UserInfoStatePostingProfile
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) {
     return postingProfile?.call(this);
   }
@@ -669,6 +780,10 @@ class _$_UserInfoStatePostingProfile
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) {
     if (postingProfile != null) {
@@ -775,6 +890,10 @@ class _$_UserInfoStatePostedProfile
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) {
     return postedProfile(profile);
   }
@@ -788,6 +907,9 @@ class _$_UserInfoStatePostedProfile
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) {
     return postedProfile?.call(profile);
   }
@@ -801,6 +923,9 @@ class _$_UserInfoStatePostedProfile
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) {
     if (postedProfile != null) {
@@ -820,6 +945,11 @@ class _$_UserInfoStatePostedProfile
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) {
     return postedProfile(this);
   }
@@ -833,6 +963,10 @@ class _$_UserInfoStatePostedProfile
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) {
     return postedProfile?.call(this);
   }
@@ -846,6 +980,10 @@ class _$_UserInfoStatePostedProfile
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) {
     if (postedProfile != null) {
@@ -970,6 +1108,10 @@ class _$_UserInfoStatePostingProfileError
     required TResult Function() postingProfile,
     required TResult Function(Profile profile) postedProfile,
     required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
   }) {
     return postError(errors, this.error);
   }
@@ -983,6 +1125,9 @@ class _$_UserInfoStatePostingProfileError
     TResult? Function()? postingProfile,
     TResult? Function(Profile profile)? postedProfile,
     TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
   }) {
     return postError?.call(errors, this.error);
   }
@@ -996,6 +1141,9 @@ class _$_UserInfoStatePostingProfileError
     TResult Function()? postingProfile,
     TResult Function(Profile profile)? postedProfile,
     TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
     required TResult orElse(),
   }) {
     if (postError != null) {
@@ -1015,6 +1163,11 @@ class _$_UserInfoStatePostingProfileError
     required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
     required TResult Function(_UserInfoStatePostingProfileError value)
         postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
   }) {
     return postError(this);
   }
@@ -1028,6 +1181,10 @@ class _$_UserInfoStatePostingProfileError
     TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
   }) {
     return postError?.call(this);
   }
@@ -1041,6 +1198,10 @@ class _$_UserInfoStatePostingProfileError
     TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
     TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
     TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
     required TResult orElse(),
   }) {
     if (postError != null) {
@@ -1060,5 +1221,594 @@ abstract class _UserInfoStatePostingProfileError implements UserInfoState {
   @JsonKey(ignore: true)
   _$$_UserInfoStatePostingProfileErrorCopyWith<
           _$_UserInfoStatePostingProfileError>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UserInfoStateGettingProfileCopyWith<$Res> {
+  factory _$$_UserInfoStateGettingProfileCopyWith(
+          _$_UserInfoStateGettingProfile value,
+          $Res Function(_$_UserInfoStateGettingProfile) then) =
+      __$$_UserInfoStateGettingProfileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UserInfoStateGettingProfileCopyWithImpl<$Res>
+    extends _$UserInfoStateCopyWithImpl<$Res, _$_UserInfoStateGettingProfile>
+    implements _$$_UserInfoStateGettingProfileCopyWith<$Res> {
+  __$$_UserInfoStateGettingProfileCopyWithImpl(
+      _$_UserInfoStateGettingProfile _value,
+      $Res Function(_$_UserInfoStateGettingProfile) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_UserInfoStateGettingProfile
+    with DiagnosticableTreeMixin
+    implements _UserInfoStateGettingProfile {
+  const _$_UserInfoStateGettingProfile();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserInfoState.gettingProfile()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'UserInfoState.gettingProfile'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UserInfoStateGettingProfile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String error) error,
+    required TResult Function() postingProfile,
+    required TResult Function(Profile profile) postedProfile,
+    required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
+  }) {
+    return gettingProfile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? postingProfile,
+    TResult? Function(Profile profile)? postedProfile,
+    TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
+  }) {
+    return gettingProfile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String error)? error,
+    TResult Function()? postingProfile,
+    TResult Function(Profile profile)? postedProfile,
+    TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
+    required TResult orElse(),
+  }) {
+    if (gettingProfile != null) {
+      return gettingProfile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UserInfoInitial value) initial,
+    required TResult Function(_UserInfoStateLoading value) loading,
+    required TResult Function(_UserInfoStateError value) error,
+    required TResult Function(_UserInfoStatePostingProfile value)
+        postingProfile,
+    required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
+    required TResult Function(_UserInfoStatePostingProfileError value)
+        postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
+  }) {
+    return gettingProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UserInfoInitial value)? initial,
+    TResult? Function(_UserInfoStateLoading value)? loading,
+    TResult? Function(_UserInfoStateError value)? error,
+    TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
+    TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
+    TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
+  }) {
+    return gettingProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UserInfoInitial value)? initial,
+    TResult Function(_UserInfoStateLoading value)? loading,
+    TResult Function(_UserInfoStateError value)? error,
+    TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
+    TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
+    TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
+    required TResult orElse(),
+  }) {
+    if (gettingProfile != null) {
+      return gettingProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserInfoStateGettingProfile implements UserInfoState {
+  const factory _UserInfoStateGettingProfile() = _$_UserInfoStateGettingProfile;
+}
+
+/// @nodoc
+abstract class _$$_UserInfoStateGottenProfileCopyWith<$Res> {
+  factory _$$_UserInfoStateGottenProfileCopyWith(
+          _$_UserInfoStateGottenProfile value,
+          $Res Function(_$_UserInfoStateGottenProfile) then) =
+      __$$_UserInfoStateGottenProfileCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Profile profile});
+
+  $ProfileCopyWith<$Res> get profile;
+}
+
+/// @nodoc
+class __$$_UserInfoStateGottenProfileCopyWithImpl<$Res>
+    extends _$UserInfoStateCopyWithImpl<$Res, _$_UserInfoStateGottenProfile>
+    implements _$$_UserInfoStateGottenProfileCopyWith<$Res> {
+  __$$_UserInfoStateGottenProfileCopyWithImpl(
+      _$_UserInfoStateGottenProfile _value,
+      $Res Function(_$_UserInfoStateGottenProfile) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profile = null,
+  }) {
+    return _then(_$_UserInfoStateGottenProfile(
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as Profile,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileCopyWith<$Res> get profile {
+    return $ProfileCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_UserInfoStateGottenProfile
+    with DiagnosticableTreeMixin
+    implements _UserInfoStateGottenProfile {
+  const _$_UserInfoStateGottenProfile({required this.profile});
+
+  @override
+  final Profile profile;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserInfoState.gottenProfile(profile: $profile)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserInfoState.gottenProfile'))
+      ..add(DiagnosticsProperty('profile', profile));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UserInfoStateGottenProfile &&
+            (identical(other.profile, profile) || other.profile == profile));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profile);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UserInfoStateGottenProfileCopyWith<_$_UserInfoStateGottenProfile>
+      get copyWith => __$$_UserInfoStateGottenProfileCopyWithImpl<
+          _$_UserInfoStateGottenProfile>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String error) error,
+    required TResult Function() postingProfile,
+    required TResult Function(Profile profile) postedProfile,
+    required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
+  }) {
+    return gottenProfile(profile);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? postingProfile,
+    TResult? Function(Profile profile)? postedProfile,
+    TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
+  }) {
+    return gottenProfile?.call(profile);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String error)? error,
+    TResult Function()? postingProfile,
+    TResult Function(Profile profile)? postedProfile,
+    TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
+    required TResult orElse(),
+  }) {
+    if (gottenProfile != null) {
+      return gottenProfile(profile);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UserInfoInitial value) initial,
+    required TResult Function(_UserInfoStateLoading value) loading,
+    required TResult Function(_UserInfoStateError value) error,
+    required TResult Function(_UserInfoStatePostingProfile value)
+        postingProfile,
+    required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
+    required TResult Function(_UserInfoStatePostingProfileError value)
+        postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
+  }) {
+    return gottenProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UserInfoInitial value)? initial,
+    TResult? Function(_UserInfoStateLoading value)? loading,
+    TResult? Function(_UserInfoStateError value)? error,
+    TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
+    TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
+    TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
+  }) {
+    return gottenProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UserInfoInitial value)? initial,
+    TResult Function(_UserInfoStateLoading value)? loading,
+    TResult Function(_UserInfoStateError value)? error,
+    TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
+    TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
+    TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
+    required TResult orElse(),
+  }) {
+    if (gottenProfile != null) {
+      return gottenProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserInfoStateGottenProfile implements UserInfoState {
+  const factory _UserInfoStateGottenProfile({required final Profile profile}) =
+      _$_UserInfoStateGottenProfile;
+
+  Profile get profile;
+  @JsonKey(ignore: true)
+  _$$_UserInfoStateGottenProfileCopyWith<_$_UserInfoStateGottenProfile>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UserInfoStateGettinggProfileErrorCopyWith<$Res> {
+  factory _$$_UserInfoStateGettinggProfileErrorCopyWith(
+          _$_UserInfoStateGettinggProfileError value,
+          $Res Function(_$_UserInfoStateGettinggProfileError) then) =
+      __$$_UserInfoStateGettinggProfileErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String>? errors, String? error});
+}
+
+/// @nodoc
+class __$$_UserInfoStateGettinggProfileErrorCopyWithImpl<$Res>
+    extends _$UserInfoStateCopyWithImpl<$Res,
+        _$_UserInfoStateGettinggProfileError>
+    implements _$$_UserInfoStateGettinggProfileErrorCopyWith<$Res> {
+  __$$_UserInfoStateGettinggProfileErrorCopyWithImpl(
+      _$_UserInfoStateGettinggProfileError _value,
+      $Res Function(_$_UserInfoStateGettinggProfileError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errors = freezed,
+    Object? error = freezed,
+  }) {
+    return _then(_$_UserInfoStateGettinggProfileError(
+      errors: freezed == errors
+          ? _value._errors
+          : errors // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UserInfoStateGettinggProfileError
+    with DiagnosticableTreeMixin
+    implements _UserInfoStateGettinggProfileError {
+  const _$_UserInfoStateGettinggProfileError(
+      {final List<String>? errors, this.error})
+      : _errors = errors;
+
+  final List<String>? _errors;
+  @override
+  List<String>? get errors {
+    final value = _errors;
+    if (value == null) return null;
+    if (_errors is EqualUnmodifiableListView) return _errors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? error;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserInfoState.gettingProfileError(errors: $errors, error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserInfoState.gettingProfileError'))
+      ..add(DiagnosticsProperty('errors', errors))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UserInfoStateGettinggProfileError &&
+            const DeepCollectionEquality().equals(other._errors, _errors) &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_errors), error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UserInfoStateGettinggProfileErrorCopyWith<
+          _$_UserInfoStateGettinggProfileError>
+      get copyWith => __$$_UserInfoStateGettinggProfileErrorCopyWithImpl<
+          _$_UserInfoStateGettinggProfileError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String error) error,
+    required TResult Function() postingProfile,
+    required TResult Function(Profile profile) postedProfile,
+    required TResult Function(List<String>? errors, String? error) postError,
+    required TResult Function() gettingProfile,
+    required TResult Function(Profile profile) gottenProfile,
+    required TResult Function(List<String>? errors, String? error)
+        gettingProfileError,
+  }) {
+    return gettingProfileError(errors, this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String error)? error,
+    TResult? Function()? postingProfile,
+    TResult? Function(Profile profile)? postedProfile,
+    TResult? Function(List<String>? errors, String? error)? postError,
+    TResult? Function()? gettingProfile,
+    TResult? Function(Profile profile)? gottenProfile,
+    TResult? Function(List<String>? errors, String? error)? gettingProfileError,
+  }) {
+    return gettingProfileError?.call(errors, this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String error)? error,
+    TResult Function()? postingProfile,
+    TResult Function(Profile profile)? postedProfile,
+    TResult Function(List<String>? errors, String? error)? postError,
+    TResult Function()? gettingProfile,
+    TResult Function(Profile profile)? gottenProfile,
+    TResult Function(List<String>? errors, String? error)? gettingProfileError,
+    required TResult orElse(),
+  }) {
+    if (gettingProfileError != null) {
+      return gettingProfileError(errors, this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UserInfoInitial value) initial,
+    required TResult Function(_UserInfoStateLoading value) loading,
+    required TResult Function(_UserInfoStateError value) error,
+    required TResult Function(_UserInfoStatePostingProfile value)
+        postingProfile,
+    required TResult Function(_UserInfoStatePostedProfile value) postedProfile,
+    required TResult Function(_UserInfoStatePostingProfileError value)
+        postError,
+    required TResult Function(_UserInfoStateGettingProfile value)
+        gettingProfile,
+    required TResult Function(_UserInfoStateGottenProfile value) gottenProfile,
+    required TResult Function(_UserInfoStateGettinggProfileError value)
+        gettingProfileError,
+  }) {
+    return gettingProfileError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UserInfoInitial value)? initial,
+    TResult? Function(_UserInfoStateLoading value)? loading,
+    TResult? Function(_UserInfoStateError value)? error,
+    TResult? Function(_UserInfoStatePostingProfile value)? postingProfile,
+    TResult? Function(_UserInfoStatePostedProfile value)? postedProfile,
+    TResult? Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult? Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult? Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult? Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
+  }) {
+    return gettingProfileError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UserInfoInitial value)? initial,
+    TResult Function(_UserInfoStateLoading value)? loading,
+    TResult Function(_UserInfoStateError value)? error,
+    TResult Function(_UserInfoStatePostingProfile value)? postingProfile,
+    TResult Function(_UserInfoStatePostedProfile value)? postedProfile,
+    TResult Function(_UserInfoStatePostingProfileError value)? postError,
+    TResult Function(_UserInfoStateGettingProfile value)? gettingProfile,
+    TResult Function(_UserInfoStateGottenProfile value)? gottenProfile,
+    TResult Function(_UserInfoStateGettinggProfileError value)?
+        gettingProfileError,
+    required TResult orElse(),
+  }) {
+    if (gettingProfileError != null) {
+      return gettingProfileError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserInfoStateGettinggProfileError implements UserInfoState {
+  const factory _UserInfoStateGettinggProfileError(
+      {final List<String>? errors,
+      final String? error}) = _$_UserInfoStateGettinggProfileError;
+
+  List<String>? get errors;
+  String? get error;
+  @JsonKey(ignore: true)
+  _$$_UserInfoStateGettinggProfileErrorCopyWith<
+          _$_UserInfoStateGettinggProfileError>
       get copyWith => throw _privateConstructorUsedError;
 }

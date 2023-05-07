@@ -1,4 +1,5 @@
 import 'package:app/core/error/failure.dart';
+import 'package:app/features/user_informations/domain/usecases/get_profile_usecase.dart';
 import 'package:app/features/user_informations/presentation/states/user_info_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,6 +8,7 @@ import '../../domain/usecases/post_profile_usecase.dart';
 
 class ProfileViewModel extends StateNotifier<UserInfoState> {
   late PostProfileUsecase postProfileUsecase;
+  late GetProfileUsecase getProfileUsecase;
   Profile? profile;
   late String weight;
   late int age;
@@ -63,8 +65,11 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
     print("acti" + activity_level);
   }
 
-  ProfileViewModel({required this.postProfileUsecase})
-      : super(const UserInfoState.initial());
+  ProfileViewModel(
+      {required this.postProfileUsecase, required this.getProfileUsecase})
+      : super(const UserInfoState.initial()) {
+    gettProfile();
+  }
 
   void postingProfile() async {
     state = UserInfoState.postingProfile();
@@ -76,6 +81,11 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
 
   void display() {
     print(this.height);
+  }
+
+  void gettProfile() async {
+    await getProfile();
+    state = UserInfoState.gottenProfile(profile: profile!);
   }
 
   void postProfile() async {
@@ -94,6 +104,27 @@ class ProfileViewModel extends StateNotifier<UserInfoState> {
         state = const UserInfoState.postError(error: 'went wrong ');
       } else if (failure is UnauthenticatedFailure) {
         state = const UserInfoState.error(error: 'went_wrong_register_again');
+      }
+    });
+  }
+
+  Future<void> getProfile() async {
+    state = UserInfoState.loading();
+    final either = await getProfileUsecase();
+    either.fold((profile) {
+      this.profile = profile;
+
+      state = UserInfoState.gottenProfile(profile: profile);
+    }, (failure) {
+      if (failure is OfflineFailure) {
+        state = const UserInfoState.postError(error: 'no_internet ');
+      } else if (failure is ServerFailure) {
+        state = const UserInfoState.postError(error: 'went wrong ');
+      } else if (failure is UnauthenticatedFailure) {
+        state = const UserInfoState.error(error: 'went_wrong_register_again');
+      } else {
+        state = const UserInfoState.gettingProfileError(
+            error: "error while geting profile");
       }
     });
   }
