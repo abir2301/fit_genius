@@ -38,13 +38,25 @@ class _DietPalnState extends ConsumerState<DietPaln> {
         height: 500,
         width: MediaQuery.of(context).size.width * 0.9,
         child: state.maybeWhen(
-          gettingProgram: () => Container(
-            child: CircularProgressIndicator(
-              color: pink,
+          gettingProgram: () => Center(
+            child: Container(
+              height: 100,
+              width: 100,
+              child: CircularProgressIndicator(
+                color: pink,
+              ),
             ),
           ),
           orElse: () => Text("????"),
-          loading: () => Text("loading"),
+          loading: () => Center(
+            child: Container(
+              height: 100,
+              width: 100,
+              child: CircularProgressIndicator(
+                color: pink,
+              ),
+            ),
+          ),
           todayProgram: (userProgram) => ListView.builder(
             itemCount: userProgram.meals.length,
             itemBuilder: (context, index) {

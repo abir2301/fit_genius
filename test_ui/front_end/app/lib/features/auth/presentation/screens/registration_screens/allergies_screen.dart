@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/app_theme.dart';
 import '../../../../../core/data.dart';
+import '../../../../../core/utils/functions/display_snackbar.dart';
 import '../../../../user_informations/domain/models/hp.dart';
 import '../../../../user_informations/presentation/providers.dart';
 import '../../components/label_checkedbox.dart';
@@ -150,9 +151,10 @@ class _AllergiesScreenState extends ConsumerState<AllergiesScreen> {
       Container(
           child: TextButton(
               onPressed: () {
-                if (ref.read(allHpProvider.notifier).userHps.data.length != 0) {
-                  ref.read(allHpProvider.notifier).postUserHp();
-                }
+                displaySnackbar(context, "Allergies succesfylly inserted ");
+                // if (ref.read(allHpProvider.notifier).userHps.data.length != 0) {
+                //   ref.read(allHpProvider.notifier).postUserHp();
+                // }
               },
               child: Text('submit '))),
     ]);

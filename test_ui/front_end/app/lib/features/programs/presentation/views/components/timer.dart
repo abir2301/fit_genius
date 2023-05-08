@@ -14,7 +14,7 @@ class ExcerciseTimer extends StatefulWidget {
 }
 
 class _ExcerciseTimerState extends State<ExcerciseTimer> {
-  static const maxSeconds = 5;
+  static const maxSeconds = 20;
   late int seconds = maxSeconds;
   Timer? timer;
   void resetTimer() => setState(() {

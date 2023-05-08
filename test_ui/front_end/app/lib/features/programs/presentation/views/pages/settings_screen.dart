@@ -10,10 +10,10 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   List<User> _suggestions = [
-    User(name: 'John Doe', imageUrl: 'assets/images/users/u1.png'),
-    User(name: 'Jane Doe', imageUrl: 'assets/images/users/u2.png'),
-    User(name: 'Bob Smith', imageUrl: 'assets/images/users/h1.png'),
-    User(name: 'Alice Johnson', imageUrl: 'assets/images/users/h1.png'),
+    User(name: 'karam jk ', imageUrl: 'assets/images/users/u1.png'),
+    User(name: 'toutou ', imageUrl: 'assets/images/users/u2.png'),
+    User(name: 'karim lk', imageUrl: 'assets/images/users/h1.png'),
+    User(name: 'androw', imageUrl: 'assets/images/users/h1.png'),
   ];
 
   @override

@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:math';
 
 import '../../../../../core/data.dart';
+import '../../../../../core/utils/functions/display_snackbar.dart';
 import '../../../../user_informations/domain/models/hp.dart';
 import '../../components/label_radio.dart';
 
@@ -94,6 +95,13 @@ class _DeficienciesScreenState extends ConsumerState<DeficienciesScreen> {
       Container(
           height: MediaQuery.of(context).size.width * 0.8,
           child: state.maybeWhen(
+            initial: () => Container(
+              height: 50,
+              width: 50,
+              child: const CircularProgressIndicator(
+                color: pink,
+              ),
+            ),
             orElse: () => const Center(
                 child: Text(
               "something went wrong ",
@@ -134,9 +142,10 @@ class _DeficienciesScreenState extends ConsumerState<DeficienciesScreen> {
       Container(
           child: TextButton(
               onPressed: () {
-                if (ref.read(hpProvider.notifier).userHps.data.length != 0) {
-                  ref.read(hpProvider.notifier).postUserHp();
-                }
+                displaySnackbar(context, "deficiencies succesfully inserted ");
+                // if (ref.read(hpProvider.notifier).userHps.data.length != 0) {
+                //   ref.read(hpProvider.notifier).postUserHp();
+                // }
               },
               child: Text('submit '))),
     ]);

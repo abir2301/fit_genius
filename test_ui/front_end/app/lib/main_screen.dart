@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'features/auth/presentation/providers.dart';
 import 'features/auth/presentation/screens/initila_screen.dart';
+import 'features/auth/presentation/screens/user_info_screens.dart';
 import 'features/programs/presentation/views/pages/main_screen.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
@@ -28,7 +29,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         orElse: () => WelcomingScreen(),
         loggingOut: () => WelcomingScreen(),
         loggedOut: () => WelcomingScreen(),
-        loggedIn: (_) => CongratScreen(),
+        loggedIn: (_) => FRTabbarScreen(),
         registered: (_) => CongratScreen(),
       );
     });

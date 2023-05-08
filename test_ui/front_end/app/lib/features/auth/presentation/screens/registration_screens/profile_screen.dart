@@ -27,6 +27,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   String? _emailError, _nameError, _passwordError;
   @override
   void dispose() {
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -73,7 +74,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         return (' Invalid email');
                       }
                       return null;
-                    }, onEditingComplete: () {  },
+                    },
+                    onEditingComplete: () {},
                   ),
                   SizedBox(
                     height: 10,
@@ -93,11 +95,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     controller: _nameController,
                     hintText: 'abir ch ',
                     validator: (value) {
-                      if (!value!.isValidName) {
-                        return (' Invalid user name ');
-                      }
-                      return null;
-                    }, onEditingComplete: () {  },
+                      // if (!value!.isValidName) {
+                      //   return (' Invalid user name ');
+                      // }
+                      // return null;
+                    },
+                    onEditingComplete: () {},
                   ),
                   SizedBox(
                     height: 10,
@@ -122,7 +125,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         return (' Invalid password');
                       }
                       return null;
-                    }, onEditingComplete: () {  },
+                    },
+                    onEditingComplete: () {},
                   ),
                   TextButton(
                     onPressed: () {

@@ -110,7 +110,7 @@ class _UserWeightDetailsState extends ConsumerState<UserWeightDetails> {
                       style: textTheme(color: Color(0xff555555)),
                     ),
                     gottenProfile: (profile) => Text(
-                      (int.parse(profile.weight) - 5).toString() + " KG ",
+                      (int.parse(profile.weight) + 7).toString() + " KG ",
                       style: textTheme(),
                     ),
                   ),

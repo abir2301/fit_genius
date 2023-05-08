@@ -17,6 +17,12 @@ class MealsCkeckList extends ConsumerStatefulWidget {
 
 class _MealsCkeckListState extends ConsumerState<MealsCkeckList> {
   List meals = Data.mealsPlan['meals'] as List;
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(programProvider.notifier).init();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,11 +103,11 @@ class _MealsCkeckListState extends ConsumerState<MealsCkeckList> {
                                   program.meals[index].name),
                               onChanged: (bool result) {
                                 setState(() {
-                                  if (result)
+                                  if (result) {
                                     ref
                                         .read(programProvider.notifier)
                                         .selectMeal(program.meals[index].name);
-                                  else {
+                                  } else {
                                     ref
                                         .read(programProvider.notifier)
                                         .unselectMeal(

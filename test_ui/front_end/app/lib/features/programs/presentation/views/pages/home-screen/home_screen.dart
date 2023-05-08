@@ -26,10 +26,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   String _todayDate = '';
   List meals = Data.mealsPlan['meals'] as List;
 
-  @override
   void initState() {
+    super.initState();
+    print("inistate");
     Future<void>.delayed(Duration.zero, () {
-      super.initState();
+      ref.read(programProvider.notifier).init();
+      print(ref.read(programProvider.notifier).consumedProtein.toDouble());
     });
   }
 
@@ -132,13 +134,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 style: ScreenTextIndication(size: 15),
                               ),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 10,
                             ),
                             SizedBox(
-                                height: MediaQuery.of(context).size.width * 0.5,
+                                height: MediaQuery.of(context).size.width * 0.4,
                                 child: state.maybeWhen(
-                                  orElse: () => Center(
+                                  orElse: () => const Center(
                                       child: Text('something went wrong ')),
                                   loading: () => Center(
                                     child: Container(
@@ -148,62 +150,54 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                     ),
                                   ),
                                   todayProgram: (userProgram) =>
-                                      GridView.builder(
-                                          itemCount: 3,
-                                          physics:
-                                              const NeverScrollableScrollPhysics(),
-                                          padding: const EdgeInsets.only(
-                                            left: 5,
-                                            right: 1,
-                                          ),
-                                          gridDelegate:
-                                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 4,
-                                            childAspectRatio: 0.8,
-                                          ),
-                                          itemBuilder: (context, index) {
-                                            return Align(
-                                              alignment: Alignment.center,
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  CircularProgressor(
-                                                    radius: 30,
-                                                    currentProgress:
-                                                        CacheHelper.getInt(
-                                                                "fats")
-                                                            .toDouble(),
-                                                    result: data[index]
-                                                        ['result'],
-                                                  ),
-                                                  SizedBox(
-                                                    height: 30,
-                                                  ),
-                                                  Text(
-                                                    data[index]['titre'],
-                                                    style: ScreenTextIndication(
-                                                        size: 15),
-                                                  )
-                                                ],
-                                              ),
-                                            );
-                                          }),
-                                  newCalcul: (userProgram) => GridView.builder(
-                                      itemCount: 3,
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
-                                      padding: const EdgeInsets.only(
-                                        left: 5,
-                                        right: 1,
-                                      ),
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4,
-                                        childAspectRatio: 0.8,
-                                      ),
-                                      itemBuilder: (context, index) {
-                                        return Align(
+                                      // GridView.builder(
+                                      //     itemCount: 3,
+                                      //     physics:
+                                      //         const NeverScrollableScrollPhysics(),
+                                      //     padding: const EdgeInsets.only(
+                                      //       left: 5,
+                                      //       right: 1,
+                                      //     ),
+                                      //     gridDelegate:
+                                      //         const SliverGridDelegateWithFixedCrossAxisCount(
+                                      //       crossAxisCount: 4,
+                                      //       childAspectRatio: 0.8,
+                                      //     ),
+                                      //     itemBuilder: (context, index) {
+                                      //       return Align(
+                                      //         alignment: Alignment.center,
+                                      //         child: Column(
+                                      //           mainAxisAlignment:
+                                      //               MainAxisAlignment.center,
+                                      //           children: [
+                                      //             CircularProgressor(
+                                      //               radius: 30,
+                                      //               currentProgress: data[index]
+                                      //                   ['curent'],
+                                      //               result: data[index]
+                                      //                   ['result'],
+                                      //             ),
+                                      //             SizedBox(
+                                      //               height: 30,
+                                      //             ),
+                                      //             Text(
+                                      //               data[index]['titre'],
+                                      //               style: ScreenTextIndication(
+                                      //                   size: 15),
+                                      //             )
+                                      //           ],
+                                      //         ),
+                                      //       );
+                                      //     }),
+
+                                      Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Align(
                                           alignment: Alignment.center,
                                           child: Column(
                                             mainAxisAlignment:
@@ -211,22 +205,108 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                             children: [
                                               CircularProgressor(
                                                 radius: 30,
-                                                currentProgress: data[index]
+                                                currentProgress: data[0]
                                                     ['curent'],
-                                                result: data[index]['result'],
+                                                result: data[0]['result'],
                                               ),
                                               SizedBox(
                                                 height: 30,
                                               ),
                                               Text(
-                                                data[index]['titre'],
+                                                "protein",
                                                 style: ScreenTextIndication(
                                                     size: 15),
                                               )
                                             ],
                                           ),
-                                        );
-                                      }),
+                                        ),
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              CircularProgressor(
+                                                radius: 30,
+                                                currentProgress: data[1]
+                                                    ['curent'],
+                                                result: data[1]['result'],
+                                              ),
+                                              SizedBox(
+                                                height: 30,
+                                              ),
+                                              Text(
+                                                "fats",
+                                                style: ScreenTextIndication(
+                                                    size: 15),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              CircularProgressor(
+                                                radius: 30,
+                                                currentProgress: data[2]
+                                                    ['curent'],
+                                                result: data[2]['result'],
+                                              ),
+                                              SizedBox(
+                                                height: 30,
+                                              ),
+                                              Text(
+                                                "cabs",
+                                                style: ScreenTextIndication(
+                                                    size: 15),
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  // newCalcul: (userProgram) => GridView.builder(
+                                  //     itemCount: 3,
+                                  //     physics:
+                                  //         const NeverScrollableScrollPhysics(),
+                                  //     padding: const EdgeInsets.only(
+                                  //       left: 5,
+                                  //       right: 1,
+                                  //     ),
+                                  //     gridDelegate:
+                                  //         const SliverGridDelegateWithFixedCrossAxisCount(
+                                  //       crossAxisCount: 4,
+                                  //       childAspectRatio: 0.8,
+                                  //     ),
+                                  //     itemBuilder: (context, index) {
+                                  //       return Align(
+                                  //         alignment: Alignment.center,
+                                  //         child: Column(
+                                  //           mainAxisAlignment:
+                                  //               MainAxisAlignment.center,
+                                  //           children: [
+                                  //             CircularProgressor(
+                                  //               radius: 30,
+                                  //               currentProgress: data[index]
+                                  //                   ['curent'],
+                                  //               result: data[index]['result'],
+                                  //             ),
+                                  //             SizedBox(
+                                  //               height: 30,
+                                  //             ),
+                                  //             Text(
+                                  //               data[index]['titre'],
+                                  //               style: ScreenTextIndication(
+                                  //                   size: 15),
+                                  //             )
+                                  //           ],
+                                  //         ),
+                                  //       );
+                                  //     }),
                                 ))
                           ],
                         ),

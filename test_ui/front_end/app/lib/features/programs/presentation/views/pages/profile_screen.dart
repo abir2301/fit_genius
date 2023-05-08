@@ -81,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          duration: Duration(seconds: 15),
+                          duration: Duration(seconds: 10),
                           width: MediaQuery.of(context).size.width * 0.9,
                           padding: EdgeInsets.symmetric(horizontal: 20.0),
                           behavior: SnackBarBehavior.floating,

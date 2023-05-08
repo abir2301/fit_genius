@@ -28,6 +28,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   @override
   void dispose() {
     _emailController.dispose();
+    _nameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -53,7 +54,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
             children: [
               Column(
                 children: [
-                  screenHeader(title: "Acount", size: 30),
+                  screenHeader(title: "Registration", size: 30),
                   InputField(
                     onchange: (txt) {
                       if (txt.isNotEmpty) {
@@ -94,7 +95,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     controller: _nameController,
                     hintText: 'abir ch ',
                     validator: (value) {
-                      if (!value!.isValidName) {
+                      if (value!.isEmpty) {
                         return (' Invalid user name ');
                       }
                       return null;
@@ -148,6 +149,19 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                           textStyle: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: primaryColor,
+                              fontSize: 20)),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => {Navigator.pushNamed(context, 'login')},
+                    child: Text(
+                      " already have an account  !!!",
+                      style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                              decoration:
+                                  TextDecoration.underline, // <-- SEE HERE
+                              color: Color(0xff474747),
                               fontSize: 15)),
                       textAlign: TextAlign.start,
                     ),

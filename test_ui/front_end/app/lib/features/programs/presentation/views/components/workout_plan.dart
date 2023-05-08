@@ -24,6 +24,15 @@ class _WorkoutPlanState extends ConsumerState<WorkoutPlan> {
         height: 500,
         width: MediaQuery.of(context).size.width * 0.9,
         child: state.maybeWhen(
+          loading: () => Center(
+            child: Container(
+              height: 10,
+              width: 100,
+              child: CircularProgressIndicator(
+                color: pink,
+              ),
+            ),
+          ),
           orElse: () => Text("no data yet "),
           todayProgram: (userProgram) => ListView.builder(
             itemCount: userProgram.workouts[0].excercices.length,
@@ -34,9 +43,9 @@ class _WorkoutPlanState extends ConsumerState<WorkoutPlan> {
                   onTap: () {
                     var excercice = Excercice(
                         name: userProgram.workouts[0].excercices[index].name,
-                        image: workout[index]["image"],
+                        image: "assets/workout/aptitude.png",
                         desc:
-                            "this is the excercice  descuption please ty to stay safe and healthy ",
+                            "it is essential to remember that success rarely comes without perseverance and determination. When things get tough, it's important to stay resilient and keep pushing forward. Embrace failure as an opportunity to learn and grow. ",
                         isDone:
                             userProgram.workouts[0].excercices[index].isDone,
                         duree:
@@ -71,7 +80,7 @@ class _WorkoutPlanState extends ConsumerState<WorkoutPlan> {
                               child: Image.asset(
                                 height: 50,
                                 width: 50,
-                                "assets/workout/${workout[index]["image"]}",
+                                "assets/workout/aptitude.png",
                               ),
                             ),
                           ),

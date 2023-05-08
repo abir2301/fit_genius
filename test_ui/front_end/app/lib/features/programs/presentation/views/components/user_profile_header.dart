@@ -71,81 +71,89 @@ class _UserProfileHeaderState extends ConsumerState<UserProfileHeader> {
                   const SizedBox(
                     width: 8,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Hey Dieter ",
-                        style: TextStyle(
-                            color: pink,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
-                      state.maybeWhen(
-                        orElse: () => Text(
-                          "  ?? ",
-                          style: textTheme(),
+                  Container(
+                    width: 150,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hey Dieter ",
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: pink,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
                         ),
-                        gettingProfileError: (errors, error) =>
-                            Text(error.toString()),
-                        gettingProfile: () => Text(
-                          " waiting",
-                          style: textTheme(),
+                        state.maybeWhen(
+                          orElse: () => Text(
+                            "  ?? ",
+                            style: textTheme(),
+                          ),
+                          gettingProfileError: (errors, error) =>
+                              Text(error.toString()),
+                          gettingProfile: () => Text(
+                            " waiting",
+                            style: textTheme(),
+                          ),
+                          gottenProfile: (profile) => Text(
+                            "Goal : " + profile.goal,
+                            overflow: TextOverflow.ellipsis,
+                            style: textTheme(),
+                          ),
                         ),
-                        gottenProfile: (profile) => Text(
-                          "Goal : " + profile.goal,
-                          style: textTheme(),
+                        state.maybeWhen(
+                          orElse: () => Text(
+                            "  ?? ",
+                            style: textTheme(),
+                          ),
+                          gettingProfileError: (errors, error) =>
+                              Text(error.toString()),
+                          gettingProfile: () => Text(
+                            " waiting",
+                            style: textTheme(),
+                          ),
+                          gottenProfile: (profile) => Text(
+                            overflow: TextOverflow.ellipsis,
+                            "height : " + profile.height,
+                            style: textTheme(),
+                          ),
                         ),
-                      ),
-                      state.maybeWhen(
-                        orElse: () => Text(
-                          "  ?? ",
-                          style: textTheme(),
+                        state.maybeWhen(
+                          orElse: () => Text(
+                            "  ?? ",
+                            style: textTheme(),
+                          ),
+                          gettingProfileError: (errors, error) =>
+                              Text(error.toString()),
+                          gettingProfile: () => Text(
+                            " waiting",
+                            style: textTheme(),
+                          ),
+                          gottenProfile: (profile) => Text(
+                            overflow: TextOverflow.ellipsis,
+                            "gender : " + profile.gender,
+                            style: textTheme(),
+                          ),
                         ),
-                        gettingProfileError: (errors, error) =>
-                            Text(error.toString()),
-                        gettingProfile: () => Text(
-                          " waiting",
-                          style: textTheme(),
+                        state.maybeWhen(
+                          orElse: () => Text(
+                            "  ?? ",
+                            style: textTheme(),
+                          ),
+                          gettingProfileError: (errors, error) =>
+                              Text(error.toString()),
+                          gettingProfile: () => Text(
+                            " waiting",
+                            style: textTheme(),
+                          ),
+                          gottenProfile: (profile) => Text(
+                            overflow: TextOverflow.ellipsis,
+                            "activity : " + profile.activity_level,
+                            style: textTheme(),
+                          ),
                         ),
-                        gottenProfile: (profile) => Text(
-                          "height : " + profile.height,
-                          style: textTheme(),
-                        ),
-                      ),
-                      state.maybeWhen(
-                        orElse: () => Text(
-                          "  ?? ",
-                          style: textTheme(),
-                        ),
-                        gettingProfileError: (errors, error) =>
-                            Text(error.toString()),
-                        gettingProfile: () => Text(
-                          " waiting",
-                          style: textTheme(),
-                        ),
-                        gottenProfile: (profile) => Text(
-                          "gender : " + profile.gender,
-                          style: textTheme(),
-                        ),
-                      ),
-                      state.maybeWhen(
-                        orElse: () => Text(
-                          "  ?? ",
-                          style: textTheme(),
-                        ),
-                        gettingProfileError: (errors, error) =>
-                            Text(error.toString()),
-                        gettingProfile: () => Text(
-                          " waiting",
-                          style: textTheme(),
-                        ),
-                        gottenProfile: (profile) => Text(
-                          "activity : " + profile.activity_level,
-                          style: textTheme(),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   )
                 ],
               ),

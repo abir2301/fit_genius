@@ -47,7 +47,7 @@ class _ExcerciceDetailsState extends State<ExcerciceDetails> {
                 child: SizedBox(
                   child: Text(
                     "${widget.excercice.name} ",
-                    style: screenHeaderStyle(size: 35),
+                    style: screenHeaderStyle(size: 30),
                   ),
                 ),
               ),
@@ -61,13 +61,15 @@ class _ExcerciceDetailsState extends State<ExcerciceDetails> {
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.5,
                 width: MediaQuery.of(context).size.width * 0.5,
-                child: Center(
-                    child: Image.asset(
-                        "assets/workout/${widget.excercice.image}")),
+                child: Center(child: Image.asset(widget.excercice.image)),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Center(
                   child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
                 child: Text(
                   widget.excercice.desc,
                   style: TextStyle(

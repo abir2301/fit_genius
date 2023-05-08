@@ -7,10 +7,13 @@ import 'package:app/features/programs/domain/usecases/get_program_usecase.dart';
 import 'package:app/features/programs/presentation/states/program_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/error/enums.dart';
 import '../../../../core/error/failure.dart';
 import '../../domain/usecases/get_program_usecase.dart';
+
+import 'package:flutter/foundation.dart';
 
 class ProgramViewModel extends StateNotifier<ProgramState> {
   late GetProgramUsecase getProgramUsecase;
@@ -30,75 +33,39 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
   int carbs = 0;
   int calories = 0;
   int fibers = 0;
-  List data = [
-    {"titre": "protein", "result": 100.0, "curent": 10.0},
-    {"titre": "fats", "result": 100.0, "curent": 10.0},
-    {"titre": "carbs", "result": 100.0, "curent": 10.0},
-    {"titre": "fibers", "result": 100.0, "curent": 10.0}
-  ];
+  // List data = [
+  //   {"titre": "protein", "result": 100.0, "curent": 10.0},
+  //   {"titre": "fats", "result": 100.0, "curent": 10.0},
+  //   {"titre": "carbs", "result": 100.0, "curent": 10.0},
+  //   {"titre": "fibers", "result": 100.0, "curent": 10.0}
+  // ];
   ProgramViewModel({
     required this.getProgramUsecase,
-  }) : super(const ProgramState.initial()) {
-    init();
-
-    // calculFoodCalories();
-    // calculFoodCarbs();
-    // calculFoodProtein();
-    // calculFoodFats();
-
-    // getPeformance();
-  }
+  }) : super(const ProgramState.initial());
 
   Future<void> init() async {
     int today = int.parse(DateFormat('yyyyMMdd').format(DateTime.now()));
-    state = const ProgramState.initial();
+
     if (CacheHelper.containsKey("date")) {
       print("cache date " + CacheHelper.getInt("date").toString());
       if (CacheHelper.getInt("date") == today) {
         print("today program ");
         await getProgram();
-
-        calculFoodCalories();
-        calculFoodCarbs();
-        calculFoodProtein();
-        calculFoodFats();
-
-        if (!CacheHelper.containsKey("carbs")) {
-          CacheHelper.setInt("carbs", carbs);
-        }
-        if (!CacheHelper.containsKey("fats")) {
-          CacheHelper.setInt("fats", fats);
-        }
-        if (!CacheHelper.containsKey("calories")) {
-          CacheHelper.setInt("calories", calories);
-        }
-        if (!CacheHelper.containsKey("protein")) {
-          CacheHelper.setInt("protein", protein);
-        }
-        print(CacheHelper.getInt("calories"));
-
         state = ProgramState.todayProgram(userProgram: program!);
+        calculnutrition();
       } else if (CacheHelper.getInt("week") - today < -7) {
         await getProgram();
         iniDate();
         initWeek();
         initBools();
-
-        calculFoodCalories();
-        calculFoodCarbs();
-        calculFoodProtein();
-        calculFoodFats();
+        calculnutrition();
         print("new week");
         state = ProgramState.todayProgram(userProgram: program!);
       } else {
         await getProgram();
         initBools();
         iniDate();
-
-        calculFoodCalories();
-        calculFoodCarbs();
-        calculFoodProtein();
-        calculFoodFats();
+        calculnutrition();
         print("new day program ");
         state = ProgramState.todayProgram(userProgram: program!);
       }
@@ -108,18 +75,9 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
       iniDate();
       initBools();
       initWeek();
-
-      calculFoodCalories();
-      calculFoodCarbs();
-      calculFoodProtein();
-      calculFoodFats();
+      calculnutrition();
       state = ProgramState.todayProgram(userProgram: program!);
     }
-
-    // calculFoodCalories();
-    // calculFoodCarbs();
-    // calculFoodProtein();
-    // calculFoodFats();
   }
 
 // get data of now
@@ -173,37 +131,6 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
     return null;
   }
 
-// calcul  total food credential
-  void calculFoodCarbs() {
-    carbs = 0;
-    for (int i = 0; i < program!.meals.length; i++) {
-      carbs += carbs + program!.meals[i].carbs;
-    }
-    print("carbs" + carbs.toString());
-  }
-
-  void calculFoodCalories() {
-    calories = 0;
-    for (int i = 0; i < program!.meals.length; i++) {
-      calories += calories + program!.meals[i].calories;
-    }
-    print("calories  " + calories.toString());
-  }
-
-  void calculFoodProtein() {
-    protein = 0;
-    for (int i = 0; i < program!.meals.length; i++) {
-      protein += protein + program!.meals[i].protein;
-    }
-  }
-
-  void calculFoodFats() {
-    fats = 0;
-    for (int i = 0; i < program!.meals.length; i++) {
-      fats += fats + program!.meals[i].fats;
-    }
-  }
-
   //get food credentials :
   int getConsumedCalories() {
     print("consumed = ");
@@ -219,94 +146,68 @@ class ProgramViewModel extends StateNotifier<ProgramState> {
   }
 
   /// addd food
-  void addProtein(String meal) {
-    for (var i in program!.meals) {
-      if (i.name == meal) {
-        consumedProtein += i.protein;
-      }
-    }
-    print("consumed protein = ");
-    print(consumedProtein);
-  }
-
-  void addCarbs(String meal) {
-    for (var i in program!.meals) {
-      if (i.name == meal) {
-        consumedCarbs += i.carbs;
-      }
-    }
-  }
-
-  void addCalories(String meal) {
-    for (var i in program!.meals) {
-      if (i.name == meal) {
-        consumedCalories += i.calories;
-      }
-    }
-  }
-
-  void addFats(String meal) {
-    for (var i in program!.meals) {
-      if (i.name == meal) {
-        consumedFats += i.fats;
-      }
-    }
-  }
 
   void selectMeal(String name) {
+    state = ProgramState.todayProgram(userProgram: program!);
     CacheHelper.setBool(name, true);
-    addCalories(name);
-    addCarbs(name);
-    addFats(name);
-    addProtein(name);
-    print("fn consumed calories ");
+    increment(name);
+
+    print("fn increment  ");
+    print(state);
     print(
         "${consumedCalories} cal ${consumedCarbs} carbs + ${consumedFats} fats + ${consumedProtein}");
-    state = ProgramState.newCalcul(userProgram: program!);
   }
 
   void unselectMeal(String name) {
+    state = ProgramState.todayProgram(userProgram: program!);
+
     CacheHelper.setBool(name, false);
-    removeCalories(name);
-    removeCarbs(name);
-    removeFats(name);
-    removeProtein(name);
-    print("fn consumed calories ");
+    decrement(name);
+
+    print("print state ");
+    print(state);
+    print("fn decrement  ");
     print(
         "${consumedCalories} cal ${consumedCarbs} carbs + ${consumedFats} fats + ${consumedProtein}");
-    state = ProgramState.newCalcul(userProgram: program!);
   }
 
-  /// sustration  food
-  void removeProtein(String meal) {
+  void decrement(meal) {
     for (var i in program!.meals) {
       if (i.name == meal) {
+        consumedFats -= i.fats;
+        consumedCalories -= i.calories;
         consumedProtein -= i.protein;
-      }
-    }
-  }
-
-  void removeCarbs(String meal) {
-    for (var i in program!.meals) {
-      if (i.name == meal) {
         consumedCarbs -= i.carbs;
       }
     }
   }
 
-  void removeCalories(String meal) {
+  void increment(meal) {
     for (var i in program!.meals) {
       if (i.name == meal) {
-        consumedCalories -= i.calories;
+        consumedFats += i.fats;
+        consumedProtein += i.protein;
+        consumedCalories += i.calories;
+        consumedCarbs += i.carbs;
       }
     }
   }
 
-  void removeFats(String meal) {
-    for (var i in program!.meals) {
-      if (i.name == meal) {
-        consumedFats -= i.fats;
-      }
+  void calculnutrition() {
+    fats = 0;
+    carbs = 0;
+    protein = 0;
+    calories = 0;
+    for (int i = 0; i < program!.meals.length; i++) {
+      fats += program!.meals[i].fats;
+      carbs += program!.meals[i].carbs;
+      calories += program!.meals[i].calories;
+      protein += program!.meals[i].protein;
     }
+    print("calcul ");
+  }
+
+  void updateProgressData() {
+    state = ProgramState.newCalcul(userProgram: program!);
   }
 }

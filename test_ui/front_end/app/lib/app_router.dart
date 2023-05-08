@@ -52,11 +52,12 @@ class AppRouter {
             )),
       );
     });
-    fluroRouter.define('/', handler: mainScreenHandler);
+    fluroRouter.define('/', handler: welcommingHandler);
     fluroRouter.define('register', handler: registrationHandler);
     fluroRouter.define('login', handler: loginHandler);
-    //fluroRouter.define('/', handler: userInfoHandler);
+    fluroRouter.define('userInfo', handler: userInfoHandler);
     fluroRouter.define('/home', handler: userHomeHandler);
+    fluroRouter.define('main', handler: mainScreenHandler);
     // fluroRouter.define('products', handler: congratHandler);
     fluroRouter.define('congrat', handler: congratHandler);
 

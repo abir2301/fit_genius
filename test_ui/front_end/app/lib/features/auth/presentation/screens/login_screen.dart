@@ -84,7 +84,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final state = ref.watch(authProvider);
     ref.listen(authProvider, (previous, next) {
       if (next.isLoggedIn) {
-        Navigator.of(context).pushReplacementNamed('congrat');
+        Navigator.of(context).pushReplacementNamed('main');
       } else {
         print("not login in yet ");
         String? error = next.getLoginError;

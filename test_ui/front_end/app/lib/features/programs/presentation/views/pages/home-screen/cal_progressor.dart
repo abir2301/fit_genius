@@ -59,11 +59,10 @@ class _CaloryProgressorState extends ConsumerState<CaloryProgressor> {
                   style: ScreenTextIndication(),
                 ),
                 todayProgram: (program) => Text(
-                  "1200",
-                  // ref
-                  //     .read(programProvider.notifier)
-                  //     .consumedCalories
-                  //     .toString(),
+                  ref
+                      .read(programProvider.notifier)
+                      .consumedCalories
+                      .toString(),
                   style: ScreenTextIndication(),
                 ),
               ),
@@ -76,10 +75,12 @@ class _CaloryProgressorState extends ConsumerState<CaloryProgressor> {
         ),
         Container(
             child: CircularProgressor(
-                radius: 40,
-                currentProgress: CacheHelper.getInt("calories").toDouble(),
-                //ref.read(programProvider.notifier).consumedCalories.toDouble(),
-                result: CacheHelper.getInt("calories").toDouble())),
+          radius: 40,
+          currentProgress:
+              ref.read(programProvider.notifier).consumedCalories.toDouble(),
+          //ref.read(programProvider.notifier).consumedCalories.toDouble(),
+          result: ref.read(programProvider.notifier).calories.toDouble(),
+        )),
         Padding(
           padding:
               EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),

@@ -38,7 +38,15 @@ class _PhisicalConditionScreenState
   Widget build(BuildContext context) {
     final state = ref.watch(userInfoProvider);
     return state.maybeWhen(
-      orElse: () => InitialScreen(),
+      orElse: () => Center(
+        child: Container(
+          height: 100,
+          width: 100,
+          child: CircularProgressIndicator(
+            color: pink,
+          ),
+        ),
+      ),
       loading: () => Center(
         child: Container(
           child: CircularProgressIndicator(
@@ -178,8 +186,8 @@ class _PhisicalConditionScreenState
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const screenHeader(
-              title: "Physical condition ",
-              size: 28,
+              title: "profile alredy exist you can make updates  ",
+              size: 20,
             ),
             const SizedBox(
               height: 10,
